@@ -1,3 +1,7 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Projects from "../components/Projects.astro";
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,11 +9,42 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Portfolio</title>
 	</head>
-	<body>
-		<slot />
+	<body class="bg-gray-950">
+	<!-- Hero Section -->
+	<section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-950 text-white">
+		<div class="text-center space-y-6 p-8">
+			<h1 class="text-6xl lg:text-8xl font-bold">
+				Mi Portfolio
+			</h1>
+			<p class="text-xl lg:text-2xl text-gray-400">
+				Scroll para ver mis proyectos
+			</p>
+			<div class="animate-bounce mt-12">
+				<svg class="w-8 h-8 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+				</svg>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección de Proyectos con Scroll Horizontal -->
+	<Projects />
+
+	<!-- Footer -->
+	<section class="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+		<div class="text-center space-y-6 p-8">
+			<h2 class="text-5xl font-bold">¿Trabajamos juntos?</h2>
+			<p class="text-xl text-gray-400">Contáctame para tu próximo proyecto</p>
+			<button class="px-8 py-4 bg-white text-gray-950 rounded-full font-semibold text-lg hover:scale-105 transition-transform">
+				Contáctame
+			</button>
+		</div>
+	</section>
+	<slot />
 	</body>
+
 </html>
 
 <style>
