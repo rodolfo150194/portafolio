@@ -1,0 +1,140 @@
+[ 
+FOTO ]
+3×4 cm
+RODOLFO GARCIA MAESO
+Full 
+Stack
+ 
+Developer
+ 
+· Infraestructura TI
+✉  rod
+ygm0104
+@gmail.com
+    ☎  +
+34 640999269
+    
+📍
+  
+Anibal
+ 46 1,2
+, 
+Granollers, Barcel
+ona 
+08401
+PERFIL
+Ingeniero en Ciencias Informáticas con 7+ años de experiencia en desarrollo web empresarial y gestión de infraestructura TI. Perfil versátil: programación 
+backend
+/
+frontend
+, administración de redes, seguridad informática y soporte avanzado. Colaboró con la FAO (ONU) en plataformas de monitoreo
+ y seguimiento
+ ambiental.
+HABILIDADES TÉCNICAS
+Backend
+Python · Django · 
+FastAPI
+ · DRF
+Frontend
+JS · 
+Nextjs
+ · 
+Astro
+ 
+· Bootstrap · Tailwind ·
+ Flutter
+/Dart
+ 
+·
+ 
+Leaflet
+Bases de datos
+PostgreSQL · MySQL
+Redes & 
+Servidores
+LAN/WAN · Linux · Windows Server · AD
+Seguridad & DevOps
+Políticas de seguridad · 
+Backup
+.
+ · Git · GitHub
+FORMACIÓN
+Ing. en Ciencias Informáticas
+Universidad de las Ciencias Informáticas (UCI), La Habana
+, Cuba
+IDIOMAS
+Español — 
+Nativo
+Inglés — 
+Técnico (documentación)
+EXPERIENCIA PROFESIONAL
+Desarrollador
+ Web Full Stack
+Freelance — Code43w
+2021 – Presente
+Plataforma de precios agrícolas con análisis estadístico y reportes
+Sistema de 
+agroproductividad
+ con análisis 
+GeoJSON
+ y API REST
+Plataforma de 
+microlocalizaciones
+ con polígonos
+ y visualización en visor de mapas
+, 
+Leaflet
+ y 
+GeoServer
+Gestión de inventario y mantenimiento de maquinaria agrícola
+Aplicación Android para construir polígonos, calcular áreas y verificar suelo productivo
+Creacion
+ de 
+bots
+ en 
+guajapp
+(
+aplicación social de trámites para el ministerio de la agricultura)
+Plataforma de registro internacional de fertilizantes importados en cuba
+Diversas 
+Landing
+ 
+pages
+ de negocios y servicios
+Consultor de Tecnología
+FAO — Organización de las Naciones Unidas
+2022 – 2023
+INGEI: Inventario Nacional de Gases de Efecto Invernadero de Cuba
+.
+ 
+Plataforma web para el registro anual del inventario de GEI de Cuba (sectores agricultura y AFOLU). Incluye fórmulas dinámicas, corrección de series históricas y generación de reportes en PDF/Excel
+SICCA: Plataforma de cambio climático con IA para toma de decisiones
+. 
+Plataforma CMS (
+Wagtail
+) con módulo de registro de acciones de adaptación climática. Implementa inteligencia artificial para sugerencias de toma de decisiones basadas en indicadores
+Generación de reportes PDF/Excel y gráficos interactivos para ONU
+Especialista en TI
+IAGRIC — Instituto de Ingeniería Agrícola
+2020 – 2023
+Administración de redes LAN/WAN, switches, 
+routers
+ y servidores
+Gestión de Active 
+Directory
+, dominios y políticas de grupo
+Seguridad informática, 
+backups
+ y recuperación ante desastres
+Soporte técnico avanzado y gestión de activos TI
+Desarrollador de Software
+SEISA — Servicios de Seguridad Integral
+2018 – 2020
+Desarrollo de aplicaciones web para gestión de servicios de seguridad
+Diseño de módulos, mantenimiento y actualización de sistemas
+COMPETENCIAS
+Trabajo en equipo
+Aprendizaje continuo
+Receptivo al 
+feedback
+Comunicación efectiva

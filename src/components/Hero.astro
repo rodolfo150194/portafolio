@@ -1,0 +1,68 @@
+---
+---
+
+<section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Parallax Background -->
+    <div class="parallax-bg absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style="background-image: url('/images/hero-background.png'); filter: brightness(0.3);"
+        >
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background-dark/50 to-background-dark"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-6xl mx-auto px-4 py-20 text-center">
+        <!-- Profile Image with Float Animation -->
+        <div class="mb-8 flex justify-center">
+            <div class="float-animation">
+                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-40 h-40 border-4 border-primary shadow-2xl shadow-primary/50"
+                     style="background-image: url('/images/photo-perfil.jpeg');"
+                >
+                </div>
+            </div>
+        </div>
+
+        <!-- Title with Typing Effect -->
+        <h1 class="hero-title text-5xl sm:text-6xl md:text-8xl font-black leading-tight tracking-tight text-white mb-6">
+            <span class="typing-effect gradient-text">Rodolfo García Maeso</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <h2 class="hero-subtitle text-2xl md:text-3xl font-bold text-primary mb-8">
+            Full Stack Developer
+        </h2>
+
+        <!-- Description -->
+        <p class="hero-description max-w-3xl mx-auto text-lg md:text-xl text-slate-300 mb-12 px-4">
+            Ingeniero en Ciencias Informáticas con más de 7 años de experiencia construyendo aplicaciones escalables. Perfil versátil combinando soluciones backend y frontend modernas, administración de infraestructura y colaboraciones con organismos como la ONU (FAO).
+        </p>
+
+        <!-- Buttons -->
+        <div class="hero-buttons flex flex-wrap gap-4 justify-center items-center">
+            <a href="/assets/documents/CV_Rodolfo_Garcia.pdf" target="_blank" class="group flex items-center justify-center rounded-lg h-14 px-8 bg-primary text-slate-900 text-base font-bold shadow-lg shadow-primary/30 hover:shadow-xl transition-all hover:scale-105">
+                <span class="truncate">Descargar CV</span>
+                <i class="fa-solid fa-download ml-2 group-hover:translate-y-1 transition-transform"></i>
+            </a>
+            <a href="mailto:rodygm0104@gmail.com" class="group flex items-center justify-center rounded-lg h-14 px-8 glass text-white text-base font-bold shadow-lg hover:shadow-xl transition-all bg-white/10 hover:bg-white/20 border border-white/20">
+                <span class="truncate">Contactar</span>
+                <i class="fa-solid fa-envelope ml-2 group-hover:scale-110 transition-transform"></i>
+            </a>
+            
+            <!-- Redes Sociales -->
+            <div class="flex items-center gap-4 ml-0 sm:ml-4">
+                <a href="https://www.linkedin.com/in/rodolfo-garcia-dev/" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center rounded-full h-14 w-14 glass text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 bg-[#0a66c2]/80 hover:bg-[#0a66c2] border border-white/20" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in text-2xl"></i>
+                </a>
+                <a href="https://github.com/rodolfo150194" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center rounded-full h-14 w-14 glass text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 bg-gray-800/80 hover:bg-gray-800 border border-white/20" aria-label="GitHub">
+                    <i class="fa-brands fa-github text-2xl"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-5 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fa-solid fa-chevron-down text-4xl text-primary"></i>
+        </div>
+    </div>
+</section>
