@@ -1,47 +1,52 @@
 ---
-// ProyectosSection-ClientSide.astro
-// Esta versión usa un enfoque diferente para garantizar que funcione en Astro
-
 const proyectos = [
-{
-    id: 1,
-    titulo: "Plataforma Agroproductividad",
-    descripcion: "Sistema de precios agrícolas con análisis estadístico, reportes de precios, análisis GeoJSON, visualización de microlocalizaciones y API REST estructurada.",
-    color: "from-green-400 to-emerald-400",
-    colorBg: "from-green-600 to-emerald-600",
-    gradientClass: "proyecto-imagen-4",
-    emoji: "🌾",
-    tecnologias: ["Python", "Django", "Leaflet", "GeoServer"]
+    {
+        id: 1,
+        i18nTitle: "proj.0.title",
+        titulo: "Agroproductivity Platform",
+        i18nDesc: "proj.0.desc",
+        descripcion: "Agricultural price system with statistical analysis, price reports, GeoJSON analysis, micro-location visualization and structured REST API.",
+        color: "from-green-400 to-emerald-400",
+        colorBg: "from-green-600 to-emerald-600",
+        gradientClass: "proyecto-imagen-4",
+        emoji: "🌾",
+        tecnologias: ["Python", "Django", "Leaflet", "GeoServer"]
     },
-{
-    id: 2,
-    titulo: "SICCA (ONU - FAO)",
-    descripcion: "Plataforma de cambio climático con módulo de inteligencia artificial para la toma de decisiones, implementando un CMS a medida para el registro de acciones climáticas de Cuba.",
-    color: "from-purple-400 to-blue-400",
-    colorBg: "from-purple-600 to-blue-600",
-    gradientClass: "proyecto-imagen-1",
-    emoji: "🌍",
-    tecnologias: ["Wagtail", "Django", "IA", "PostgreSQL"]
+    {
+        id: 2,
+        i18nTitle: "proj.1.title",
+        titulo: "SICCA (UN - FAO)",
+        i18nDesc: "proj.1.desc",
+        descripcion: "Climate change platform with artificial intelligence module for decision-making, implementing a custom CMS for recording Cuba's climate actions.",
+        color: "from-purple-400 to-blue-400",
+        colorBg: "from-purple-600 to-blue-600",
+        gradientClass: "proyecto-imagen-1",
+        emoji: "🌍",
+        tecnologias: ["Wagtail", "Django", "AI", "PostgreSQL"]
     },
-{
-    id: 3,
-    titulo: "INGEI Platform",
-    descripcion: "Inventario Nacional de Gases de Efecto Invernadero. Plataforma visual que procesa fórmulas dinámicas, analiza series históricas y genera reportes automáticos en PDF y Excel.",
-    color: "from-cyan-400 to-blue-400",
-    colorBg: "from-cyan-600 to-blue-600",
-    gradientClass: "proyecto-imagen-3",
-    emoji: "📊",
-    tecnologias: ["FastAPI", "Next.js", "Pandas", "PostgreSQL"]
+    {
+        id: 3,
+        i18nTitle: "proj.2.title",
+        titulo: "INGEI Platform",
+        i18nDesc: "proj.2.desc",
+        descripcion: "National Greenhouse Gas Inventory. Visual platform that processes dynamic formulas, analyzes historical series and automatically generates PDF and Excel reports.",
+        color: "from-cyan-400 to-blue-400",
+        colorBg: "from-cyan-600 to-blue-600",
+        gradientClass: "proyecto-imagen-3",
+        emoji: "📊",
+        tecnologias: ["FastAPI", "Next.js", "Pandas", "PostgreSQL"]
     },
-{
-    id: 4,
-    titulo: "App GIS & Bots",
-    descripcion: "Aplicación móvil Android para construir polígonos, calcular áreas de suelo productivo en tiempo real y bots de Telegram interactivos para trámites agrícolas (Guajapp).",
-    color: "from-pink-400 to-orange-400",
-    colorBg: "from-pink-600 to-orange-600",
-    gradientClass: "proyecto-imagen-2",
-    emoji: "🤖",
-    tecnologias: ["Android", "Flutter/Dart", "Python", "Telegram API"]
+    {
+        id: 4,
+        i18nTitle: "proj.3.title",
+        titulo: "GIS App & Bots",
+        i18nDesc: "proj.3.desc",
+        descripcion: "Android mobile application for building polygons, calculating productive soil areas in real time and interactive Telegram bots for agricultural procedures (Guajapp).",
+        color: "from-pink-400 to-orange-400",
+        colorBg: "from-pink-600 to-orange-600",
+        gradientClass: "proyecto-imagen-2",
+        emoji: "🤖",
+        tecnologias: ["Android", "Flutter/Dart", "Python", "Telegram API"]
     }
 ];
 ---
@@ -50,63 +55,65 @@ const proyectos = [
     <div class="proyectos-container">
         <div class="proyectos-wrapper flex">
             {proyectos.map((proyecto) => (
-                    <div class="proyecto-item w-screen h-screen flex-shrink-0 flex items-center justify-center p-8">
-                        <div class="max-w-7xl w-full h-full flex flex-col lg:flex-row items-center gap-12">
-                            <!-- Contenido del proyecto -->
-                            <div class="flex-1 z-10 text-white space-y-6">
-              <span class="text-6xl lg:text-8xl font-bold text-white/20">
-                0{proyecto.id}
-              </span>
-                                <h2 class={`text-4xl lg:text-6xl font-bold bg-gradient-to-r ${proyecto.color} bg-clip-text text-transparent`}>
-                                    {proyecto.titulo}
-                                </h2>
-                                <p class="text-xl lg:text-2xl text-gray-300 max-w-2xl leading-relaxed">
-                                    {proyecto.descripcion}
-                                </p>
+                <div class="proyecto-item w-screen h-screen flex-shrink-0 flex items-center justify-center p-8">
+                    <div class="max-w-7xl w-full h-full flex flex-col lg:flex-row items-center gap-12">
+                        <!-- Project content -->
+                        <div class="flex-1 z-10 text-white space-y-6">
+                            <span class="text-6xl lg:text-8xl font-bold text-white/20">
+                                0{proyecto.id}
+                            </span>
+                            <h2 data-i18n={proyecto.i18nTitle}
+                                class={`text-4xl lg:text-6xl font-bold bg-gradient-to-r ${proyecto.color} bg-clip-text text-transparent`}>
+                                {proyecto.titulo}
+                            </h2>
+                            <p data-i18n={proyecto.i18nDesc}
+                               class="text-xl lg:text-2xl text-gray-300 max-w-2xl leading-relaxed">
+                                {proyecto.descripcion}
+                            </p>
 
-                                <!-- Tecnologías -->
-                                <div class="flex flex-wrap gap-3 pt-2">
-                                    {proyecto.tecnologias.map((tech) => (
-                                            <span class={`px-4 py-2 bg-gradient-to-r ${proyecto.colorBg} bg-opacity-20 rounded-full text-sm text-white border border-white/30`}>
-                    {tech}
-                  </span>
-                                    ))}
-                                </div>
-
-                                <div class="flex gap-4 pt-4">
-                                    <button class={`px-8 py-3 bg-gradient-to-r ${proyecto.colorBg} text-white rounded-full font-semibold hover:scale-105 transition-transform shadow-lg`}>
-                                        Ver Demo
-                                    </button>
-                                    <button class="px-8 py-3 border-2 border-white/30 text-white rounded-full font-semibold hover:bg-white hover:text-gray-950 transition-all">
-                  <span class="flex items-center gap-2">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    GitHub
-                  </span>
-                                    </button>
-                                </div>
+                            <!-- Tech stack -->
+                            <div class="flex flex-wrap gap-3 pt-2">
+                                {proyecto.tecnologias.map((tech) => (
+                                    <span class={`px-4 py-2 bg-gradient-to-r ${proyecto.colorBg} bg-opacity-20 rounded-full text-sm text-white border border-white/30`}>
+                                        {tech}
+                                    </span>
+                                ))}
                             </div>
 
-                            <!-- Imagen del proyecto -->
-                            <div class="flex-1 relative">
-                                <div class={`relative overflow-hidden rounded-2xl shadow-2xl proyecto-imagen ${proyecto.gradientClass}`}>
-                                    <span style="opacity: 0.3; font-size: 4rem;">{proyecto.emoji}</span>
-                                </div>
+                            <div class="flex gap-4 pt-4">
+                                <button class={`px-8 py-3 bg-gradient-to-r ${proyecto.colorBg} text-white rounded-full font-semibold hover:scale-105 transition-transform shadow-lg`}>
+                                    <span data-i18n="proj.cta.demo">View Demo</span>
+                                </button>
+                                <button class="px-8 py-3 border-2 border-white/30 text-white rounded-full font-semibold hover:bg-white hover:text-gray-950 transition-all">
+                                    <span class="flex items-center gap-2">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                        GitHub
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Project image -->
+                        <div class="flex-1 relative">
+                            <div class={`relative overflow-hidden rounded-2xl shadow-2xl proyecto-imagen ${proyecto.gradientClass}`}>
+                                <span style="opacity: 0.3; font-size: 4rem;">{proyecto.emoji}</span>
                             </div>
                         </div>
                     </div>
+                </div>
             ))}
         </div>
     </div>
 
-    <!-- Indicador de scroll -->
+    <!-- Scroll indicator dots -->
     <div class="fixed bottom-8 right-8 flex items-center gap-2 z-50">
         {proyectos.map((_, index) => (
-                <div
-                        class={`scroll-indicator rounded-full bg-white transition-all duration-300 ${index === 0 ? 'w-8 h-2' : 'w-2 h-2 opacity-30'}`}
-                        data-index={index}
-                />
+            <div
+                class={`scroll-indicator rounded-full bg-white transition-all duration-300 ${index === 0 ? 'w-8 h-2' : 'w-2 h-2 opacity-30'}`}
+                data-index={index}
+            />
         ))}
     </div>
 </section>
@@ -122,12 +129,10 @@ const proyectos = [
         will-change: transform;
     }
 
-    /* Animación suave para los indicadores */
     .scroll-indicator {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Estilos para las imágenes de proyecto */
     .proyecto-imagen {
         min-height: 400px;
         display: flex;
@@ -138,40 +143,25 @@ const proyectos = [
         font-weight: bold;
     }
 
-    .proyecto-imagen-1 {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-
-    .proyecto-imagen-2 {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    }
-
-    .proyecto-imagen-3 {
-        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    }
-
-    .proyecto-imagen-4 {
-        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-    }
+    .proyecto-imagen-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .proyecto-imagen-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .proyecto-imagen-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .proyecto-imagen-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
 </style>
 
-<!-- Script con approach diferente para Astro -->
 <script is:inline>
-    // Función para cargar GSAP dinámicamente
     function loadGSAP() {
         return new Promise((resolve, reject) => {
             if (window.gsap && window.ScrollTrigger) {
                 resolve({ gsap: window.gsap, ScrollTrigger: window.ScrollTrigger });
                 return;
             }
-
-            // Cargar GSAP desde CDN si no está disponible
-            const gsapScript = document.createElement('script');
+            var gsapScript = document.createElement('script');
             gsapScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
-            gsapScript.onload = () => {
-                const stScript = document.createElement('script');
+            gsapScript.onload = function() {
+                var stScript = document.createElement('script');
                 stScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
-                stScript.onload = () => {
+                stScript.onload = function() {
                     resolve({ gsap: window.gsap, ScrollTrigger: window.ScrollTrigger });
                 };
                 stScript.onerror = reject;
@@ -184,46 +174,37 @@ const proyectos = [
 
     async function initProyectos() {
         try {
-            const { gsap, ScrollTrigger } = await loadGSAP();
+            var { gsap, ScrollTrigger } = await loadGSAP();
             gsap.registerPlugin(ScrollTrigger);
 
-            const proyectosWrapper = document.querySelector('.proyectos-wrapper');
-            const proyectos = document.querySelectorAll('.proyecto-item');
-            const indicators = document.querySelectorAll('.scroll-indicator');
+            var proyectosWrapper = document.querySelector('.proyectos-wrapper');
+            var proyectos = document.querySelectorAll('.proyecto-item');
+            var indicators = document.querySelectorAll('.scroll-indicator');
 
-            if (!proyectosWrapper || proyectos.length === 0) {
-                console.warn('Elementos de proyectos no encontrados');
-                return;
-            }
+            if (!proyectosWrapper || proyectos.length === 0) return;
 
-            console.log('✅ Inicializando proyectos con GSAP');
+            ScrollTrigger.getAll().forEach(function(t) { t.kill(); });
+            ScrollTrigger.refresh();
 
-            // Limpiar animaciones previas
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-
-            // Calcular el ancho total del scroll horizontal
-            const getScrollAmount = () => {
+            var getScrollAmount = function() {
                 return -(proyectosWrapper.scrollWidth - window.innerWidth);
             };
 
-            // Crear la animación de scroll horizontal
-            const scrollAnimation = gsap.to(proyectosWrapper, {
+            var scrollAnimation = gsap.to(proyectosWrapper, {
                 x: getScrollAmount,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: '#proyectos',
                     start: 'top top',
-                    end: () => `+=${proyectosWrapper.scrollWidth - window.innerWidth}`,
+                    end: function() { return '+=' + (proyectosWrapper.scrollWidth - window.innerWidth); },
                     scrub: 1,
                     pin: true,
                     anticipatePin: 1,
                     invalidateOnRefresh: true,
-                    onUpdate: (self) => {
-                        const progress = self.progress;
-                        const currentIndex = Math.round(progress * (proyectos.length - 1));
-
-                        indicators.forEach((indicator, index) => {
-                            if (index === currentIndex) {
+                    onUpdate: function(self) {
+                        var currentIndex = Math.round(self.progress * (proyectos.length - 1));
+                        indicators.forEach(function(indicator, i) {
+                            if (i === currentIndex) {
                                 indicator.classList.add('w-8');
                                 indicator.classList.remove('w-2', 'opacity-30');
                                 indicator.style.opacity = '1';
@@ -236,69 +217,30 @@ const proyectos = [
                 }
             });
 
-            // Animaciones de entrada para cada proyecto
-            proyectos.forEach((proyecto) => {
-                const content = proyecto.querySelector('.space-y-6');
-                const image = proyecto.querySelector('.proyecto-imagen');
 
-                if (content) {
-                    gsap.from(content, {
-                        scrollTrigger: {
-                            trigger: proyecto,
-                            containerAnimation: scrollAnimation,
-                            start: 'left center',
-                            toggleActions: 'play none none reverse'
-                        },
-                        x: -100,
-                        opacity: 0,
-                        duration: 1
-                    });
-                }
-
-                if (image) {
-                    gsap.from(image, {
-                        scrollTrigger: {
-                            trigger: proyecto,
-                            containerAnimation: scrollAnimation,
-                            start: 'left center',
-                            toggleActions: 'play none none reverse'
-                        },
-                        x: 100,
-                        opacity: 0,
-                        rotation: 5,
-                        duration: 1
-                    });
-                }
-            });
-
-            console.log('✅ GSAP inicializado correctamente');
-
-            // Refrescar en resize
-            window.addEventListener('resize', () => {
-                ScrollTrigger.refresh();
-            });
-
-        } catch (error) {
-            console.error('❌ Error al cargar GSAP:', error);
+            window.addEventListener('resize', function() { ScrollTrigger.refresh(); });
+        } catch (e) {
+            console.error('GSAP error:', e);
         }
     }
 
-    // Inicializar
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initProyectos);
+    var __projectsReady = false;
+
+    function safeInitProyectos() {
+        if (__projectsReady) return;
+        __projectsReady = true;
+        setTimeout(initProyectos, 300);
+    }
+
+    if (document.readyState !== 'loading') {
+        safeInitProyectos();
     } else {
-        setTimeout(initProyectos, 100);
+        document.addEventListener('DOMContentLoaded', safeInitProyectos);
     }
 
-    // Soporte para Astro View Transitions
-    document.addEventListener('astro:page-load', () => {
-        setTimeout(initProyectos, 100);
-    });
-
-    // Cleanup
-    document.addEventListener('astro:before-preparation', () => {
-        if (window.ScrollTrigger) {
-            window.ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        }
+    document.addEventListener('astro:page-load', safeInitProyectos);
+    document.addEventListener('astro:before-preparation', function() {
+        __projectsReady = false;
+        if (window.ScrollTrigger) window.ScrollTrigger.getAll().forEach(function(t) { t.kill(); });
     });
 </script>

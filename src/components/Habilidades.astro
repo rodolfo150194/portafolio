@@ -1,44 +1,53 @@
 ---
-// Habilidades Técnicas basadas en el CV
 const skillCategories = [
     {
+        i18nKey: "skills.cat.0",
         title: "Backend",
         icon: "fa-solid fa-terminal",
         color: "text-green-400",
         skills: ["Python", "Django", "FastAPI", "Django REST Framework (DRF)"]
     },
     {
+        i18nKey: "skills.cat.1",
         title: "Frontend",
         icon: "fa-solid fa-globe",
         color: "text-blue-400",
         skills: ["JavaScript", "Next.js", "Astro", "Tailwind CSS", "Flutter / Dart", "Leaflet"]
     },
     {
-        title: "Bases de Datos",
+        i18nKey: "skills.cat.2",
+        title: "Databases",
         icon: "fa-solid fa-database",
         color: "text-yellow-400",
         skills: ["PostgreSQL", "MySQL"]
     },
     {
-        title: "Infraestructura & DevOps",
+        i18nKey: "skills.cat.3",
+        title: "Infrastructure & DevOps",
         icon: "fa-solid fa-server",
         color: "text-purple-400",
-        skills: ["Linux", "Windows Server / AD", "LAN / WAN / Routers", "Políticas de Seguridad", "Backups / DR", "Git & GitHub"]
+        skills: ["Linux", "Windows Server / AD", "LAN / WAN / Routers", "Security Policies", "Backups / DR", "Git & GitHub"]
     }
 ];
 ---
 
 <section id="habilidades" class="relative py-20 bg-gray-950 overflow-hidden">
-    <!-- Decoración de fondo -->
+    <!-- Background decoration -->
     <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div class="absolute top-0 right-0 w-96 h-96 bg-primary/30 rounded-full blur-[100px]"></div>
         <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px]"></div>
     </div>
-    
+
     <div class="max-w-6xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Habilidades Técnicas</h2>
-            <p class="text-xl text-slate-400">Herramientas y tecnologías con las que trabajo a diario.</p>
+            <h2 data-i18n="skills.title"
+                class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Technical Skills
+            </h2>
+            <p data-i18n="skills.subtitle"
+               class="text-xl text-slate-400">
+                Tools and technologies I work with daily.
+            </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -48,9 +57,12 @@ const skillCategories = [
                         <div class={`p-3 bg-white/10 rounded-lg ${category.color}`}>
                             <i class={`${category.icon} text-3xl`}></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white">{category.title}</h3>
+                        <h3 data-i18n={category.i18nKey}
+                            class="text-2xl font-bold text-white">
+                            {category.title}
+                        </h3>
                     </div>
-                    
+
                     <div class="flex flex-wrap gap-3">
                         {category.skills.map((skill) => (
                             <span class="px-4 py-2 bg-white/5 border border-white/10 text-slate-300 text-sm font-medium rounded-full cursor-default hover:border-primary/50 hover:text-white transition-colors duration-300">

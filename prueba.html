@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuNombre - Desarrollador FullStack</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+        
+        /* Header */
+        header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000;
+        }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; transition: opacity 0.3s; }
+        .nav-links a:hover { opacity: 0.8; }
+        
+        /* Hero */
+        .hero { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            text-align: center; 
+            padding: 150px 2rem 100px; 
+            margin-top: 70px;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+        .btn { 
+            display: inline-block; padding: 12px 30px; background: #ff6b6b; 
+            color: white; text-decoration: none; border-radius: 50px; 
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        
+        /* Secciones */
+        section { padding: 80px 2rem; max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #333; }
+        
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .skill-card { text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .skill-card:hover { transform: translateY(-10px); }
+        .skill-icon { font-size: 3rem; color: #667eea; margin-bottom: 1rem; }
+        
+        /* Proyectos */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .project-card { 
+            background: white; border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s;
+        }
+        .project-card:hover { transform: translateY(-10px); }
+        .project-img { height: 200px; background: #eee; position: relative; }
+        .project-img::before { content: '📱'; font-size: 3rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .project-info { padding: 1.5rem; }
+        .project-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: #333; }
+        .project-tech { color: #667eea; font-weight: bold; margin-bottom: 1rem; }
+        .project-links { display: flex; gap: 1rem; }
+        .project-links a { padding: 8px 16px; background: #667eea; color: white; text-decoration: none; border-radius: 25px; }
+        
+        /* Contacto */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+        
+        /* Footer */
+        footer { background: #333; color: white; text-align: center; padding: 2rem; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">TuNombre</div>
+            <ul class="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <h1>¡Hola! Soy <span style="color: #ff6b6b;">TuNombre</span></h1>
+        <p>Desarrollador FullStack | JavaScript | React | Node.js | Python</p>
+        <a href="#projects" class="btn">Ver mis proyectos</a>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2><i class="fas fa-code"></i> Mis Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-react"></i></div>
+                <h3>React</h3>
+                <p>React, Next.js, Redux</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                <h3>Node.js</h3>
+                <p>Express, NestJS</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-python"></i></div>
+                <h3>Python</h3>
+                <p>Django, Flask, FastAPI</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-database"></i></div>
+                <h3>Bases de Datos</h3>
+                <p>PostgreSQL, MongoDB, Redis</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="projects" style="background: #f8f9fa;">
+        <h2><i class="fas fa-project-diagram"></i> Proyectos</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img"></div>
+                <div class="project-info">
+                    <h3>E-commerce Platform</h3>
+                    <div class="project-tech">React | Node.js | PostgreSQL</div>
+                    <p>Plataforma completa de e-commerce con carrito, pagos y admin panel.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i> Código</a>
+                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Agrega más proyectos aquí -->
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact">
+        <h2><i class="fas fa-envelope"></i> Contáctame</h2>
+        <div class="contact-grid">
+            <div>
+                <h3>📧 Email</h3>
+                <p>tu.email@gmail.com</p>
+                <h3>💼 LinkedIn</h3>
+                <p>linkedin.com/in/tunombre</p>
+                <h3>📱 WhatsApp</h3>
+                <p>+34 123 456 789</p>
+            </div>
+            <div>
+                <h3>🌐 Enlaces</h3>
+                <p>
+                    <a href="#" style="color: #667eea;">GitHub</a> | 
+                    <a href="#" style="color: #667eea;">LinkedIn</a> | 
+                    <a href="#" style="color: #667eea;">CV</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 TuNombre. Hecho con ❤️ y código.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,35 +1,209 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-import Projects from "../components/Projects.astro";
+import { ClientRouter } from 'astro:transitions';
+
+interface Props {
+  title?: string;
+}
+const { title = 'Rodolfo García Maeso — Full Stack Developer' } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Portfolio</title>
-		<!-- FontAwesome CDN -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	</head>
-	<body class="bg-gray-950">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Full Stack Developer portfolio — Rodolfo García Maeso. Python, Django, Next.js, FastAPI, Flutter and more." />
+    <title>{title}</title>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <ClientRouter />
+  </head>
+  <body class="bg-gray-950">
 
+    <!-- ── Language Toggle ─────────────────────────────── -->
+    <button
+      id="lang-toggle"
+      aria-label="Switch language"
+      class="fixed top-4 right-4 z-[100] flex items-center gap-2 px-3 py-2 rounded-lg
+             bg-gray-900/90 border border-white/20 backdrop-blur-md
+             text-white text-sm font-semibold shadow-lg
+             hover:border-primary/60 hover:text-primary
+             transition-all duration-300 group select-none"
+    >
+      <i class="fa-solid fa-globe text-primary text-base transition-transform duration-300 group-hover:rotate-12"></i>
+      <span id="lang-label" class="tracking-widest text-xs uppercase">EN</span>
+      <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 transition-transform duration-300 group-hover:-rotate-180"></i>
+    </button>
 
-	<!-- Footer -->
-	<slot />
-	<script>
+    <slot />
 
-	</script>
-	</body>
+    <!-- ── i18n Engine ──────────────────────────────────── -->
+    <script is:inline>
+      window.__i18n = {
+        en: {
+          /* Hero */
+          'hero.description': 'Computer Science Engineer with over 7 years of experience building scalable applications. Versatile profile combining modern backend and frontend solutions, infrastructure administration, and collaborations with international organizations like the UN (FAO).',
+          'hero.cta.cv': 'Download CV',
+          'hero.cta.contact': 'Contact',
 
+          /* Skills */
+          'skills.title': 'Technical Skills',
+          'skills.subtitle': 'Tools and technologies I work with daily.',
+          'skills.cat.0': 'Backend',
+          'skills.cat.1': 'Frontend',
+          'skills.cat.2': 'Databases',
+          'skills.cat.3': 'Infrastructure & DevOps',
+
+          /* Experience */
+          'exp.title': 'Professional Experience',
+          'exp.subtitle': 'My career journey and academic background over the years.',
+          'exp.0.title': 'Full Stack Web Developer',
+          'exp.0.date': '2021 – Present',
+          'exp.0.desc': 'Development of agricultural platforms, micro-localizations, REST APIs and bots for procedures using Python, Django, Leaflet ecosystems and mobile applications.',
+          'exp.1.title': 'Technology Consultant',
+          'exp.1.desc': 'Development of the INGEI portal and the SICCA platform with artificial intelligence for climate report generation, using Wagtail, Django and interactive visualization tools.',
+          'exp.2.title': 'IT Specialist',
+          'exp.2.company': 'IAGRIC — Agricultural Engineering Institute',
+          'exp.2.desc': 'LAN/WAN network administration, Active Directory management, security policies, backups and advanced corporate technical support.',
+          'exp.3.title': 'Software Developer',
+          'exp.3.desc': 'Design, structuring and development of web applications for the comprehensive management of security services.',
+          'exp.4.title': 'Computer Science Engineer',
+          'exp.4.company': 'University of Computer Sciences (UCI)',
+          'exp.4.date': 'Graduate',
+          'exp.4.desc': 'Academic training as a computer engineer, foundations in data structures, programming and algorithmic sciences.',
+
+          /* Projects */
+          'proj.0.title': 'Agroproductivity Platform',
+          'proj.0.desc': 'Agricultural price system with statistical analysis, price reports, GeoJSON analysis, micro-location visualization and structured REST API.',
+          'proj.1.title': 'SICCA (UN - FAO)',
+          'proj.1.desc': "Climate change platform with artificial intelligence module for decision-making, implementing a custom CMS for recording Cuba's climate actions.",
+          'proj.2.title': 'INGEI Platform',
+          'proj.2.desc': 'National Greenhouse Gas Inventory. Visual platform that processes dynamic formulas, analyzes historical series and automatically generates PDF and Excel reports.',
+          'proj.3.title': 'GIS App & Bots',
+          'proj.3.desc': 'Android mobile application for building polygons, calculating productive soil areas in real time and interactive Telegram bots for agricultural procedures (Guajapp).',
+          'proj.cta.demo': 'View Demo',
+
+          /* Footer */
+          'footer.tagline': 'Full Stack Developer with over 7 years of experience building scalable and modern applications.',
+          'footer.nav.title': 'Navigation',
+          'footer.contact.title': 'Contact',
+          'footer.nav.home': 'Home',
+          'footer.nav.skills': 'Skills',
+          'footer.nav.experience': 'Experience',
+          'footer.nav.projects': 'Projects',
+          'footer.nav.contact': 'Contact',
+          'footer.copyright.rights': 'All rights reserved.',
+          'footer.madewith': 'Made with',
+          'footer.using': 'using',
+        },
+        es: {
+          /* Hero */
+          'hero.description': 'Ingeniero en Ciencias Informáticas con más de 7 años de experiencia construyendo aplicaciones escalables. Perfil versátil combinando soluciones backend y frontend modernas, administración de infraestructura y colaboraciones con organismos internacionales como la ONU (FAO).',
+          'hero.cta.cv': 'Descargar CV',
+          'hero.cta.contact': 'Contactar',
+
+          /* Skills */
+          'skills.title': 'Habilidades Técnicas',
+          'skills.subtitle': 'Herramientas y tecnologías con las que trabajo a diario.',
+          'skills.cat.0': 'Backend',
+          'skills.cat.1': 'Frontend',
+          'skills.cat.2': 'Bases de Datos',
+          'skills.cat.3': 'Infraestructura & DevOps',
+
+          /* Experience */
+          'exp.title': 'Experiencia Profesional',
+          'exp.subtitle': 'Mi trayectoria y formación académica a lo largo de los años.',
+          'exp.0.title': 'Desarrollador Web Full Stack',
+          'exp.0.date': '2021 – Presente',
+          'exp.0.desc': 'Desarrollo de plataformas agrícolas, microlocalizaciones, APIs REST y bots para trámites utilizando ecosistemas de Python, Django, Leaflet y aplicaciones móviles.',
+          'exp.1.title': 'Consultor de Tecnología',
+          'exp.1.desc': 'Desarrollo del portal INGEI y la plataforma SICCA con inteligencia artificial para la generación de reportes climáticos, uso de Wagtail, Django y herramientas de visualización interactivas.',
+          'exp.2.title': 'Especialista en TI',
+          'exp.2.company': 'IAGRIC — Instituto de Ingeniería Agrícola',
+          'exp.2.desc': 'Administración de redes LAN/WAN, gestión de Active Directory, políticas de seguridad, backups y soporte técnico avanzado corporativo.',
+          'exp.3.title': 'Desarrollador de Software',
+          'exp.3.desc': 'Diseño, estructuración y desarrollo de aplicaciones web para la gestión integral de servicios de seguridad.',
+          'exp.4.title': 'Ing. en Ciencias Informáticas',
+          'exp.4.company': 'Universidad de las Ciencias Informáticas (UCI)',
+          'exp.4.date': 'Graduado',
+          'exp.4.desc': 'Formación académica como ingeniero informático, bases en estructuras de datos, programación y ciencias algorítmicas.',
+
+          /* Projects */
+          'proj.0.title': 'Plataforma Agroproductividad',
+          'proj.0.desc': 'Sistema de precios agrícolas con análisis estadístico, reportes de precios, análisis GeoJSON, visualización de microlocalizaciones y API REST estructurada.',
+          'proj.1.title': 'SICCA (ONU - FAO)',
+          'proj.1.desc': 'Plataforma de cambio climático con módulo de inteligencia artificial para la toma de decisiones, implementando un CMS a medida para el registro de acciones climáticas de Cuba.',
+          'proj.2.title': 'INGEI Platform',
+          'proj.2.desc': 'Inventario Nacional de Gases de Efecto Invernadero. Plataforma visual que procesa fórmulas dinámicas, analiza series históricas y genera reportes automáticos en PDF y Excel.',
+          'proj.3.title': 'App GIS & Bots',
+          'proj.3.desc': 'Aplicación móvil Android para construir polígonos, calcular áreas de suelo productivo en tiempo real y bots de Telegram interactivos para trámites agrícolas (Guajapp).',
+          'proj.cta.demo': 'Ver Demo',
+
+          /* Footer */
+          'footer.tagline': 'Desarrollador Full Stack con más de 7 años de experiencia construyendo aplicaciones escalables y modernas.',
+          'footer.nav.title': 'Navegación',
+          'footer.contact.title': 'Contacto',
+          'footer.nav.home': 'Inicio',
+          'footer.nav.skills': 'Habilidades',
+          'footer.nav.experience': 'Experiencia',
+          'footer.nav.projects': 'Proyectos',
+          'footer.nav.contact': 'Contacto',
+          'footer.copyright.rights': 'Todos los derechos reservados.',
+          'footer.madewith': 'Hecho con',
+          'footer.using': 'usando',
+        }
+      };
+
+      function applyTranslations(lang) {
+        var t = window.__i18n[lang];
+        if (!t) return;
+
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n');
+          if (t[key] !== undefined) el.textContent = t[key];
+        });
+
+        document.documentElement.lang = lang;
+        localStorage.setItem('lang', lang);
+        window.__currentLang = lang;
+
+        var label = document.getElementById('lang-label');
+        if (label) label.textContent = lang.toUpperCase();
+      }
+
+      window.__applyTranslations = applyTranslations;
+
+      function initI18n() {
+        var saved = localStorage.getItem('lang') || 'en';
+        applyTranslations(saved);
+
+        var btn = document.getElementById('lang-toggle');
+        if (btn && !btn.__langInit) {
+          btn.__langInit = true;
+          btn.addEventListener('click', function() {
+            var next = (window.__currentLang === 'en') ? 'es' : 'en';
+            applyTranslations(next);
+          });
+        }
+      }
+
+      document.addEventListener('astro:page-load', initI18n);
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initI18n);
+      } else {
+        initI18n();
+      }
+    </script>
+
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>

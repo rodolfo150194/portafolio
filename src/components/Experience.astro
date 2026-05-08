@@ -1,75 +1,628 @@
 ---
 const experiences = [
     {
-        title: "Desarrollador Web Full Stack",
+        i18nTitle: "exp.0.title",
+        title: "Full Stack Web Developer",
         company: "Freelance — Code43w",
-        date: "2021 – Presente",
-        description: "Desarrollo de plataformas agrícolas, microlocalizaciones, APIs REST y bots para trámites utilizando ecosistemas de Python, Django, Leaflet y aplicaciones móviles.",
+        i18nDate: "exp.0.date",
+        date: "2021 – Present",
+        i18nDesc: "exp.0.desc",
+        description: "Development of agricultural platforms, micro-localizations, REST APIs and bots for procedures using Python, Django, Leaflet ecosystems and mobile applications.",
         icon: "fa-solid fa-briefcase"
     },
     {
-        title: "Consultor de Tecnología",
-        company: "FAO — ONU",
+        i18nTitle: "exp.1.title",
+        title: "Technology Consultant",
+        company: "FAO — UN",
         date: "2022 – 2023",
-        description: "Desarrollo del portal INGEI y la plataforma SICCA con inteligencia artificial para la generación de reportes climáticos, uso de Wagtail, Django y herramientas de visualización interactivas.",
+        i18nDesc: "exp.1.desc",
+        description: "Development of the INGEI portal and the SICCA platform with artificial intelligence for climate report generation, using Wagtail, Django and interactive visualization tools.",
         icon: "fa-solid fa-globe"
     },
     {
-        title: "Especialista en TI",
-        company: "IAGRIC — Instituto de Ingeniería Agrícola",
+        i18nTitle: "exp.2.title",
+        title: "IT Specialist",
+        i18nCompany: "exp.2.company",
+        company: "IAGRIC — Agricultural Engineering Institute",
         date: "2020 – 2023",
-        description: "Administración de redes LAN/WAN, gestión de Active Directory, políticas de seguridad, backups y soporte técnico avanzado corporativo.",
+        i18nDesc: "exp.2.desc",
+        description: "LAN/WAN network administration, Active Directory management, security policies, backups and advanced corporate technical support.",
         icon: "fa-solid fa-server"
     },
     {
-        title: "Desarrollador de Software",
+        i18nTitle: "exp.3.title",
+        title: "Software Developer",
         company: "SEISA",
         date: "2018 – 2020",
-        description: "Diseño, estructuración y desarrollo de aplicaciones web para la gestión integral de servicios de seguridad.",
+        i18nDesc: "exp.3.desc",
+        description: "Design, structuring and development of web applications for the comprehensive management of security services.",
         icon: "fa-solid fa-code"
     },
     {
-        title: "Ing. en Ciencias Informáticas",
-        company: "Universidad de las Ciencias Informáticas (UCI)",
-        date: "Graduado",
-        description: "Formación académica como ingeniero informático, bases en estructuras de datos, programación y ciencias algorítmicas.",
+        i18nTitle: "exp.4.title",
+        title: "Computer Science Engineer",
+        i18nCompany: "exp.4.company",
+        company: "University of Computer Sciences (UCI)",
+        i18nDate: "exp.4.date",
+        date: "Graduate",
+        i18nDesc: "exp.4.desc",
+        description: "Academic training as a computer engineer, foundations in data structures, programming and algorithmic sciences.",
         icon: "fa-solid fa-graduation-cap"
     }
 ];
 ---
 
-<section id="experiencia" class="relative py-24 bg-gray-950 overflow-hidden">
-    <!-- Fondo decorativo -->
-    <div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <div class="absolute top-1/4 -left-32 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-blue-500 rounded-full blur-[120px]"></div>
+<section id="experiencia" class="exp-section">
+
+    <!-- Atmospheric glows -->
+    <div class="exp-glows" aria-hidden="true">
+        <div class="exp-glow exp-glow-1"></div>
+        <div class="exp-glow exp-glow-2"></div>
     </div>
 
-    <div class="max-w-4xl mx-auto px-4 relative z-10">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Experiencia Profesional</h2>
-            <p class="text-xl text-slate-400">Mi trayectoria y formación académica a lo largo de los años.</p>
+    <div class="exp-container">
+
+        <!-- Header -->
+        <div class="exp-header">
+            <span class="exp-eyebrow">Career Sprint</span>
+            <h2 data-i18n="exp.title" class="exp-title">
+                Professional Experience
+            </h2>
+            <p data-i18n="exp.subtitle" class="exp-subtitle">
+                My career journey and academic background over the years.
+            </p>
         </div>
 
-        <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/20 before:to-transparent">
-            {experiences.map((exp, index) => (
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-gray-900 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 text-primary z-10 transition-transform duration-300 group-hover:scale-110">
-                        <i class={`${exp.icon} text-lg`}></i>
-                    </div>
-                    
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl shadow-xl transition-all duration-300 hover:bg-white/10 hover:-translate-y-1 hover:shadow-primary/10 hover:border-primary/30">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">
-                            <h3 class="font-bold text-white text-xl">{exp.title}</h3>
-                            <time class="font-mono text-sm text-primary bg-primary/10 px-3 py-1 rounded-full w-fit whitespace-nowrap">{exp.date}</time>
-                        </div>
-                        <div class="text-slate-300 font-medium mb-3">{exp.company}</div>
-                        <p class="text-slate-400 leading-relaxed text-sm md:text-base">
-                            {exp.description}
-                        </p>
-                    </div>
+        <!-- Sprint track -->
+        <div class="sprint-track">
+
+            <!-- START line -->
+            <div class="race-flag race-flag--start">
+                <div class="checkered-flag">
+                    <div class="checker-grid"></div>
                 </div>
-            ))}
+                <span class="flag-label">START</span>
+                <div class="flag-bar flag-bar--start"></div>
+            </div>
+
+            <!-- Experience lanes -->
+            {experiences.map((exp, index) => {
+                const isLTR = index % 2 === 0;
+                const isLast = index === experiences.length - 1;
+                const num = (index + 1).toString().padStart(2, '0');
+
+                return (
+                    <div class:list={['race-lane', isLTR ? 'lane-ltr' : 'lane-rtl']}>
+
+                        <!-- Road track band with checkpoint -->
+                        <div class="road-track">
+                            <div class="road-surface">
+                                <div class="road-stripe road-stripe--top"></div>
+                                <div class="road-dashes"></div>
+                                <div class="road-stripe road-stripe--bottom"></div>
+                            </div>
+                            <div class="checkpoint">
+                                <div class="cp-pulse"></div>
+                                <div class="cp-ring">
+                                    <i class={exp.icon}></i>
+                                </div>
+                                <span class="cp-num">{num}</span>
+                            </div>
+                        </div>
+
+                        <!-- Experience card: left for LTR, right for RTL -->
+                        <div class="exp-card">
+                            <div class="exp-card-accent"></div>
+                            <div class="exp-card-body">
+                                <div class="exp-card-head">
+                                    <h3 data-i18n={exp.i18nTitle} class="exp-role">{exp.title}</h3>
+                                    <time data-i18n={exp.i18nDate} class="exp-badge">{exp.date}</time>
+                                </div>
+                                <p data-i18n={exp.i18nCompany} class="exp-company">{exp.company}</p>
+                                <p data-i18n={exp.i18nDesc} class="exp-desc">{exp.description}</p>
+                            </div>
+                        </div>
+
+                        <!-- Side connector: extends down to next lane -->
+                        {!isLast && (
+                            <div class:list={['lane-connector', isLTR ? 'connector-right' : 'connector-left']}></div>
+                        )}
+                    </div>
+                );
+            })}
+
+            <!-- FINISH line -->
+            <div class="race-flag race-flag--finish">
+                <div class="flag-bar flag-bar--finish"></div>
+                <span class="flag-label flag-label--finish">🏁 FINISH</span>
+            </div>
+
         </div>
     </div>
 </section>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+    /* ── Section ─────────────────────────────── */
+
+    .exp-section {
+        position: relative;
+        padding: 6rem 0;
+        background: #060810;
+        overflow: hidden;
+    }
+
+    .exp-glows {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .exp-glow {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+    }
+
+    .exp-glow-1 {
+        top: 10%;
+        left: 15%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(34,211,238,0.12), transparent 70%);
+    }
+
+    .exp-glow-2 {
+        bottom: 10%;
+        right: 15%;
+        width: 320px;
+        height: 320px;
+        background: radial-gradient(circle, rgba(245,158,11,0.08), transparent 70%);
+    }
+
+    .exp-container {
+        max-width: 56rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ── Header ──────────────────────────────── */
+
+    .exp-header {
+        text-align: center;
+        margin-bottom: 4.5rem;
+    }
+
+    .exp-eyebrow {
+        display: inline-block;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: #22d3ee;
+        margin-bottom: 1rem;
+    }
+
+    .exp-title {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 900;
+        font-size: clamp(2.25rem, 6vw, 3.75rem);
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+        line-height: 1;
+        color: #fff;
+        margin: 0 0 1rem;
+    }
+
+    .exp-subtitle {
+        font-size: 1.05rem;
+        color: rgb(100 116 139);
+        max-width: 440px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    /* ── Sprint Track ─────────────────────────── */
+
+    .sprint-track {
+        position: relative;
+    }
+
+    /* ── Start / Finish Flags ─────────────────── */
+
+    .race-flag {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        height: 2.5rem;
+    }
+
+    .race-flag--start {
+        justify-content: flex-start;
+        margin-bottom: 0;
+    }
+
+    .race-flag--finish {
+        justify-content: flex-end;
+        margin-top: 0;
+    }
+
+    .checkered-flag {
+        width: 26px;
+        height: 26px;
+        flex-shrink: 0;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .checker-grid {
+        width: 100%;
+        height: 100%;
+        background:
+            repeating-conic-gradient(#fff 0% 25%, #000 0% 50%)
+            0 0 / 8px 8px;
+    }
+
+    .flag-label {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 800;
+        font-size: 0.85rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #22d3ee;
+        flex-shrink: 0;
+    }
+
+    .flag-label--finish {
+        color: #f59e0b;
+        letter-spacing: 0.2em;
+    }
+
+    .flag-bar {
+        height: 2px;
+        flex: 1;
+    }
+
+    .flag-bar--start {
+        background: linear-gradient(90deg, #22d3ee 0%, transparent 100%);
+    }
+
+    .flag-bar--finish {
+        background: linear-gradient(270deg, #f59e0b 0%, transparent 100%);
+    }
+
+    /* ── Race Lanes ──────────────────────────── */
+
+    .race-lane {
+        position: relative;
+        padding-bottom: 2.5rem; /* gap between lanes, also spans the connector */
+    }
+
+    .race-lane:last-of-type {
+        padding-bottom: 0;
+    }
+
+    /* ── Road Track ──────────────────────────── */
+
+    .road-track {
+        position: relative;
+        height: 60px;
+    }
+
+    .road-surface {
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(255,255,255,0.02) 0%,
+            rgba(255,255,255,0.045) 50%,
+            rgba(255,255,255,0.02) 100%
+        );
+        overflow: hidden;
+    }
+
+    .road-stripe {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 2px;
+    }
+
+    .road-stripe--top {
+        top: 0;
+        background: linear-gradient(90deg, #22d3ee 0%, rgba(34,211,238,0.15) 100%);
+    }
+
+    .road-stripe--bottom {
+        bottom: 0;
+        background: linear-gradient(90deg, #22d3ee 0%, rgba(34,211,238,0.15) 100%);
+    }
+
+    .lane-rtl .road-stripe--top,
+    .lane-rtl .road-stripe--bottom {
+        background: linear-gradient(270deg, #22d3ee 0%, rgba(34,211,238,0.15) 100%);
+    }
+
+    /* Animated center dashes */
+    .road-dashes {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 2px;
+        transform: translateY(-50%);
+        background-image: repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,0.28) 0,
+            rgba(255,255,255,0.28) 20px,
+            transparent 20px,
+            transparent 44px
+        );
+        background-size: 44px 2px;
+        animation: dashLTR 0.7s linear infinite;
+    }
+
+    .lane-rtl .road-dashes {
+        animation: dashRTL 0.7s linear infinite;
+    }
+
+    @keyframes dashLTR {
+        from { background-position-x: 0; }
+        to   { background-position-x: 44px; }
+    }
+
+    @keyframes dashRTL {
+        from { background-position-x: 44px; }
+        to   { background-position-x: 0; }
+    }
+
+    /* ── Checkpoint ──────────────────────────── */
+
+    .checkpoint {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 5;
+    }
+
+    /* LTR: checkpoint at left end (entry) */
+    .lane-ltr .checkpoint {
+        left: 0;
+    }
+
+    /* RTL: checkpoint at right end (entry from right connector) */
+    .lane-rtl .checkpoint {
+        right: 0;
+    }
+
+    .cp-pulse {
+        position: absolute;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(34,211,238,0.6);
+        animation: cpPulse 2.4s ease-out infinite;
+        z-index: 0;
+    }
+
+    @keyframes cpPulse {
+        0%   { transform: scale(1);   opacity: 0.7; }
+        100% { transform: scale(2.2); opacity: 0;   }
+    }
+
+    .cp-ring {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: #0b0e1a;
+        border: 2px solid #22d3ee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #22d3ee;
+        font-size: 1.1rem;
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        box-shadow: inset 0 0 20px rgba(34,211,238,0.06);
+    }
+
+    .race-lane:hover .cp-ring {
+        transform: scale(1.1);
+        box-shadow: 0 0 28px rgba(34,211,238,0.45), inset 0 0 20px rgba(34,211,238,0.1);
+        border-color: #67e8f9;
+    }
+
+    .cp-num {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.6rem;
+        font-weight: 500;
+        color: rgba(34,211,238,0.65);
+        margin-top: 3px;
+        letter-spacing: 0.05em;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ── Experience Card ─────────────────────── */
+
+    .exp-card {
+        max-width: 58%;
+        margin-top: 10px;
+        background: rgba(255,255,255,0.025);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .exp-card:hover {
+        background: rgba(34,211,238,0.04);
+        border-color: rgba(34,211,238,0.22);
+        transform: translateY(-3px);
+    }
+
+    /* LTR: card aligned to the left (below checkpoint at left) */
+    .lane-ltr .exp-card {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    /* RTL: card aligned to the right (below checkpoint at right) */
+    .lane-rtl .exp-card {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .exp-card-accent {
+        height: 2px;
+    }
+
+    .lane-ltr .exp-card-accent {
+        background: linear-gradient(90deg, #22d3ee 0%, transparent 100%);
+    }
+
+    .lane-rtl .exp-card-accent {
+        background: linear-gradient(270deg, #22d3ee 0%, transparent 100%);
+    }
+
+    .exp-card-body {
+        padding: 1.1rem 1.3rem;
+    }
+
+    .exp-card-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.5rem;
+    }
+
+    .exp-role {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: #fff;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .exp-badge {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.65rem;
+        color: #22d3ee;
+        background: rgba(34,211,238,0.08);
+        border: 1px solid rgba(34,211,238,0.18);
+        border-radius: 99px;
+        padding: 2px 9px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        line-height: 1.6;
+    }
+
+    .exp-company {
+        font-size: 0.8rem;
+        color: rgb(100 116 139);
+        font-weight: 500;
+        margin: 0 0 0.55rem;
+        letter-spacing: 0.01em;
+    }
+
+    .exp-desc {
+        font-size: 0.8rem;
+        color: rgb(71 85 105);
+        line-height: 1.65;
+        margin: 0;
+    }
+
+    /* ── Side Connectors ─────────────────────── */
+
+    /* Spans full height of the lane (road + card + padding-bottom gap)
+       visually connects right/left edge of road N to right/left edge of road N+1 */
+
+    .lane-connector {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+    }
+
+    .connector-right {
+        right: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(34,211,238,0.55) 0%,
+            rgba(34,211,238,0.25) 60%,
+            rgba(34,211,238,0.55) 100%
+        );
+    }
+
+    .connector-left {
+        left: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(34,211,238,0.55) 0%,
+            rgba(34,211,238,0.25) 60%,
+            rgba(34,211,238,0.55) 100%
+        );
+    }
+
+    /* ── Mobile ──────────────────────────────── */
+
+    @media (max-width: 600px) {
+
+        .exp-card {
+            max-width: 85%;
+        }
+
+        /* All cards align left on mobile */
+        .lane-rtl .exp-card {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        /* All checkpoints on left on mobile */
+        .lane-rtl .checkpoint {
+            right: auto;
+            left: 0;
+        }
+
+        /* All road stripes go LTR on mobile */
+        .lane-rtl .road-stripe--top,
+        .lane-rtl .road-stripe--bottom {
+            background: linear-gradient(90deg, #22d3ee 0%, rgba(34,211,238,0.15) 100%);
+        }
+
+        .lane-rtl .road-dashes {
+            animation: dashLTR 0.7s linear infinite;
+        }
+
+        /* Right connector on all lanes on mobile */
+        .connector-left {
+            left: auto;
+            right: 0;
+        }
+
+        .race-flag--finish {
+            justify-content: flex-start;
+        }
+
+        .flag-bar--finish {
+            background: linear-gradient(90deg, #f59e0b 0%, transparent 100%);
+        }
+    }
+</style>

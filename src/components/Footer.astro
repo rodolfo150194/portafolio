@@ -1,0 +1,108 @@
+---
+const currentYear = new Date().getFullYear();
+
+const navLinks = [
+    { i18nKey: "footer.nav.home",       label: "Home",       href: "#" },
+    { i18nKey: "footer.nav.skills",     label: "Skills",     href: "#habilidades" },
+    { i18nKey: "footer.nav.experience", label: "Experience", href: "#experiencia" },
+    { i18nKey: "footer.nav.projects",   label: "Projects",   href: "#proyectos" },
+    { i18nKey: "footer.nav.contact",    label: "Contact",    href: "#contacto" },
+];
+
+const socialLinks = [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/rodolfo-garcia-dev/", icon: "fa-brands fa-linkedin-in",  bg: "hover:bg-[#0a66c2]" },
+    { label: "GitHub",   href: "https://github.com/rodolfo150194",                icon: "fa-brands fa-github",       bg: "hover:bg-gray-700" },
+    { label: "Email",    href: "mailto:rodygm0104@gmail.com",                     icon: "fa-solid fa-envelope",      bg: "hover:bg-primary/80" },
+];
+---
+
+<footer class="relative bg-gray-950 border-t border-white/10 overflow-hidden">
+    <!-- Glow decoration -->
+    <div class="absolute inset-0 pointer-events-none z-0 opacity-20">
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-40 bg-primary/30 rounded-full blur-[100px]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-14">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+
+            <!-- Col 1: Identity -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-2">
+                    Rodolfo <span class="text-primary">García Maeso</span>
+                </h3>
+                <p data-i18n="footer.tagline"
+                   class="text-slate-400 text-sm leading-relaxed">
+                    Full Stack Developer with over 7 years of experience building scalable and modern applications.
+                </p>
+            </div>
+
+            <!-- Col 2: Navigation -->
+            <div>
+                <h4 data-i18n="footer.nav.title"
+                    class="text-sm font-semibold text-slate-300 uppercase tracking-widest mb-4">
+                    Navigation
+                </h4>
+                <ul class="space-y-2">
+                    {navLinks.map((link) => (
+                        <li>
+                            <a href={link.href}
+                               class="text-slate-400 hover:text-primary transition-colors duration-200 text-sm flex items-center gap-2 group">
+                                <span class="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                <span data-i18n={link.i18nKey}>{link.label}</span>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <!-- Col 3: Contact -->
+            <div>
+                <h4 data-i18n="footer.contact.title"
+                    class="text-sm font-semibold text-slate-300 uppercase tracking-widest mb-4">
+                    Contact
+                </h4>
+                <a href="mailto:rodygm0104@gmail.com"
+                   class="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors text-sm mb-3">
+                    <i class="fa-solid fa-envelope text-primary"></i>
+                    rodygm0104@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/rodolfo-garcia-dev/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors text-sm">
+                    <i class="fa-brands fa-linkedin-in text-primary"></i>
+                    linkedin.com/in/rodolfo-garcia-dev
+                </a>
+
+                <!-- Social icons -->
+                <div class="flex items-center gap-3 mt-6">
+                    {socialLinks.map((social) => (
+                        <a href={social.href}
+                           target={social.href.startsWith("mailto") ? undefined : "_blank"}
+                           rel="noopener noreferrer"
+                           aria-label={social.label}
+                           class={`flex items-center justify-center w-9 h-9 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white ${social.bg} hover:border-transparent transition-all duration-300`}>
+                            <i class={`${social.icon} text-sm`}></i>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+            <span>
+                © {currentYear} Rodolfo García Maeso.&nbsp;<span data-i18n="footer.copyright.rights">All rights reserved.</span>
+            </span>
+            <span class="flex items-center gap-1 flex-wrap justify-center">
+                <span data-i18n="footer.madewith">Made with</span>
+                <i class="fa-solid fa-heart text-primary mx-1"></i>
+                <span data-i18n="footer.using">using</span>
+                <a href="https://astro.build" target="_blank" rel="noopener noreferrer"
+                   class="text-primary hover:underline ml-1">Astro</a>
+                &amp;
+                <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer"
+                   class="text-primary hover:underline ml-1">Tailwind CSS</a>
+            </span>
+        </div>
+    </div>
+</footer>
