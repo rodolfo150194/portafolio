@@ -88,10 +88,10 @@ const proyectos = [
 
     <!-- Header -->
     <div class="projects-header">
-        <div class="header-eyebrow">
-            <span class="eyebrow-tag">// selected work</span>
-            <div class="eyebrow-rule"></div>
-            <span class="eyebrow-count">04</span>
+        <div class="[font-family:'Space_Mono',monospace] text-[0.65rem] tracking-[0.18em] inline-flex items-center gap-[0.3rem] mb-5">
+            <span class="text-[rgba(34,211,238,0.55)] text-[1rem] leading-none">[</span>
+            <span class="text-[rgba(34,211,238,0.85)]">selected.work</span>
+            <span class="text-[rgba(34,211,238,0.55)] text-[1rem] leading-none">]</span>
         </div>
         <h2 class="section-heading">
             <span class="heading-ghost">My</span>
@@ -278,11 +278,13 @@ const proyectos = [
     }
 
     .section-heading {
-        font-family: 'Bebas Neue', sans-serif;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 900;
         font-size: clamp(4.5rem, 12vw, 9.5rem);
         color: #f1f5f9;
         line-height: 0.88;
-        letter-spacing: 0.02em;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
     }
 
     .heading-ghost {
