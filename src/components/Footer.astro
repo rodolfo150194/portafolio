@@ -16,7 +16,7 @@ const socialLinks = [
 ];
 ---
 
-<footer class="relative bg-gray-950 border-t border-white/[0.07] overflow-hidden">
+<footer class="relative bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-white/[0.07] overflow-hidden">
 
     <!-- Bottom glow -->
     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-32 bg-primary/10 rounded-full blur-[80px] pointer-events-none"></div>
@@ -27,11 +27,11 @@ const socialLinks = [
 
             <!-- Col 1: Identity -->
             <div class="md:col-span-5">
-                <h3 class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[2rem] uppercase tracking-[0.01em] text-white mb-3">
+                <h3 class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[2rem] uppercase tracking-[0.01em] text-gray-900 dark:text-white mb-3">
                     Rodolfo <span class="text-primary italic">García Maeso</span>
                 </h3>
                 <p data-i18n="footer.tagline"
-                   class="text-slate-400 text-sm leading-relaxed max-w-xs mb-6">
+                   class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-xs mb-6">
                     Full Stack Developer with over 7 years of experience building scalable and modern applications.
                 </p>
                 <!-- Social icons -->
@@ -41,7 +41,7 @@ const socialLinks = [
                            target={social.href.startsWith("mailto") ? undefined : "_blank"}
                            rel="noopener noreferrer"
                            aria-label={social.label}
-                           class={`flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white ${social.hoverBg} hover:border-transparent transition-all duration-300 hover:-translate-y-0.5`}>
+                           class={`flex items-center justify-center w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-slate-500 dark:text-slate-400 hover:text-white ${social.hoverBg} hover:border-transparent transition-all duration-300 hover:-translate-y-0.5`}>
                             <i class={`${social.icon} text-sm`}></i>
                         </a>
                     ))}
@@ -58,7 +58,7 @@ const socialLinks = [
                     {navLinks.map((link) => (
                         <li>
                             <a href={link.href}
-                               class="group inline-flex items-center gap-2 text-slate-400 hover:text-primary transition-colors duration-200 text-sm">
+                               class="group inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors duration-200 text-sm">
                                 <span class="w-0 group-hover:w-3.5 h-px bg-primary transition-all duration-300 overflow-hidden flex-shrink-0"></span>
                                 <span data-i18n={link.i18nKey}>{link.label}</span>
                             </a>
@@ -79,7 +79,7 @@ const socialLinks = [
                         <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-slate-900 transition-all duration-300">
                             <i class="fa-solid fa-envelope text-xs"></i>
                         </span>
-                        <span class="text-slate-400 group-hover:text-white transition-colors text-sm">
+                        <span class="text-slate-600 dark:text-slate-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors text-sm">
                             rodygm0104@gmail.com
                         </span>
                     </a>
@@ -89,7 +89,7 @@ const socialLinks = [
                         <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-[#0a66c2]/10 text-[#0a66c2] group-hover:bg-[#0a66c2] group-hover:text-white transition-all duration-300">
                             <i class="fa-brands fa-linkedin-in text-xs"></i>
                         </span>
-                        <span class="text-slate-400 group-hover:text-white transition-colors text-sm">
+                        <span class="text-slate-600 dark:text-slate-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors text-sm">
                             linkedin.com/in/rodolfo-garcia-dev
                         </span>
                     </a>
@@ -98,7 +98,7 @@ const socialLinks = [
         </div>
 
         <!-- Bottom bar -->
-        <div class="border-t border-white/[0.07] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
+        <div class="border-t border-gray-200 dark:border-white/[0.07] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-600">
             <span>
                 © {currentYear} Rodolfo García Maeso.&nbsp;<span data-i18n="footer.copyright.rights">All rights reserved.</span>
             </span>
@@ -107,10 +107,10 @@ const socialLinks = [
                 <i class="fa-solid fa-heart text-primary/60 text-[10px]"></i>
                 <span data-i18n="footer.using">using</span>
                 <a href="https://astro.build" target="_blank" rel="noopener noreferrer"
-                   class="text-slate-500 hover:text-primary transition-colors">Astro</a>
+                   class="text-slate-400 dark:text-slate-500 hover:text-primary transition-colors">Astro</a>
                 &amp;
                 <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer"
-                   class="text-slate-500 hover:text-primary transition-colors ml-0.5">Tailwind CSS</a>
+                   class="text-slate-400 dark:text-slate-500 hover:text-primary transition-colors ml-0.5">Tailwind CSS</a>
             </span>
         </div>
     </div>

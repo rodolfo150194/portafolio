@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import profilePhoto from '../assets/images/photo-perfil.jpeg';
 ---
 
-<section class="relative min-h-screen flex items-center overflow-hidden bg-background-dark">
+<section class="relative min-h-screen flex items-center overflow-hidden bg-slate-50 dark:bg-background-dark">
 
     <!-- Subtle grid overlay -->
     <div class="absolute inset-0 z-0 opacity-100 pointer-events-none"
@@ -15,7 +15,7 @@ import profilePhoto from '../assets/images/photo-perfil.jpeg';
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
              style="background-image: url('/images/hero-background.png'); opacity: 0.12;">
         </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background-dark/60 to-background-dark"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/60 to-slate-50 dark:via-background-dark/60 dark:to-background-dark"></div>
     </div>
 
     <!-- Content -->
@@ -32,7 +32,7 @@ import profilePhoto from '../assets/images/photo-perfil.jpeg';
                 </div>
 
                 <!-- Name -->
-                <h1 class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[clamp(3.5rem,9vw,5.5rem)] uppercase [letter-spacing:-0.01em] [line-height:0.95] text-white mb-5">
+                <h1 class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[clamp(3.5rem,9vw,5.5rem)] uppercase [letter-spacing:-0.01em] [line-height:0.95] text-gray-900 dark:text-white mb-5">
                     <span class="block">Rodolfo</span>
                     <span class="block italic bg-gradient-to-r from-primary via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                         García Maeso
@@ -40,13 +40,13 @@ import profilePhoto from '../assets/images/photo-perfil.jpeg';
                 </h1>
 
                 <!-- Role -->
-                <h2 class="[font-family:'Space_Mono',monospace] text-[0.82rem] text-slate-400 mb-6 tracking-[0.08em] uppercase">
+                <h2 class="[font-family:'Space_Mono',monospace] text-[0.82rem] text-slate-600 dark:text-slate-400 mb-6 tracking-[0.08em] uppercase">
                     Full Stack Developer & QA Engineer
                 </h2>
 
                 <!-- Description -->
                 <p data-i18n="hero.description"
-                   class="max-w-lg text-base md:text-lg text-slate-400 leading-relaxed mb-10 mx-auto lg:mx-0">
+                   class="max-w-lg text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-10 mx-auto lg:mx-0">
                     Computer Science Engineer with over 7 years of experience building scalable, well-tested applications. Versatile profile combining modern backend and frontend solutions, quality assurance practices, infrastructure administration, and collaborations with international organizations like the UN (FAO).
                 </p>
 
@@ -58,7 +58,7 @@ import profilePhoto from '../assets/images/photo-perfil.jpeg';
                         <i class="fa-solid fa-download group-hover:translate-y-0.5 transition-transform"></i>
                     </a>
                     <a href="mailto:rodygm0104@gmail.com"
-                       class="group inline-flex items-center gap-2 px-7 py-3.5 bg-white/5 backdrop-blur-md text-white text-sm font-bold rounded-lg border border-white/15 hover:bg-white/10 hover:border-primary/40 hover:-translate-y-0.5 transition-all duration-300">
+                       class="group inline-flex items-center gap-2 px-7 py-3.5 bg-gray-100 dark:bg-white/5 backdrop-blur-md text-gray-900 dark:text-white text-sm font-bold rounded-lg border border-gray-200 dark:border-white/15 hover:bg-gray-200 dark:hover:bg-white/10 hover:border-primary/40 hover:-translate-y-0.5 transition-all duration-300">
                         <span data-i18n="hero.cta.contact">Contact</span>
                         <i class="fa-solid fa-envelope group-hover:scale-110 transition-transform"></i>
                     </a>
@@ -71,7 +71,7 @@ import profilePhoto from '../assets/images/photo-perfil.jpeg';
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
                         <a href="https://github.com/rodolfo150194" target="_blank" rel="noopener noreferrer"
-                           class="flex items-center justify-center w-11 h-11 rounded-full bg-white/5 border border-white/15 text-slate-400 hover:bg-white/15 hover:text-white hover:-translate-y-0.5 transition-all duration-300"
+                           class="flex items-center justify-center w-11 h-11 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/15 text-slate-500 dark:text-slate-400 hover:bg-gray-200 dark:hover:bg-white/15 hover:text-gray-900 dark:hover:text-white hover:-translate-y-0.5 transition-all duration-300"
                            aria-label="GitHub">
                             <i class="fa-brands fa-github"></i>
                         </a>
@@ -106,9 +106,9 @@ import profilePhoto from '../assets/images/photo-perfil.jpeg';
                 </div>
 
                 <!-- Experience badge -->
-                <div class="absolute -bottom-2 -right-4 lg:-bottom-4 lg:-right-6 bg-gray-900/95 backdrop-blur-md border border-white/10 rounded-2xl px-4 py-3 shadow-xl text-center">
+                <div class="absolute -bottom-2 -right-4 lg:-bottom-4 lg:-right-6 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl px-4 py-3 shadow-xl text-center">
                     <p class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[1.9rem] uppercase text-primary leading-none">7+</p>
-                    <p class="[font-family:'Space_Mono',monospace] text-[0.58rem] text-slate-400 mt-1 leading-tight tracking-[0.04em]">Years<br/>Exp.</p>
+                    <p class="[font-family:'Space_Mono',monospace] text-[0.58rem] text-slate-600 dark:text-slate-400 mt-1 leading-tight tracking-[0.04em]">Years<br/>Exp.</p>
                 </div>
             </div>
         </div>

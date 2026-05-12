@@ -22,8 +22,28 @@ const { title = 'Rodolfo García Maeso — Full Stack Developer' } = Astro.props
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <ClientRouter />
+    <!-- Anti-FOUC: reads localStorage before first paint to avoid flash -->
+    <script is:inline>
+      (function() {
+        var t = localStorage.getItem('theme') || 'dark';
+        if (t === 'dark') document.documentElement.classList.add('dark');
+      })();
+    </script>
   </head>
-  <body class="bg-gray-950 font-body">
+  <body class="bg-white dark:bg-gray-950 font-body">
+
+    <!-- ── Theme Toggle ────────────────────────────────── -->
+    <button
+      id="theme-toggle"
+      aria-label="Toggle theme"
+      class="fixed top-4 right-[7.5rem] z-[100] flex items-center justify-center w-[2.625rem] h-[2.375rem] rounded-lg
+             bg-white/90 dark:bg-gray-900/90 border border-gray-200 dark:border-white/20 backdrop-blur-md
+             text-gray-700 dark:text-white shadow-lg
+             hover:border-primary/60 hover:text-primary
+             transition-all duration-300"
+    >
+      <i id="theme-icon" class="fa-solid fa-sun text-base transition-transform duration-300"></i>
+    </button>
 
     <!-- ── Language Toggle ─────────────────────────────── -->
     <button
@@ -44,6 +64,36 @@ const { title = 'Rodolfo García Maeso — Full Stack Developer' } = Astro.props
 
     <!-- ── i18n Engine ──────────────────────────────────── -->
     <script is:inline>
+      /* ── Theme Engine ─────────────────────────────────── */
+      function __updateThemeIcon(isDark) {
+        var icon = document.getElementById('theme-icon');
+        if (!icon) return;
+        icon.className = isDark
+          ? 'fa-solid fa-sun text-base transition-transform duration-300'
+          : 'fa-solid fa-moon text-base transition-transform duration-300';
+      }
+
+      function initTheme() {
+        var isDark = document.documentElement.classList.contains('dark');
+        __updateThemeIcon(isDark);
+        var btn = document.getElementById('theme-toggle');
+        if (btn && !btn.__themeInit) {
+          btn.__themeInit = true;
+          btn.addEventListener('click', function() {
+            var nowDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+            __updateThemeIcon(nowDark);
+          });
+        }
+      }
+
+      document.addEventListener('astro:page-load', initTheme);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTheme);
+      } else {
+        initTheme();
+      }
+
       window.__i18n = {
         en: {
           /* Hero */

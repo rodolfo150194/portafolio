@@ -38,7 +38,7 @@ const skillCategories = [
 ];
 ---
 
-<section id="habilidades" class="relative py-24 bg-gray-950 overflow-hidden">
+<section id="habilidades" class="relative py-24 bg-white dark:bg-gray-950 overflow-hidden">
 
     <!-- Background ambiance -->
     <div class="absolute inset-0 z-0 pointer-events-none">
@@ -56,7 +56,7 @@ const skillCategories = [
                 <span class="text-[rgba(34,211,238,0.55)] text-[1rem] leading-none">]</span>
             </div>
             <h2 data-i18n="skills.title"
-                class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[clamp(2.5rem,7vw,4.5rem)] uppercase [letter-spacing:-0.01em] [line-height:0.95] text-white mb-5">
+                class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[clamp(2.5rem,7vw,4.5rem)] uppercase [letter-spacing:-0.01em] [line-height:0.95] text-gray-900 dark:text-white mb-5">
                 Technical <span class="italic text-[#22d3ee]">Skills</span>
             </h2>
             <p data-i18n="skills.subtitle"
@@ -68,7 +68,7 @@ const skillCategories = [
         <!-- Skills grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             {skillCategories.map((category, index) => (
-                <div class="group relative bg-gradient-to-br from-white/[0.04] to-transparent border border-white/[0.08] rounded-2xl p-8 hover:border-white/[0.14] transition-all duration-500 hover:shadow-xl hover:shadow-black/30 cursor-default overflow-hidden">
+                <div class="group relative bg-gradient-to-br from-gray-100 dark:from-white/[0.04] to-transparent border border-gray-200 dark:border-white/[0.08] rounded-2xl p-8 hover:border-gray-300 dark:hover:border-white/[0.14] transition-all duration-500 hover:shadow-xl hover:shadow-black/10 dark:hover:shadow-black/30 cursor-default overflow-hidden">
 
                     <!-- Background index number -->
                     <span class="absolute top-5 right-7 [font-family:'Barlow_Condensed',sans-serif] font-black text-7xl uppercase text-white/[0.035] group-hover:text-primary/[0.07] transition-colors duration-500 select-none leading-none pointer-events-none">
@@ -82,7 +82,7 @@ const skillCategories = [
                         </div>
                         <div>
                             <h3 data-i18n={category.i18nKey}
-                                class="[font-family:'Barlow_Condensed',sans-serif] font-extrabold text-[1.15rem] uppercase tracking-[0.04em] text-white">
+                                class="[font-family:'Barlow_Condensed',sans-serif] font-extrabold text-[1.15rem] uppercase tracking-[0.04em] text-gray-900 dark:text-white">
                                 {category.title}
                             </h3>
                             <div class="w-6 h-0.5 bg-primary/40 mt-1.5 group-hover:w-14 group-hover:bg-primary/70 transition-all duration-500"></div>
@@ -92,7 +92,7 @@ const skillCategories = [
                     <!-- Skill tags -->
                     <div class="flex flex-wrap gap-2">
                         {category.skills.map((skill) => (
-                            <span class="inline-flex items-center px-3.5 py-1.5 text-sm text-slate-300 font-medium rounded-lg bg-white/[0.04] border border-white/[0.07] hover:border-primary/30 hover:text-white hover:bg-primary/5 transition-all duration-200">
+                            <span class="inline-flex items-center px-3.5 py-1.5 text-sm text-gray-700 dark:text-slate-300 font-medium rounded-lg bg-gray-100 dark:bg-white/[0.04] border border-gray-200 dark:border-white/[0.07] hover:border-primary/30 hover:text-gray-900 dark:hover:text-white hover:bg-primary/5 transition-all duration-200">
                                 {skill}
                             </span>
                         ))}

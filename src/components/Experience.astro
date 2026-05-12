@@ -52,7 +52,7 @@ const experiences = [
 ];
 ---
 
-<section id="experiencia" class="relative py-28 bg-[#030712] overflow-hidden">
+<section id="experiencia" class="relative py-28 bg-slate-50 dark:bg-[#030712] overflow-hidden">
 
     <!-- Blueprint dot grid -->
     <div
@@ -77,7 +77,7 @@ const experiences = [
             </div>
             <h2
                 data-i18n="exp.title"
-                class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[clamp(2.5rem,7vw,4.5rem)] max-sm:text-[clamp(2rem,9vw,3rem)] uppercase [letter-spacing:-0.01em] [line-height:0.95] text-white m-0 mb-5"
+                class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[clamp(2.5rem,7vw,4.5rem)] max-sm:text-[clamp(2rem,9vw,3rem)] uppercase [letter-spacing:-0.01em] [line-height:0.95] text-gray-900 dark:text-white m-0 mb-5"
             >
                 Professional <span class="italic text-[#22d3ee] block">Experience</span>
             </h2>
@@ -122,7 +122,7 @@ const experiences = [
                                     <div class="flex justify-between items-start gap-3 flex-wrap mb-[0.35rem]">
                                         <h3
                                             data-i18n={exp.i18nTitle}
-                                            class="[font-family:'Barlow_Condensed',sans-serif] font-extrabold text-[1.1rem] uppercase tracking-[0.05em] text-white m-0 leading-[1.2]"
+                                            class="[font-family:'Barlow_Condensed',sans-serif] font-extrabold text-[1.1rem] uppercase tracking-[0.05em] text-gray-900 dark:text-white m-0 leading-[1.2]"
                                         >{exp.title}</h3>
                                         <time
                                             data-i18n={exp.i18nDate}
@@ -148,7 +148,7 @@ const experiences = [
                         >
                             <div class="flex flex-col items-center relative">
                                 <div class="absolute -inset-1 border border-[rgba(34,211,238,0.45)] rotate-45 animate-pulseDiamond pointer-events-none"></div>
-                                <div class="w-[46px] h-[46px] bg-[#030712] border-[1.5px] border-[#22d3ee] rotate-45 flex items-center justify-center shadow-[0_0_18px_rgba(34,211,238,0.22),inset_0_0_14px_rgba(34,211,238,0.06)] transition-[box-shadow,border-color] duration-[350ms] relative z-[1] group-hover:shadow-[0_0_36px_rgba(34,211,238,0.5),inset_0_0_18px_rgba(34,211,238,0.14)] group-hover:border-[#a5f3fc]">
+                                <div class="w-[46px] h-[46px] bg-white dark:bg-[#030712] border-[1.5px] border-[#22d3ee] rotate-45 flex items-center justify-center shadow-[0_0_18px_rgba(34,211,238,0.22),inset_0_0_14px_rgba(34,211,238,0.06)] transition-[box-shadow,border-color] duration-[350ms] relative z-[1] group-hover:shadow-[0_0_36px_rgba(34,211,238,0.5),inset_0_0_18px_rgba(34,211,238,0.14)] group-hover:border-[#a5f3fc]">
                                     <i class:list={[
                                         exp.icon,
                                         '-rotate-45 text-[#22d3ee] text-[0.9rem] [transition:transform_0.35s_cubic-bezier(0.34,1.56,0.64,1),color_0.35s_ease] group-hover:scale-[1.2] group-hover:text-white'

@@ -223,9 +223,39 @@ const proyectos = [
 </section>
 
 <style>
+    /* Theme variables — set by Tailwind darkMode: 'class' on <html> */
+    :root {
+        --proj-bg: #f8fafc;
+        --proj-heading: #0f172a;
+        --proj-info-title: #0f172a;
+        --proj-info-desc: #374151;
+        --proj-browser-bar: #f1f5f9;
+        --proj-browser-border: #e2e8f0;
+        --proj-card-border: #e2e8f0;
+        --proj-url-color: #6b7280;
+        --proj-stack-label: #4b5563;
+        --proj-action-github-border: #e2e8f0;
+        --proj-action-github-color: #64748b;
+        --proj-ghost-stroke: #94a3b8;
+    }
+    :global(.dark) {
+        --proj-bg: #030712;
+        --proj-heading: #f1f5f9;
+        --proj-info-title: #f1f5f9;
+        --proj-info-desc: #8b9ab4;
+        --proj-browser-bar: #0d1117;
+        --proj-browser-border: #1a2235;
+        --proj-card-border: #0f1623;
+        --proj-url-color: #3d4f6b;
+        --proj-stack-label: #2d3d55;
+        --proj-action-github-border: #1a2235;
+        --proj-action-github-color: #64748b;
+        --proj-ghost-stroke: #2d3748;
+    }
+
     /* ── Section ─────────────────────────────────────────── */
     .projects-section {
-        background: #030712;
+        background: var(--proj-bg);
         padding: 7rem 0 10rem;
         position: relative;
         overflow: hidden;
@@ -281,7 +311,7 @@ const proyectos = [
         font-family: 'Barlow Condensed', sans-serif;
         font-weight: 900;
         font-size: clamp(4.5rem, 12vw, 9.5rem);
-        color: #f1f5f9;
+        color: var(--proj-heading);
         line-height: 0.88;
         letter-spacing: -0.01em;
         text-transform: uppercase;
@@ -290,7 +320,7 @@ const proyectos = [
     .heading-ghost {
         display: block;
         color: transparent;
-        -webkit-text-stroke: 1px #2d3748;
+        -webkit-text-stroke: 1px var(--proj-ghost-stroke);
     }
 
     /* ── Projects List ───────────────────────────────────── */
@@ -306,7 +336,7 @@ const proyectos = [
         display: grid;
         grid-template-columns: 55% 45%;
         min-height: 62vh;
-        border-top: 1px solid #0f1623;
+        border-top: 1px solid var(--proj-card-border);
         opacity: 0;
         transform: translateY(48px);
         transition: opacity 0.75s ease, transform 0.75s ease;
@@ -366,7 +396,7 @@ const proyectos = [
         max-width: 620px;
         border-radius: 10px;
         overflow: hidden;
-        border: 1px solid #1a2235;
+        border: 1px solid var(--proj-browser-border);
         box-shadow:
             0 0 0 1px rgba(255,255,255,0.025),
             0 24px 64px rgba(0,0,0,0.65),
@@ -384,12 +414,12 @@ const proyectos = [
     }
 
     .browser-bar {
-        background: #0d1117;
+        background: var(--proj-browser-bar);
         padding: 9px 14px;
         display: flex;
         align-items: center;
         gap: 10px;
-        border-bottom: 1px solid #1a2235;
+        border-bottom: 1px solid var(--proj-browser-border);
     }
 
     .browser-dots {
@@ -411,7 +441,7 @@ const proyectos = [
     .browser-url {
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.68rem;
-        color: #3d4f6b;
+        color: var(--proj-url-color);
         flex: 1;
         text-align: center;
         overflow: hidden;
@@ -496,7 +526,7 @@ const proyectos = [
     .info-title {
         font-family: 'Bebas Neue', sans-serif;
         font-size: clamp(2.25rem, 3.5vw, 3.5rem);
-        color: #f1f5f9;
+        color: var(--proj-info-title);
         line-height: 1.0;
         letter-spacing: 0.025em;
     }
@@ -505,7 +535,7 @@ const proyectos = [
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 0.975rem;
         line-height: 1.78;
-        color: #8b9ab4;
+        color: var(--proj-info-desc);
         max-width: 44ch;
         font-weight: 400;
     }
@@ -520,7 +550,7 @@ const proyectos = [
     .stack-label {
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.68rem;
-        color: #2d3d55;
+        color: var(--proj-stack-label);
         letter-spacing: 0.1em;
     }
 
@@ -598,11 +628,11 @@ const proyectos = [
         gap: 0.5rem;
         padding: 0.65rem 1.2rem;
         border-radius: 6px;
-        border: 1px solid #1a2235;
+        border: 1px solid var(--proj-action-github-border);
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 0.875rem;
         font-weight: 500;
-        color: #64748b;
+        color: var(--proj-action-github-color);
         text-decoration: none;
         transition: border-color 0.2s, color 0.2s;
     }
@@ -613,7 +643,7 @@ const proyectos = [
     }
 
     .action-github:hover {
-        border-color: #2d3d55;
+        border-color: var(--proj-ghost-stroke);
         color: #94a3b8;
     }
 
