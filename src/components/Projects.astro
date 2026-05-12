@@ -1,16 +1,30 @@
 ---
+interface Proyecto {
+    id: number;
+    i18nTitle: string;
+    titulo: string;
+    i18nDesc: string;
+    descripcion: string;
+    accent: string;
+    placeholderBg: string;
+    tecnologias: string[];
+    images: string[];
+    demo?: string;
+    github?: string;
+}
+
 const BASE = '/images/fotos%20fe%20proyectos';
 
-const proyectos = [
+const proyectos: Proyecto[] = [
     {
         id: 1,
         i18nTitle: "proj.0.title",
         titulo: "Agroproductivity Platform",
         i18nDesc: "proj.0.desc",
-        descripcion: "Agricultural price system with statistical analysis, price reports, GeoJSON analysis, micro-location visualization and structured REST API.",
+        descripcion: "Comprehensive agricultural suite covering soil agroproductivity analysis, polygon drawing and spatial data extraction, meteorological and hydrological reporting, agrochemical laboratory sample testing, and an interactive GeoServer-powered map with multi-category spatial layers.",
         accent: "#10b981",
         placeholderBg: "linear-gradient(135deg, #022c22 0%, #064e3b 40%, #065f46 100%)",
-        tecnologias: ["Python", "Django", "Leaflet", "GeoServer"],
+        tecnologias: ["Python", "Django", "Leaflet","TailwindCSS", "GeoServer", "PostgreSQL"],
         images: [
             `${BASE}/suite%20suelos/1.jpeg`,
             `${BASE}/suite%20suelos/2.jpeg`,
@@ -30,10 +44,11 @@ const proyectos = [
         i18nTitle: "proj.1.title",
         titulo: "SICCA (UN - FAO)",
         i18nDesc: "proj.1.desc",
-        descripcion: "Climate change platform with artificial intelligence module for decision-making, implementing a custom CMS for recording Cuba's climate actions.",
+        descripcion: "Platform for showcasing and disseminating climate change information, featuring a sector-based adaptation actions registry module and an AI-powered tool for monitoring and evaluating results.",
         accent: "#a78bfa",
+        demo: "https://sicca.minag.code43w.net/",
         placeholderBg: "linear-gradient(135deg, #1e1035 0%, #2e1065 40%, #3b0764 100%)",
-        tecnologias: ["Wagtail", "Django", "AI", "PostgreSQL"],
+        tecnologias: ["Wagtail", "Django", "AI","Bootstrap", "PostgreSQL"],
         images: [
             `${BASE}/sicca/1.png`,
             `${BASE}/sicca/2.png`,
@@ -54,10 +69,11 @@ const proyectos = [
         i18nTitle: "proj.2.title",
         titulo: "INGEI Platform",
         i18nDesc: "proj.2.desc",
-        descripcion: "National Greenhouse Gas Inventory. Visual platform that processes dynamic formulas, analyzes historical series and automatically generates PDF and Excel reports.",
+        descripcion: "Cuba's official National Greenhouse Gas Inventory (INGEI) — the instrument through which the country reports its emissions and absorptions to the United Nations Framework Convention on Climate Change (UNFCCC). Visual platform that processes dynamic formulas, analyzes historical series and automatically generates PDF and Excel reports.",
         accent: "#38bdf8",
+        demo: "https://ingei.minag.code43w.net/",
         placeholderBg: "linear-gradient(135deg, #04232f 0%, #0c4a6e 40%, #082f49 100%)",
-        tecnologias: ["FastAPI", "Next.js", "Pandas", "PostgreSQL"],
+        tecnologias: ["Django", "Python", "Mysql", "Bootstrap"],
         images: [
             `${BASE}/ingei/1.jpg`,
             `${BASE}/ingei/2.jpeg`,
@@ -73,650 +89,390 @@ const proyectos = [
     {
         id: 4,
         i18nTitle: "proj.3.title",
-        titulo: "GIS App & Bots",
+        titulo: "Guajapp App & Bots",
         i18nDesc: "proj.3.desc",
-        descripcion: "Android mobile application for building polygons, calculating productive soil areas in real time and interactive Telegram bots for agricultural procedures (Guajapp).",
+        descripcion: "Agricultural social network (Guajapp) connecting farming cooperatives through conversational bots — enabling procedure management, contract filing, GPS-based polygon drawing, satellite imagery consultation, and access to crop plans and agricultural data. Built on Matrix protocol with a Django REST backend.",
         accent: "#fb923c",
         placeholderBg: "linear-gradient(135deg, #2c0a00 0%, #7c2d12 40%, #9a3412 100%)",
-        tecnologias: ["Android", "Flutter/Dart", "Python", "Telegram API"],
+        tecnologias: ["Flutter/Dart", "Python","Django REST Framework", "Mysql", "Matrix"],
         images: []
-    }
+    },
+    {
+        id: 5,
+        i18nTitle: "proj.4.title",
+        titulo: "PolyMap",
+        i18nDesc: "proj.4.desc",
+        descripcion: "Geographic data visualization platform with interactive polygon drawing tools, real-time area calculation and field mapping for agricultural land management.",
+        accent: "#34d399",
+        placeholderBg: "linear-gradient(135deg, #022c1a 0%, #064e38 40%, #065f46 100%)",
+        tecnologias: ["GIS", "PostGIS", "Python", "Django REST Framework", "Flutter/Dart"],
+        images: [
+            `${BASE}/polymap/1.jpeg`,
+            `${BASE}/polymap/2.jpeg`,
+            `${BASE}/polymap/3.jpeg`,
+            `${BASE}/polymap/4.jpeg`,
+            `${BASE}/polymap/5.jpeg`,
+            `${BASE}/polymap/6.jpeg`,
+            `${BASE}/polymap/7.jpeg`,
+        ]
+    },
+    {
+        id: 6,
+        i18nTitle: "proj.5.title",
+        titulo: "RCF Platform",
+        i18nDesc: "proj.5.desc",
+        descripcion: "Flutter mobile app for tracking fertilizer registration procedures in Cuba, covering the full regulatory lifecycle — document submission, agreement signing, payment confirmation, technical review (dictamen), and official certification issuance. Backed by a Django REST API with multi-role access for requesting companies and regulatory administrators.",
+        accent: "#818cf8",
+        placeholderBg: "linear-gradient(135deg, #0f0a2e 0%, #1e1065 40%, #2e1575 100%)",
+        tecnologias: ["Flutter/Dart", "Django REST Framework", "Mysql"],
+        images: [
+            `${BASE}/rcf/1.jpeg`,
+            `${BASE}/rcf/2.jpeg`,
+            `${BASE}/rcf/3.jpeg`,
+            `${BASE}/rcf/4.jpeg`,
+            `${BASE}/rcf/5.jpeg`,
+            `${BASE}/rcf/6.jpeg`,
+            `${BASE}/rcf/7.jpeg`,
+            `${BASE}/rcf/8.jpeg`,
+            `${BASE}/rcf/9.jpeg`,
+            `${BASE}/rcf/10.jpeg`,
+        ]
+    },
+    {
+        id: 7,
+        i18nTitle: "proj.6.title",
+        titulo: "Network & Services Registration",
+        i18nDesc: "proj.6.desc",
+        descripcion: "Corporate system for network device onboarding and service management with full Active Directory integration, automated report generation and centralized SQL Server database.",
+        accent: "#f43f5e",
+        placeholderBg: "linear-gradient(135deg, #200010 0%, #4c0519 40%, #6b0f27 100%)",
+        tecnologias: ["ASP.NET", "C#", "SQL Server", "Active Directory","ReportLab"],
+        images: []
+    },
+    {
+        id: 8,
+        i18nTitle: "proj.7.title",
+        titulo: "Agricultural Machinery Management",
+        i18nDesc: "proj.7.desc",
+        descripcion: "Comprehensive inventory and maintenance management system for agricultural machinery fleets, including service scheduling, failure tracking and full maintenance history per unit.",
+        accent: "#fbbf24",
+        placeholderBg: "linear-gradient(135deg, #1c1000 0%, #451a03 40%, #78350f 100%)",
+        tecnologias: ["ASP.NET", "C#", "SQL Server", "Crystal Reports"],
+        images: []
+    },
+    {
+        id: 9,
+        i18nTitle: "proj.8.title",
+        titulo: "Written Legacy Turf",
+        i18nDesc: "proj.8.desc",
+        descripcion: "Premium artificial turf installation landing page for a Florida-based company. Features bilingual support (EN/ES), interactive before/after slider, service area map and WhatsApp integration.",
+        accent: "#4ade80",
+        demo: "https://writtenlegacyturf.com/",
+        placeholderBg: "linear-gradient(135deg, #052e16 0%, #14532d 40%, #166534 100%)",
+        tecnologias: ["Astro", "TailwindCSS", "TypeScript"],
+        images: [
+            `${BASE}/written_legacy/1.jpg`,
+            `${BASE}/written_legacy/2.jpg`,
+            `${BASE}/written_legacy/3.jpg`,
+            `${BASE}/written_legacy/4.jpg`,
+            `${BASE}/written_legacy/5.jpg`,
+            `${BASE}/written_legacy/6.jpg`,
+        ]
+    },
+    {
+        id: 10,
+        i18nTitle: "proj.9.title",
+        titulo: "GVoltsCorp",
+        i18nDesc: "proj.9.desc",
+        descripcion: "Corporate landing page for a Florida security and electrical systems company. Showcases NICET III, OSHA and state certifications, brand partners (Honeywell, Hikvision) and service offerings.",
+        accent: "#60a5fa",
+        demo: "https://gvoltscorp.cloud/",
+        placeholderBg: "linear-gradient(135deg, #030e1f 0%, #0c1e3d 40%, #0f2d5a 100%)",
+        tecnologias: ["Astro", "TailwindCSS"],
+        images: [
+             `${BASE}/gvoltscorp/1.jpg`,
+            `${BASE}/gvoltscorp/2.jpg`,
+            `${BASE}/gvoltscorp/3.jpg`,
+            `${BASE}/gvoltscorp/4.jpg`,
+            `${BASE}/gvoltscorp/5.jpg`,
+            `${BASE}/gvoltscorp/6.jpg`,
+            `${BASE}/gvoltscorp/7.jpg`,
+            `${BASE}/gvoltscorp/8.jpg`,
+        ]
+    },
+];
+
+const filterOptions: { label: string; tech: string; match?: string[] }[] = [
+    { label: 'Python',    tech: 'python' },
+    { label: 'Django RF', tech: 'django rest framework' },
+    { label: 'Flutter',   tech: 'flutter/dart' },
+    { label: 'ASP.NET',   tech: 'asp.net' },
+    { label: 'Astro',     tech: 'astro' },
+    { label: 'SQL Server', tech: 'sql server' },
+    { label: 'MySQL',     tech: 'mysql' },
+    { label: 'PostgreSQL', tech: 'postgresql' },
 ];
 ---
 
-<section id="proyectos" class="projects-section">
+<section
+    id="proyectos"
+    class="bg-slate-50 dark:bg-[#030712] pt-28 pb-40 relative overflow-hidden"
+>
+    <!-- Dot grid overlay -->
+    <div class="absolute inset-0 pointer-events-none z-0 [background-image:radial-gradient(circle,rgba(255,255,255,0.025)_1px,transparent_1px)] [background-size:28px_28px]"></div>
 
     <!-- Header -->
-    <div class="projects-header">
+    <div class="relative z-10 max-w-[1320px] mx-auto px-6 mb-12 sm:px-12 sm:mb-[4.5rem] text-center">
         <div class="[font-family:'Space_Mono',monospace] text-[0.65rem] tracking-[0.18em] inline-flex items-center gap-[0.3rem] mb-5">
             <span class="text-[rgba(34,211,238,0.55)] text-[1rem] leading-none">[</span>
             <span class="text-[rgba(34,211,238,0.85)]">selected.work</span>
             <span class="text-[rgba(34,211,238,0.55)] text-[1rem] leading-none">]</span>
         </div>
-        <h2 class="section-heading">
-            <span class="heading-ghost">My</span>
+        <h2 class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[clamp(2.5rem,7vw,4.5rem)] text-slate-900 dark:text-slate-100 leading-[0.88] tracking-[-0.01em] uppercase">
+            <span style="color: transparent; -webkit-text-stroke: 2px #22d3ee;">My</span>
             Projects
         </h2>
     </div>
 
-    <!-- List -->
-    <div class="projects-list">
-        {proyectos.map((proyecto) => (
-            <article class="project-card" style={`--accent: ${proyecto.accent};`}>
+    <!-- Search + Filter -->
+    <div class="relative z-10 max-w-[1320px] mx-auto px-6 sm:px-12 mb-10 sm:mb-14">
+        <!-- Search input -->
+        <div class="relative mb-5">
+            <div class="absolute inset-y-0 left-3.5 flex items-center pointer-events-none">
+                <svg class="w-4 h-4 text-slate-400 dark:text-[#3d4f6b]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+            </div>
+            <input
+                id="proj-search"
+                type="text"
+                placeholder="Search projects..."
+                class="w-full bg-white dark:bg-[#080e1a] border border-slate-200 dark:border-[#0f1623] rounded-[8px] pl-10 pr-4 py-3 [font-family:'JetBrains_Mono',monospace] text-[0.875rem] text-slate-700 dark:text-slate-300 placeholder:text-slate-400 dark:placeholder:text-[#3d4f6b] outline-none focus:border-slate-400 dark:focus:border-[#2d3748] transition-colors duration-200"
+            />
+        </div>
 
-                <!-- Visual -->
-                <div class="card-visual">
-                    <div class="browser-frame">
-                        <div class="browser-bar">
-                            <div class="browser-dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
+        <!-- Tech filter pills -->
+        <div class="flex flex-wrap gap-[0.4rem]">
+            <button
+                class="proj-tech-filter [font-family:'JetBrains_Mono',monospace] text-[0.7rem] py-1 px-[0.75rem] rounded border tracking-[0.06em] cursor-pointer transition-all duration-200 border-slate-200 dark:border-[#1a2235] text-slate-500 dark:text-[#4b6080] hover:border-cyan-400/30 hover:text-cyan-400 hover:bg-cyan-400/5 data-[active=true]:border-cyan-400/30 data-[active=true]:text-cyan-400 data-[active=true]:bg-cyan-400/10"
+                data-tech="all"
+                data-active="true"
+            >
+                All
+            </button>
+            {filterOptions.map((f) => (
+                <button
+                    class="proj-tech-filter [font-family:'JetBrains_Mono',monospace] text-[0.7rem] py-1 px-[0.75rem] rounded border tracking-[0.06em] cursor-pointer transition-all duration-200 border-slate-200 dark:border-[#1a2235] text-slate-500 dark:text-[#4b6080] hover:border-cyan-400/30 hover:text-cyan-400 hover:bg-cyan-400/5 data-[active=true]:border-cyan-400/30 data-[active=true]:text-cyan-400 data-[active=true]:bg-cyan-400/10"
+                    data-tech={f.tech}
+                    data-match={f.match ? JSON.stringify(f.match) : undefined}
+                >
+                    {f.label}
+                </button>
+            ))}
+        </div>
+    </div>
+
+    <!-- No results -->
+    <div id="proj-no-results" style="display:none" class="relative z-10 flex flex-col items-center justify-center py-24 text-center">
+        <span class="[font-family:'JetBrains_Mono',monospace] text-[0.75rem] text-slate-400 dark:text-[#3d4f6b] tracking-[0.15em] mb-2">// no_results_found</span>
+        <p class="[font-family:'Plus_Jakarta_Sans',sans-serif] text-slate-500 dark:text-[#4b6080] text-[0.9rem]">Try a different search or filter</p>
+    </div>
+
+    <!-- List -->
+    <div class="flex flex-col relative z-10">
+        {proyectos.map((proyecto, idx) => {
+            const isEven = idx % 2 === 1;
+            return (
+                <article
+                    class={[
+                        'group project-card',
+                        'grid grid-cols-1',
+                        'min-[960px]:min-h-[62vh]',
+                        isEven ? 'min-[960px]:grid-cols-[45%_55%]' : 'min-[960px]:grid-cols-[55%_45%]',
+                        'border-t border-slate-200 dark:border-[#0f1623]',
+                        'opacity-0 translate-y-12',
+                        'transition-[opacity,transform] duration-700 ease-out',
+                    ].join(' ')}
+                    style={`--accent: ${proyecto.accent};`}
+                    data-title={proyecto.titulo.toLowerCase()}
+                    data-techs={proyecto.tecnologias.map(t => t.toLowerCase()).join(',')}
+                >
+                    <!-- Visual column -->
+                    <div class={[
+                        'relative flex items-center justify-center overflow-hidden',
+                        'min-h-[260px] min-[960px]:min-h-0',
+                        'py-8 px-5 sm:py-10 sm:px-8 min-[960px]:py-14 min-[960px]:px-10',
+                        isEven ? 'min-[960px]:order-2' : '',
+                    ].join(' ')}>
+
+                        <!-- Browser frame -->
+                        <div class="relative z-10 w-full max-w-[620px] rounded-[10px] overflow-hidden border border-slate-200 dark:border-[#1a2235] shadow-[0_0_0_1px_rgba(255,255,255,0.025),0_24px_64px_rgba(0,0,0,0.65),0_4px_16px_rgba(0,0,0,0.4)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.018] group-hover:-translate-y-[5px] group-hover:shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_36px_80px_rgba(0,0,0,0.75),0_4px_16px_rgba(0,0,0,0.5)]">
+
+                            <!-- Browser bar -->
+                            <div class="bg-slate-100 dark:bg-[#0d1117] py-[9px] px-3.5 flex items-center gap-2.5 border-b border-slate-200 dark:border-[#1a2235]">
+                                <div class="flex gap-1.5 shrink-0">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-[#e74c3c]"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-[#f39c12]"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-[#2ecc71]"></span>
+                                </div>
+                                <div class="[font-family:'JetBrains_Mono',monospace] text-[0.68rem] text-gray-500 dark:text-[#3d4f6b] flex-1 text-center overflow-hidden text-ellipsis whitespace-nowrap">
+                                    project-{proyecto.id}.portfolio.dev
+                                </div>
                             </div>
-                            <div class="browser-url">
-                                project-{proyecto.id}.portfolio.dev
+
+                            <!-- Viewport -->
+                            <div
+                                class="aspect-[16/10] flex items-center justify-center overflow-hidden relative"
+                                style={`background: ${proyecto.placeholderBg};`}
+                            >
+                                {proyecto.images.length > 0 ? (
+                                    <div
+                                        class="proj-slideshow group/slide absolute inset-0 cursor-zoom-in"
+                                        data-images={JSON.stringify(proyecto.images)}
+                                    >
+                                        {proyecto.images.map((img, i) => (
+                                            <img
+                                                src={img}
+                                                alt={`${proyecto.titulo} — screenshot ${i + 1}`}
+                                                class={`proj-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${i === 0 ? 'opacity-100' : 'opacity-0'}`}
+                                                loading={i === 0 ? 'eager' : 'lazy'}
+                                            />
+                                        ))}
+
+                                        {proyecto.images.length > 1 && (
+                                            <div class="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2 opacity-0 group-hover/slide:opacity-100 transition-opacity duration-300">
+                                                <button class="proj-prev w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm text-white text-xl flex items-center justify-center hover:bg-black/80 transition-colors select-none leading-none">&#8249;</button>
+                                                <button class="proj-next w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm text-white text-xl flex items-center justify-center hover:bg-black/80 transition-colors select-none leading-none">&#8250;</button>
+                                            </div>
+                                        )}
+
+                                        {proyecto.images.length > 1 && (
+                                            <div class="absolute bottom-2.5 left-0 right-0 flex justify-center gap-1.5 pointer-events-none">
+                                                {proyecto.images.map((_, i) => (
+                                                    <button class={`proj-dot pointer-events-auto rounded-full transition-all duration-300 h-1.5 ${i === 0 ? 'w-3 bg-white' : 'w-1.5 bg-white/40'}`}></button>
+                                                ))}
+                                            </div>
+                                        )}
+
+                                        <div class="absolute top-2 right-2 opacity-0 group-hover/slide:opacity-100 transition-opacity duration-300 pointer-events-none select-none flex items-center gap-1 bg-black/50 backdrop-blur-sm rounded px-1.5 py-0.5 text-[10px] text-white/70">
+                                            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+                                            </svg>
+                                            Expand
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div class="flex flex-col items-center gap-1.5 pointer-events-none">
+                                        <span class="[font-family:'Bebas_Neue',sans-serif] text-[5.5rem] [color:var(--accent)] opacity-30 leading-none">
+                                            {String(proyecto.id).padStart(2, '0')}
+                                        </span>
+                                        <span class="[font-family:'JetBrains_Mono',monospace] text-[0.62rem] text-white/[0.18] uppercase tracking-[0.22em]">
+                                            Screenshot coming soon
+                                        </span>
+                                    </div>
+                                )}
                             </div>
                         </div>
-                        <div class="browser-viewport" style={`background: ${proyecto.placeholderBg};`}>
-                            {proyecto.images.length > 0 ? (
-                                <div
-                                    class="proj-slideshow group/slide absolute inset-0 cursor-zoom-in"
+
+                        <!-- Background number -->
+                        <div class="absolute bottom-[-8%] right-[-6%] [font-family:'Bebas_Neue',sans-serif] text-[45vw] min-[960px]:text-[22vw] [color:var(--accent)] opacity-[0.035] group-hover:opacity-[0.065] leading-none pointer-events-none select-none z-0 transition-opacity duration-500">
+                            {String(proyecto.id).padStart(2, '0')}
+                        </div>
+                    </div>
+
+                    <!-- Info column -->
+                    <div class={[
+                        'flex flex-col justify-center',
+                        'py-6 px-5 pb-10 gap-5',
+                        'sm:py-8 sm:px-8 sm:pb-12',
+                        'min-[960px]:gap-[1.6rem]',
+                        isEven
+                            ? 'min-[960px]:order-1 min-[960px]:py-16 min-[960px]:pr-14 min-[960px]:pl-[4.5rem]'
+                            : 'min-[960px]:py-16 min-[960px]:pl-14 min-[960px]:pr-[4.5rem]',
+                    ].join(' ')}>
+
+                        <!-- Meta index -->
+                        <div class="flex items-center gap-3">
+                            <span class="[font-family:'JetBrains_Mono',monospace] text-[0.82rem] font-medium [color:var(--accent)] tracking-[0.05em]">
+                                {String(proyecto.id).padStart(2, '0')}
+                            </span>
+                            <div class="w-9 h-px [background:var(--accent)] opacity-[0.45]"></div>
+                        </div>
+
+                        <h3
+                            class="[font-family:'Bebas_Neue',sans-serif] text-[clamp(2.25rem,3.5vw,3.5rem)] text-slate-900 dark:text-slate-100 leading-none tracking-[0.025em]"
+                            data-i18n={proyecto.i18nTitle}
+                        >
+                            {proyecto.titulo}
+                        </h3>
+
+                        <p
+                            class="[font-family:'Plus_Jakarta_Sans',sans-serif] text-[0.975rem] leading-[1.78] text-gray-700 dark:text-[#8b9ab4] max-w-full sm:max-w-[44ch] font-normal"
+                            data-i18n={proyecto.i18nDesc}
+                        >
+                            {proyecto.descripcion}
+                        </p>
+
+                        <!-- Tech stack -->
+                        <div class="flex flex-col gap-[0.6rem]">
+                            <span class="[font-family:'JetBrains_Mono',monospace] text-[0.68rem] text-gray-600 dark:text-[#2d3d55] tracking-[0.1em]">$ tech --stack</span>
+                            <div class="flex flex-wrap gap-[0.45rem]">
+                                {proyecto.tecnologias.map((tech) => (
+                                    <span class="[font-family:'JetBrains_Mono',monospace] text-[0.75rem] font-medium py-[0.28rem] px-3 rounded [color:var(--accent)] border [border-color:color-mix(in_srgb,var(--accent)_22%,transparent)] [background:color-mix(in_srgb,var(--accent)_6%,transparent)] hover:[background:color-mix(in_srgb,var(--accent)_14%,transparent)] transition-colors duration-200">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="flex gap-[0.875rem] items-center flex-wrap mt-1">
+                            {proyecto.demo && (
+                                <a href={proyecto.demo} target="_blank" rel="noopener noreferrer" class="group/demo inline-flex items-center gap-2 py-[0.65rem] px-[1.4rem] rounded-[6px] [font-family:'Plus_Jakarta_Sans',sans-serif] text-[0.875rem] font-semibold no-underline [background:var(--accent)] text-[#030712] transition-[opacity,transform] duration-200 hover:opacity-85 hover:-translate-y-0.5">
+                                    <span data-i18n="proj.cta.demo">Visitar</span>
+                                    <svg class="w-[0.9rem] h-[0.9rem] transition-transform duration-200 group-hover/demo:translate-x-[3px]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                                    </svg>
+                                </a>
+                            )}
+
+                            {proyecto.github && (
+                                <a href={proyecto.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 py-[0.65rem] px-[1.2rem] rounded-[6px] border border-slate-200 dark:border-[#1a2235] [font-family:'Plus_Jakarta_Sans',sans-serif] text-[0.875rem] font-medium text-slate-500 no-underline transition-[border-color,color] duration-200 hover:border-slate-400 dark:hover:border-[#2d3748] hover:text-slate-400">
+                                    <svg class="w-[0.95rem] h-[0.95rem]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </a>
+                            )}
+
+                            {!proyecto.demo && !proyecto.github && (
+                                <span class="inline-flex items-center gap-[0.4rem] py-[0.55rem] px-[1rem] rounded-[6px] border border-slate-200/60 dark:border-[#1a2235] [font-family:'JetBrains_Mono',monospace] text-[0.68rem] tracking-[0.08em] text-slate-400 dark:text-[#3d4f6b]">
+                                    <svg class="w-[0.8rem] h-[0.8rem] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                    </svg>
+                                    Confidential — Enterprise
+                                </span>
+                            )}
+
+                            {proyecto.images.length > 0 && (
+                                <button
+                                    class="proj-gallery-btn inline-flex items-center gap-[0.45rem] py-[0.65rem] px-[1.1rem] rounded-[6px] border border-white/[0.06] [font-family:'JetBrains_Mono',monospace] text-[0.72rem] font-medium text-[#4b6080] bg-transparent cursor-pointer tracking-[0.04em] transition-[border-color,color,background] duration-200 hover:[border-color:var(--accent)] hover:[color:var(--accent)] hover:[background:color-mix(in_srgb,var(--accent)_8%,transparent)]"
                                     data-images={JSON.stringify(proyecto.images)}
                                 >
-                                    {proyecto.images.map((img, idx) => (
-                                        <img
-                                            src={img}
-                                            alt={`${proyecto.titulo} — screenshot ${idx + 1}`}
-                                            class={`proj-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${idx === 0 ? 'opacity-100' : 'opacity-0'}`}
-                                            loading={idx === 0 ? 'eager' : 'lazy'}
-                                        />
-                                    ))}
-
-                                    {proyecto.images.length > 1 && (
-                                        <div class="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2 opacity-0 group-hover/slide:opacity-100 transition-opacity duration-300">
-                                            <button class="proj-prev w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm text-white text-xl flex items-center justify-center hover:bg-black/80 transition-colors select-none leading-none">&#8249;</button>
-                                            <button class="proj-next w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm text-white text-xl flex items-center justify-center hover:bg-black/80 transition-colors select-none leading-none">&#8250;</button>
-                                        </div>
-                                    )}
-
-                                    {proyecto.images.length > 1 && (
-                                        <div class="absolute bottom-2.5 left-0 right-0 flex justify-center gap-1.5 pointer-events-none">
-                                            {proyecto.images.map((_, i) => (
-                                                <button class={`proj-dot pointer-events-auto rounded-full transition-all duration-300 h-1.5 ${i === 0 ? 'w-3 bg-white' : 'w-1.5 bg-white/40'}`}></button>
-                                            ))}
-                                        </div>
-                                    )}
-
-                                    <div class="absolute top-2 right-2 opacity-0 group-hover/slide:opacity-100 transition-opacity duration-300 pointer-events-none select-none flex items-center gap-1 bg-black/50 backdrop-blur-sm rounded px-1.5 py-0.5 text-[10px] text-white/70">
-                                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
-                                        </svg>
-                                        Expand
-                                    </div>
-                                </div>
-                            ) : (
-                                <div class="viewport-placeholder">
-                                    <span class="ph-num">{String(proyecto.id).padStart(2, '0')}</span>
-                                    <span class="ph-label">Screenshot coming soon</span>
-                                </div>
+                                    <svg class="w-[0.9rem] h-[0.9rem]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 5 2-3 3 6z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Gallery ({proyecto.images.length})
+                                </button>
                             )}
                         </div>
                     </div>
-                    <div class="bg-number">{String(proyecto.id).padStart(2, '0')}</div>
-                </div>
-
-                <!-- Info -->
-                <div class="card-info">
-                    <div class="info-meta">
-                        <span class="meta-index">{String(proyecto.id).padStart(2, '0')}</span>
-                        <div class="meta-rule"></div>
-                    </div>
-
-                    <h3 class="info-title" data-i18n={proyecto.i18nTitle}>
-                        {proyecto.titulo}
-                    </h3>
-
-                    <p class="info-desc" data-i18n={proyecto.i18nDesc}>
-                        {proyecto.descripcion}
-                    </p>
-
-                    <div class="tech-stack">
-                        <span class="stack-label">$ tech --stack</span>
-                        <div class="stack-tags">
-                            {proyecto.tecnologias.map((tech) => (
-                                <span class="stack-tag">{tech}</span>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div class="card-actions">
-                        <a href="#" class="action-demo">
-                            <span data-i18n="proj.cta.demo">View Demo</span>
-                            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="action-github">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                            GitHub
-                        </a>
-                        {proyecto.images.length > 0 && (
-                            <button
-                                class="proj-gallery-btn action-gallery"
-                                data-images={JSON.stringify(proyecto.images)}
-                            >
-                                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 5 2-3 3 6z" clip-rule="evenodd"/>
-                                </svg>
-                                Gallery ({proyecto.images.length})
-                            </button>
-                        )}
-                    </div>
-                </div>
-
-            </article>
-        ))}
+                </article>
+            );
+        })}
     </div>
-
 </section>
-
-<style>
-    /* Theme variables — set by Tailwind darkMode: 'class' on <html> */
-    :root {
-        --proj-bg: #f8fafc;
-        --proj-heading: #0f172a;
-        --proj-info-title: #0f172a;
-        --proj-info-desc: #374151;
-        --proj-browser-bar: #f1f5f9;
-        --proj-browser-border: #e2e8f0;
-        --proj-card-border: #e2e8f0;
-        --proj-url-color: #6b7280;
-        --proj-stack-label: #4b5563;
-        --proj-action-github-border: #e2e8f0;
-        --proj-action-github-color: #64748b;
-        --proj-ghost-stroke: #94a3b8;
-    }
-    :global(.dark) {
-        --proj-bg: #030712;
-        --proj-heading: #f1f5f9;
-        --proj-info-title: #f1f5f9;
-        --proj-info-desc: #8b9ab4;
-        --proj-browser-bar: #0d1117;
-        --proj-browser-border: #1a2235;
-        --proj-card-border: #0f1623;
-        --proj-url-color: #3d4f6b;
-        --proj-stack-label: #2d3d55;
-        --proj-action-github-border: #1a2235;
-        --proj-action-github-color: #64748b;
-        --proj-ghost-stroke: #2d3748;
-    }
-
-    /* ── Section ─────────────────────────────────────────── */
-    .projects-section {
-        background: var(--proj-bg);
-        padding: 7rem 0 10rem;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .projects-section::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
-        background-size: 28px 28px;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    /* ── Header ──────────────────────────────────────────── */
-    .projects-header {
-        position: relative;
-        z-index: 1;
-        max-width: 1320px;
-        margin: 0 auto 4.5rem;
-        padding: 0 3rem;
-    }
-
-    .header-eyebrow {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 0.75rem;
-    }
-
-    .eyebrow-tag {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.78rem;
-        color: #4b5563;
-        letter-spacing: 0.06em;
-    }
-
-    .eyebrow-rule {
-        width: 140px;
-        height: 1px;
-        background: linear-gradient(to right, #1f2937, transparent);
-    }
-
-    .eyebrow-count {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.78rem;
-        color: #374151;
-        letter-spacing: 0.1em;
-    }
-
-    .section-heading {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-weight: 900;
-        font-size: clamp(4.5rem, 12vw, 9.5rem);
-        color: var(--proj-heading);
-        line-height: 0.88;
-        letter-spacing: -0.01em;
-        text-transform: uppercase;
-    }
-
-    .heading-ghost {
-        display: block;
-        color: transparent;
-        -webkit-text-stroke: 1px var(--proj-ghost-stroke);
-    }
-
-    /* ── Projects List ───────────────────────────────────── */
-    .projects-list {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        z-index: 1;
-    }
-
-    /* ── Project Card ────────────────────────────────────── */
-    .project-card {
-        display: grid;
-        grid-template-columns: 55% 45%;
-        min-height: 62vh;
-        border-top: 1px solid var(--proj-card-border);
-        opacity: 0;
-        transform: translateY(48px);
-        transition: opacity 0.75s ease, transform 0.75s ease;
-    }
-
-    .project-card.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .project-card:nth-child(even) {
-        grid-template-columns: 45% 55%;
-    }
-
-    .project-card:nth-child(even) .card-visual {
-        order: 2;
-    }
-
-    .project-card:nth-child(even) .card-info {
-        order: 1;
-    }
-
-    /* ── Visual Column ───────────────────────────────────── */
-    .card-visual {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 3.5rem 2.5rem;
-        overflow: hidden;
-    }
-
-    .bg-number {
-        position: absolute;
-        bottom: -8%;
-        right: -6%;
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 22vw;
-        color: var(--accent);
-        opacity: 0.035;
-        line-height: 1;
-        pointer-events: none;
-        user-select: none;
-        z-index: 0;
-        transition: opacity 0.5s ease;
-    }
-
-    .project-card:hover .bg-number {
-        opacity: 0.065;
-    }
-
-    /* ── Browser Frame ───────────────────────────────────── */
-    .browser-frame {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        max-width: 620px;
-        border-radius: 10px;
-        overflow: hidden;
-        border: 1px solid var(--proj-browser-border);
-        box-shadow:
-            0 0 0 1px rgba(255,255,255,0.025),
-            0 24px 64px rgba(0,0,0,0.65),
-            0 4px 16px rgba(0,0,0,0.4);
-        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    box-shadow 0.5s ease;
-    }
-
-    .project-card:hover .browser-frame {
-        transform: scale(1.018) translateY(-5px);
-        box-shadow:
-            0 0 0 1px rgba(255,255,255,0.05),
-            0 36px 80px rgba(0,0,0,0.75),
-            0 4px 16px rgba(0,0,0,0.5);
-    }
-
-    .browser-bar {
-        background: var(--proj-browser-bar);
-        padding: 9px 14px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        border-bottom: 1px solid var(--proj-browser-border);
-    }
-
-    .browser-dots {
-        display: flex;
-        gap: 6px;
-        flex-shrink: 0;
-    }
-
-    .browser-dots span {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-    }
-
-    .browser-dots span:nth-child(1) { background: #e74c3c; }
-    .browser-dots span:nth-child(2) { background: #f39c12; }
-    .browser-dots span:nth-child(3) { background: #2ecc71; }
-
-    .browser-url {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.68rem;
-        color: var(--proj-url-color);
-        flex: 1;
-        text-align: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-    .browser-viewport {
-        aspect-ratio: 16/10;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .project-screenshot {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
-
-    .viewport-placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.4rem;
-        pointer-events: none;
-    }
-
-    .ph-num {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 5.5rem;
-        color: var(--accent);
-        opacity: 0.3;
-        line-height: 1;
-    }
-
-    .ph-label {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.62rem;
-        color: rgba(255,255,255,0.18);
-        text-transform: uppercase;
-        letter-spacing: 0.22em;
-    }
-
-    /* ── Info Column ─────────────────────────────────────── */
-    .card-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 4rem 4.5rem 4rem 3.5rem;
-        gap: 1.6rem;
-    }
-
-    .project-card:nth-child(even) .card-info {
-        padding: 4rem 3.5rem 4rem 4.5rem;
-    }
-
-    .info-meta {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
-
-    .meta-index {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.82rem;
-        font-weight: 500;
-        color: var(--accent);
-        letter-spacing: 0.05em;
-    }
-
-    .meta-rule {
-        width: 36px;
-        height: 1px;
-        background: var(--accent);
-        opacity: 0.45;
-    }
-
-    .info-title {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: clamp(2.25rem, 3.5vw, 3.5rem);
-        color: var(--proj-info-title);
-        line-height: 1.0;
-        letter-spacing: 0.025em;
-    }
-
-    .info-desc {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 0.975rem;
-        line-height: 1.78;
-        color: var(--proj-info-desc);
-        max-width: 44ch;
-        font-weight: 400;
-    }
-
-    /* ── Tech Stack ──────────────────────────────────────── */
-    .tech-stack {
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-    }
-
-    .stack-label {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.68rem;
-        color: var(--proj-stack-label);
-        letter-spacing: 0.1em;
-    }
-
-    .stack-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.45rem;
-    }
-
-    .stack-tag {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.75rem;
-        font-weight: 500;
-        padding: 0.28rem 0.75rem;
-        border-radius: 4px;
-        color: var(--accent);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        background: rgba(255, 255, 255, 0.03);
-        transition: background 0.2s ease;
-    }
-
-    @supports (color: color-mix(in srgb, red 10%, transparent)) {
-        .stack-tag {
-            border-color: color-mix(in srgb, var(--accent) 22%, transparent);
-            background: color-mix(in srgb, var(--accent) 6%, transparent);
-        }
-
-        .stack-tag:hover {
-            background: color-mix(in srgb, var(--accent) 14%, transparent);
-        }
-    }
-
-    /* ── Actions ─────────────────────────────────────────── */
-    .card-actions {
-        display: flex;
-        gap: 0.875rem;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-top: 0.25rem;
-    }
-
-    .action-demo {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.65rem 1.4rem;
-        border-radius: 6px;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-decoration: none;
-        background: var(--accent);
-        color: #030712;
-        transition: opacity 0.2s, transform 0.2s;
-    }
-
-    .action-demo svg {
-        width: 0.9rem;
-        height: 0.9rem;
-        transition: transform 0.2s ease;
-    }
-
-    .action-demo:hover {
-        opacity: 0.85;
-        transform: translateY(-2px);
-    }
-
-    .action-demo:hover svg {
-        transform: translateX(3px);
-    }
-
-    .action-github {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.65rem 1.2rem;
-        border-radius: 6px;
-        border: 1px solid var(--proj-action-github-border);
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: var(--proj-action-github-color);
-        text-decoration: none;
-        transition: border-color 0.2s, color 0.2s;
-    }
-
-    .action-github svg {
-        width: 0.95rem;
-        height: 0.95rem;
-    }
-
-    .action-github:hover {
-        border-color: var(--proj-ghost-stroke);
-        color: #94a3b8;
-    }
-
-    .action-gallery {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        padding: 0.65rem 1.1rem;
-        border-radius: 6px;
-        border: 1px solid rgba(255,255,255,0.06);
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.72rem;
-        font-weight: 500;
-        color: #4b6080;
-        background: transparent;
-        cursor: pointer;
-        transition: border-color 0.2s, color 0.2s, background 0.2s;
-        letter-spacing: 0.04em;
-    }
-
-    .action-gallery svg {
-        width: 0.9rem;
-        height: 0.9rem;
-    }
-
-    .action-gallery:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-        background: color-mix(in srgb, var(--accent) 8%, transparent);
-    }
-
-    /* ── Responsive ──────────────────────────────────────── */
-    @media (max-width: 960px) {
-        .project-card,
-        .project-card:nth-child(even) {
-            grid-template-columns: 1fr;
-            min-height: auto;
-        }
-
-        .project-card:nth-child(even) .card-visual { order: 0; }
-        .project-card:nth-child(even) .card-info { order: 0; }
-
-        .card-visual {
-            padding: 2.5rem 2rem;
-            min-height: 260px;
-        }
-
-        .card-info,
-        .project-card:nth-child(even) .card-info {
-            padding: 2rem 2rem 3rem;
-            gap: 1.25rem;
-        }
-
-        .bg-number {
-            font-size: 45vw;
-        }
-    }
-
-    @media (max-width: 600px) {
-        .projects-header {
-            padding: 0 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .card-visual { padding: 2rem 1.25rem; }
-        .card-info,
-        .project-card:nth-child(even) .card-info {
-            padding: 1.5rem 1.25rem 2.5rem;
-        }
-
-        .info-desc { max-width: 100%; }
-    }
-</style>
 
 <script is:inline>
 (function () {
@@ -870,7 +626,8 @@ const proyectos = [
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
+                    entry.target.classList.remove('opacity-0', 'translate-y-12');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
                     observer.unobserve(entry.target);
                 }
             });
@@ -878,10 +635,65 @@ const proyectos = [
         cards.forEach(function(card) { observer.observe(card); });
     }
 
+    /* ── Search + Filter ──────────────────────────────────── */
+    function initFilter() {
+        var searchInput = document.getElementById('proj-search');
+        var techBtns    = document.querySelectorAll('.proj-tech-filter');
+        var cards       = document.querySelectorAll('.project-card');
+        var noResults   = document.getElementById('proj-no-results');
+
+        var activeSearch    = '';
+        var activeTech      = 'all';
+        var activeMatchList = null;
+
+        function applyFilters() {
+            var visible = 0;
+            cards.forEach(function(card) {
+                var title = card.dataset.title || '';
+                var techs = card.dataset.techs  || '';
+                var techArr = techs.split(',');
+                var matchSearch = !activeSearch || title.indexOf(activeSearch) !== -1;
+                var matchTech;
+                if (activeTech === 'all') {
+                    matchTech = true;
+                } else if (activeMatchList) {
+                    matchTech = activeMatchList.some(function(m) { return techArr.indexOf(m) !== -1; });
+                } else {
+                    matchTech = techArr.indexOf(activeTech) !== -1;
+                }
+                if (matchSearch && matchTech) {
+                    card.style.display = '';
+                    visible++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            if (noResults) noResults.style.display = visible === 0 ? 'flex' : 'none';
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                activeSearch = this.value.trim().toLowerCase();
+                applyFilters();
+            });
+        }
+
+        techBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                techBtns.forEach(function(b) { delete b.dataset.active; });
+                this.dataset.active = 'true';
+                activeTech      = this.dataset.tech.toLowerCase();
+                activeMatchList = this.dataset.match ? JSON.parse(this.dataset.match) : null;
+                applyFilters();
+            });
+        });
+    }
+
     function init() {
         initReveal();
         initSlideshows();
         initGalleryBtns();
+        initFilter();
     }
 
     document.addEventListener('astro:page-load', init);

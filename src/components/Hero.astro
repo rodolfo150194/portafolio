@@ -1,16 +1,14 @@
 ---
 import { Image } from 'astro:assets';
-import profilePhoto from '../assets/images/photo-perfil.jpeg';
+import profilePhoto from '../assets/images/foto-perfil.png';
 ---
 
 <section class="relative min-h-screen flex items-center overflow-hidden bg-slate-50 dark:bg-background-dark">
 
-    <!-- Subtle grid overlay -->
     <div class="absolute inset-0 z-0 opacity-100 pointer-events-none"
          style="background-image: linear-gradient(rgba(34,211,238,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.04) 1px, transparent 1px); background-size: 72px 72px;">
     </div>
 
-    <!-- Background image with overlay -->
     <div class="absolute inset-0 z-0">
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
              style="background-image: url('/images/hero-background.png'); opacity: 0.12;">
@@ -18,20 +16,17 @@ import profilePhoto from '../assets/images/photo-perfil.jpeg';
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/60 to-slate-50 dark:via-background-dark/60 dark:to-background-dark"></div>
     </div>
 
-    <!-- Content -->
     <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
         <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
 
             <!-- Left: Text -->
             <div class="flex-1 text-center lg:text-left">
 
-                <!-- Status badge -->
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-primary text-xs font-bold tracking-[0.15em] uppercase mb-8">
                     <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
                     Open to opportunities
                 </div>
 
-                <!-- Name -->
                 <h1 class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[clamp(3.5rem,9vw,5.5rem)] uppercase [letter-spacing:-0.01em] [line-height:0.95] text-gray-900 dark:text-white mb-5">
                     <span class="block">Rodolfo</span>
                     <span class="block italic bg-gradient-to-r from-primary via-cyan-300 to-blue-400 bg-clip-text text-transparent">
@@ -39,18 +34,15 @@ import profilePhoto from '../assets/images/photo-perfil.jpeg';
                     </span>
                 </h1>
 
-                <!-- Role -->
                 <h2 class="[font-family:'Space_Mono',monospace] text-[0.82rem] text-slate-600 dark:text-slate-400 mb-6 tracking-[0.08em] uppercase">
-                    Full Stack Developer & QA Engineer
+                    Full Stack Developer &amp; QA Engineer &amp; Infrastructure TI
                 </h2>
 
-                <!-- Description -->
                 <p data-i18n="hero.description"
                    class="max-w-lg text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-10 mx-auto lg:mx-0">
                     Computer Science Engineer with over 7 years of experience building scalable, well-tested applications. Versatile profile combining modern backend and frontend solutions, quality assurance practices, infrastructure administration, and collaborations with international organizations like the UN (FAO).
                 </p>
 
-                <!-- CTA Buttons -->
                 <div class="flex flex-wrap gap-4 justify-center lg:justify-start items-center">
                     <a href="/assets/documents/CV_Rodolfo_Garcia.pdf" target="_blank"
                        class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-slate-900 text-sm font-bold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/35 hover:-translate-y-0.5 transition-all duration-300">
@@ -63,7 +55,6 @@ import profilePhoto from '../assets/images/photo-perfil.jpeg';
                         <i class="fa-solid fa-envelope group-hover:scale-110 transition-transform"></i>
                     </a>
 
-                    <!-- Social icons -->
                     <div class="flex items-center gap-3">
                         <a href="https://www.linkedin.com/in/rodolfo-garcia-dev/" target="_blank" rel="noopener noreferrer"
                            class="flex items-center justify-center w-11 h-11 rounded-full bg-[#0a66c2]/15 border border-[#0a66c2]/30 text-[#0a66c2] hover:bg-[#0a66c2] hover:text-white hover:-translate-y-0.5 transition-all duration-300"
@@ -82,16 +73,12 @@ import profilePhoto from '../assets/images/photo-perfil.jpeg';
             <!-- Right: Photo -->
             <div class="relative flex-shrink-0 flex items-center justify-center w-64 h-64 lg:w-80 lg:h-80">
 
-                <!-- Outer spinning ring -->
                 <div class="absolute inset-0 rounded-full border border-dashed border-primary/20 animate-spin-slow"></div>
-                <!-- Inner counter-spinning ring -->
                 <div class="absolute inset-4 rounded-full border border-primary/10 animate-spin-slow-reverse"></div>
 
-                <!-- Dot accents on outer ring -->
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2 h-2 rounded-full bg-primary/60"></div>
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 w-1.5 h-1.5 rounded-full bg-blue-400/40"></div>
 
-                <!-- Photo -->
                 <div class="relative w-48 h-48 lg:w-52 lg:h-52 animate-float">
                     <Image
                         src={profilePhoto}
@@ -101,21 +88,21 @@ import profilePhoto from '../assets/images/photo-perfil.jpeg';
                         loading="eager"
                         class="w-full h-full rounded-full object-cover object-center border-4 border-primary/40 shadow-2xl shadow-primary/25"
                     />
-                    <!-- Glow -->
                     <div class="absolute inset-0 rounded-full bg-primary/10 blur-2xl scale-125 -z-10"></div>
                 </div>
 
                 <!-- Experience badge -->
-                <div class="absolute -bottom-2 -right-4 lg:-bottom-4 lg:-right-6 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl px-4 py-3 shadow-xl text-center">
-                    <p class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[1.9rem] uppercase text-primary leading-none">7+</p>
-                    <p class="[font-family:'Space_Mono',monospace] text-[0.58rem] text-slate-600 dark:text-slate-400 mt-1 leading-tight tracking-[0.04em]">Years<br/>Exp.</p>
+                <div class="absolute -bottom-2 -right-4 lg:-bottom-4 lg:-right-6 bg-gray-100 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl px-4 py-3 shadow-xl text-center">
+                    <p class="[font-family:'Barlow_Condensed',sans-serif] font-black text-2xl text-primary leading-none">7+</p>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1 leading-tight">Years<br/>Exp.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-500">
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white dark:to-gray-950 pointer-events-none z-20"></div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-500 z-30">
         <span class="text-[10px] tracking-[0.2em] uppercase font-medium">Scroll</span>
         <i class="fa-solid fa-chevron-down text-primary animate-bounce text-sm"></i>
     </div>
