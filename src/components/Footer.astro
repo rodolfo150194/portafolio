@@ -10,44 +10,56 @@ const navLinks = [
 ];
 
 const socialLinks = [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/rodolfo-garcia-dev/", icon: "fa-brands fa-linkedin-in",  bg: "hover:bg-[#0a66c2]" },
-    { label: "GitHub",   href: "https://github.com/rodolfo150194",                icon: "fa-brands fa-github",       bg: "hover:bg-gray-700" },
-    { label: "Email",    href: "mailto:rodygm0104@gmail.com",                     icon: "fa-solid fa-envelope",      bg: "hover:bg-primary/80" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/rodolfo-garcia-dev/", icon: "fa-brands fa-linkedin-in",  hoverBg: "hover:bg-[#0a66c2]" },
+    { label: "GitHub",   href: "https://github.com/rodolfo150194",                icon: "fa-brands fa-github",       hoverBg: "hover:bg-gray-700" },
+    { label: "Email",    href: "mailto:rodygm0104@gmail.com",                     icon: "fa-solid fa-envelope",      hoverBg: "hover:bg-primary/80" },
 ];
 ---
 
-<footer class="relative bg-gray-950 border-t border-white/10 overflow-hidden">
-    <!-- Glow decoration -->
-    <div class="absolute inset-0 pointer-events-none z-0 opacity-20">
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-40 bg-primary/30 rounded-full blur-[100px]"></div>
-    </div>
+<footer class="relative bg-gray-950 border-t border-white/[0.07] overflow-hidden">
 
-    <div class="relative z-10 max-w-6xl mx-auto px-6 py-14">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+    <!-- Bottom glow -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-32 bg-primary/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-16">
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
 
             <!-- Col 1: Identity -->
-            <div>
-                <h3 class="text-xl font-bold text-white mb-2">
+            <div class="md:col-span-5">
+                <h3 class="font-display text-2xl font-extrabold text-white mb-3">
                     Rodolfo <span class="text-primary">García Maeso</span>
                 </h3>
                 <p data-i18n="footer.tagline"
-                   class="text-slate-400 text-sm leading-relaxed">
+                   class="text-slate-400 text-sm leading-relaxed max-w-xs mb-6">
                     Full Stack Developer with over 7 years of experience building scalable and modern applications.
                 </p>
+                <!-- Social icons -->
+                <div class="flex items-center gap-3">
+                    {socialLinks.map((social) => (
+                        <a href={social.href}
+                           target={social.href.startsWith("mailto") ? undefined : "_blank"}
+                           rel="noopener noreferrer"
+                           aria-label={social.label}
+                           class={`flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white ${social.hoverBg} hover:border-transparent transition-all duration-300 hover:-translate-y-0.5`}>
+                            <i class={`${social.icon} text-sm`}></i>
+                        </a>
+                    ))}
+                </div>
             </div>
 
             <!-- Col 2: Navigation -->
-            <div>
+            <div class="md:col-span-3">
                 <h4 data-i18n="footer.nav.title"
-                    class="text-sm font-semibold text-slate-300 uppercase tracking-widest mb-4">
+                    class="text-xs font-bold text-slate-300 uppercase tracking-[0.2em] mb-5">
                     Navigation
                 </h4>
-                <ul class="space-y-2">
+                <ul class="space-y-3">
                     {navLinks.map((link) => (
                         <li>
                             <a href={link.href}
-                               class="text-slate-400 hover:text-primary transition-colors duration-200 text-sm flex items-center gap-2 group">
-                                <span class="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                               class="group inline-flex items-center gap-2 text-slate-400 hover:text-primary transition-colors duration-200 text-sm">
+                                <span class="w-0 group-hover:w-3.5 h-px bg-primary transition-all duration-300 overflow-hidden flex-shrink-0"></span>
                                 <span data-i18n={link.i18nKey}>{link.label}</span>
                             </a>
                         </li>
@@ -56,52 +68,49 @@ const socialLinks = [
             </div>
 
             <!-- Col 3: Contact -->
-            <div>
+            <div class="md:col-span-4">
                 <h4 data-i18n="footer.contact.title"
-                    class="text-sm font-semibold text-slate-300 uppercase tracking-widest mb-4">
+                    class="text-xs font-bold text-slate-300 uppercase tracking-[0.2em] mb-5">
                     Contact
                 </h4>
-                <a href="mailto:rodygm0104@gmail.com"
-                   class="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors text-sm mb-3">
-                    <i class="fa-solid fa-envelope text-primary"></i>
-                    rodygm0104@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/rodolfo-garcia-dev/"
-                   target="_blank" rel="noopener noreferrer"
-                   class="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors text-sm">
-                    <i class="fa-brands fa-linkedin-in text-primary"></i>
-                    linkedin.com/in/rodolfo-garcia-dev
-                </a>
-
-                <!-- Social icons -->
-                <div class="flex items-center gap-3 mt-6">
-                    {socialLinks.map((social) => (
-                        <a href={social.href}
-                           target={social.href.startsWith("mailto") ? undefined : "_blank"}
-                           rel="noopener noreferrer"
-                           aria-label={social.label}
-                           class={`flex items-center justify-center w-9 h-9 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white ${social.bg} hover:border-transparent transition-all duration-300`}>
-                            <i class={`${social.icon} text-sm`}></i>
-                        </a>
-                    ))}
+                <div class="space-y-3">
+                    <a href="mailto:rodygm0104@gmail.com"
+                       class="group flex items-center gap-3">
+                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-slate-900 transition-all duration-300">
+                            <i class="fa-solid fa-envelope text-xs"></i>
+                        </span>
+                        <span class="text-slate-400 group-hover:text-white transition-colors text-sm">
+                            rodygm0104@gmail.com
+                        </span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rodolfo-garcia-dev/"
+                       target="_blank" rel="noopener noreferrer"
+                       class="group flex items-center gap-3">
+                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-[#0a66c2]/10 text-[#0a66c2] group-hover:bg-[#0a66c2] group-hover:text-white transition-all duration-300">
+                            <i class="fa-brands fa-linkedin-in text-xs"></i>
+                        </span>
+                        <span class="text-slate-400 group-hover:text-white transition-colors text-sm">
+                            linkedin.com/in/rodolfo-garcia-dev
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
 
         <!-- Bottom bar -->
-        <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <div class="border-t border-white/[0.07] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
             <span>
                 © {currentYear} Rodolfo García Maeso.&nbsp;<span data-i18n="footer.copyright.rights">All rights reserved.</span>
             </span>
-            <span class="flex items-center gap-1 flex-wrap justify-center">
+            <span class="flex items-center gap-1.5 flex-wrap justify-center">
                 <span data-i18n="footer.madewith">Made with</span>
-                <i class="fa-solid fa-heart text-primary mx-1"></i>
+                <i class="fa-solid fa-heart text-primary/60 text-[10px]"></i>
                 <span data-i18n="footer.using">using</span>
                 <a href="https://astro.build" target="_blank" rel="noopener noreferrer"
-                   class="text-primary hover:underline ml-1">Astro</a>
+                   class="text-slate-500 hover:text-primary transition-colors">Astro</a>
                 &amp;
                 <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer"
-                   class="text-primary hover:underline ml-1">Tailwind CSS</a>
+                   class="text-slate-500 hover:text-primary transition-colors ml-0.5">Tailwind CSS</a>
             </span>
         </div>
     </div>
