@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="nameGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#22D3EE"/>
+      <stop offset="55%"  stop-color="#67E8F9"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <radialGradient id="glowLeft" cx="0%" cy="50%" r="70%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#22D3EE" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="72" height="72" patternUnits="userSpaceOnUse">
+      <path d="M 72 0 L 0 0 0 72" fill="none" stroke="#22D3EE" stroke-width="0.5" stroke-opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <!-- Base bg -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <!-- Grid -->
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <!-- Ambient glow -->
+  <rect width="1200" height="630" fill="url(#glowLeft)"/>
+
+  <!-- Top cyan accent line -->
+  <rect x="0" y="0" width="1200" height="3" fill="#22D3EE" opacity="0.7"/>
+
+  <!-- Right side vertical bar -->
+  <rect x="1158" y="0" width="1.5" height="630" fill="#22D3EE" opacity="0.12"/>
+
+  <!-- Decorative diamonds — top right -->
+  <g transform="translate(1078,55) rotate(45)">
+    <rect width="48" height="48" fill="none" stroke="#22D3EE" stroke-width="1.5" opacity="0.35"/>
+  </g>
+  <g transform="translate(1110,87) rotate(45)">
+    <rect width="26" height="26" fill="none" stroke="#22D3EE" stroke-width="1"   opacity="0.18"/>
+  </g>
+  <g transform="translate(1050,100) rotate(45)">
+    <rect width="14" height="14" fill="#22D3EE" opacity="0.08"/>
+  </g>
+
+  <!-- Decorative rings — bottom right -->
+  <circle cx="1120" cy="525" r="110" fill="none" stroke="#22D3EE" stroke-width="1"   opacity="0.07"/>
+  <circle cx="1120" cy="525" r=" 72" fill="none" stroke="#22D3EE" stroke-width="1"   opacity="0.09"/>
+  <circle cx="1120" cy="525" r=" 34" fill="#22D3EE"                                  opacity="0.04"/>
+
+  <!-- Dot accent — bottom left -->
+  <g fill="#22D3EE" opacity="0.18">
+    <circle cx=" 80" cy="555" r="2.5"/>
+    <circle cx="102" cy="555" r="2.5"/>
+    <circle cx="124" cy="555" r="2.5"/>
+    <circle cx=" 80" cy="577" r="2.5"/>
+    <circle cx="102" cy="577" r="2.5"/>
+    <circle cx="124" cy="577" r="2.5"/>
+  </g>
+
+  <!-- OPEN TO WORK badge -->
+  <rect x="80" y="90" width="218" height="30" rx="15"
+        fill="#22D3EE" fill-opacity="0.09"
+        stroke="#22D3EE" stroke-width="1" stroke-opacity="0.28"/>
+  <circle cx="101" cy="105" r="4.5" fill="#22D3EE"/>
+  <text x="116" y="110"
+        font-family="'Courier New', Courier, monospace"
+        font-size="11" font-weight="700"
+        fill="#22D3EE" letter-spacing="2.8">OPEN TO WORK</text>
+
+  <!-- RODOLFO -->
+  <text x="76" y="265"
+        font-family="Impact, 'Arial Black', Arial, sans-serif"
+        font-size="145" font-weight="900"
+        fill="#F8FAFC" letter-spacing="-3" opacity="0.96">RODOLFO</text>
+
+  <!-- GARCÍA MAESO — gradient italic -->
+  <text x="76" y="393"
+        font-family="Impact, 'Arial Black', Arial, sans-serif"
+        font-size="145" font-weight="900" font-style="italic"
+        fill="url(#nameGrad)" letter-spacing="-3">GARCÍA MAESO</text>
+
+  <!-- Role line -->
+  <text x="80" y="443"
+        font-family="'Courier New', Courier, monospace"
+        font-size="13.5" fill="#64748B" letter-spacing="3.2">
+    FULL STACK DEVELOPER  ·  QA ENGINEER  ·  INFRASTRUCTURE TI
+  </text>
+
+  <!-- Divider -->
+  <line x1="80" y1="466" x2="600" y2="466" stroke="#1E293B"  stroke-width="1"/>
+  <line x1="80" y1="466" x2="360" y2="466" stroke="#22D3EE"  stroke-width="1" opacity="0.35"/>
+
+  <!-- Tech chips -->
+  <g font-family="'Courier New', Courier, monospace" font-size="11.5" font-weight="600">
+    <rect x=" 80" y="484" width=" 74" height="25" rx="4" fill="#22D3EE" fill-opacity="0.07" stroke="#22D3EE" stroke-width="0.8" stroke-opacity="0.32"/>
+    <text x="117" y="501" text-anchor="middle" fill="#22D3EE" letter-spacing="0.4">Python</text>
+
+    <rect x="162" y="484" width=" 70" height="25" rx="4" fill="#22D3EE" fill-opacity="0.07" stroke="#22D3EE" stroke-width="0.8" stroke-opacity="0.32"/>
+    <text x="197" y="501" text-anchor="middle" fill="#22D3EE" letter-spacing="0.4">Django</text>
+
+    <rect x="240" y="484" width=" 66" height="25" rx="4" fill="#22D3EE" fill-opacity="0.07" stroke="#22D3EE" stroke-width="0.8" stroke-opacity="0.32"/>
+    <text x="273" y="501" text-anchor="middle" fill="#22D3EE" letter-spacing="0.4">Next.js</text>
+
+    <rect x="314" y="484" width=" 66" height="25" rx="4" fill="#22D3EE" fill-opacity="0.07" stroke="#22D3EE" stroke-width="0.8" stroke-opacity="0.32"/>
+    <text x="347" y="501" text-anchor="middle" fill="#22D3EE" letter-spacing="0.4">Flutter</text>
+
+    <rect x="388" y="484" width=" 70" height="25" rx="4" fill="#22D3EE" fill-opacity="0.07" stroke="#22D3EE" stroke-width="0.8" stroke-opacity="0.32"/>
+    <text x="423" y="501" text-anchor="middle" fill="#22D3EE" letter-spacing="0.4">FastAPI</text>
+
+    <rect x="466" y="484" width=" 90" height="25" rx="4" fill="#22D3EE" fill-opacity="0.07" stroke="#22D3EE" stroke-width="0.8" stroke-opacity="0.32"/>
+    <text x="511" y="501" text-anchor="middle" fill="#22D3EE" letter-spacing="0.4">PostgreSQL</text>
+  </g>
+
+  <!-- Site URL bottom right -->
+  <text x="1118" y="600" text-anchor="end"
+        font-family="'Courier New', Courier, monospace"
+        font-size="12" fill="#334155" letter-spacing="1">
+    portafolio-one-sigma-24.vercel.app
+  </text>
+</svg>
