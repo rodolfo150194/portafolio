@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://portafolio-one-sigma-24.vercel.app',
-  output: 'hybrid',
+  output: 'static',
   adapter: vercel(),
   integrations: [tailwind(), sitemap()],
   vite: {
