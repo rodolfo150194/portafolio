@@ -5,13 +5,12 @@ import profilePhoto from '../assets/images/foto-perfil.png';
 
 <section class="relative min-h-screen flex items-center overflow-hidden bg-slate-50 dark:bg-background-dark">
 
-    <div class="absolute inset-0 z-0 opacity-100 pointer-events-none"
-         style="background-image: linear-gradient(rgba(34,211,238,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.04) 1px, transparent 1px); background-size: 72px 72px;">
+    <div class="absolute inset-0 z-0 opacity-100 pointer-events-none [background-image:linear-gradient(rgba(34,211,238,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.04)_1px,transparent_1px)] [background-size:72px_72px]">
     </div>
 
     <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-             style="background-image: url('/images/hero-background.png'); opacity: 0.12;">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.12]"
+             style="background-image: url('/images/hero-background.png');">
         </div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/60 to-slate-50 dark:via-background-dark/60 dark:to-background-dark"></div>
     </div>
@@ -24,17 +23,17 @@ import profilePhoto from '../assets/images/foto-perfil.png';
 
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-primary text-xs font-bold tracking-[0.15em] uppercase mb-8">
                     <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                    Open to opportunities
+                    <span data-i18n="hero.badge">Open to opportunities</span>
                 </div>
 
-                <h1 class="[font-family:'Barlow_Condensed',sans-serif] font-black text-[clamp(3.5rem,9vw,5.5rem)] uppercase [letter-spacing:-0.01em] [line-height:0.95] text-gray-900 dark:text-white mb-5">
+                <h1 class="font-barlow font-black text-[clamp(3.5rem,9vw,5.5rem)] uppercase [letter-spacing:-0.01em] [line-height:0.95] text-gray-900 dark:text-white mb-5">
                     <span class="block">Rodolfo</span>
                     <span class="block italic bg-gradient-to-r from-primary via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                         García Maeso
                     </span>
                 </h1>
 
-                <h2 class="[font-family:'Space_Mono',monospace] text-[0.82rem] text-slate-600 dark:text-slate-400 mb-6 tracking-[0.08em] uppercase">
+                <h2 data-i18n="hero.subtitle" class="font-space text-[0.82rem] text-slate-600 dark:text-slate-400 mb-6 tracking-[0.08em] uppercase">
                     Full Stack Developer &amp; QA Engineer &amp; Infrastructure TI
                 </h2>
 
@@ -93,7 +92,7 @@ import profilePhoto from '../assets/images/foto-perfil.png';
 
                 <!-- Experience badge -->
                 <div class="absolute -bottom-2 -right-4 lg:-bottom-4 lg:-right-6 bg-gray-100 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl px-4 py-3 shadow-xl text-center">
-                    <p class="[font-family:'Barlow_Condensed',sans-serif] font-black text-2xl text-primary leading-none">7+</p>
+                    <p class="font-barlow font-black text-2xl text-primary leading-none">7+</p>
                     <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1 leading-tight">Years<br/>Exp.</p>
                 </div>
             </div>

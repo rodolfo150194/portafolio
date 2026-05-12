@@ -13,6 +13,10 @@ export default {
       fontFamily: {
         "display": ["Syne", "sans-serif"],
         "body": ["Plus Jakarta Sans", "sans-serif"],
+        "barlow": ["Barlow Condensed", "sans-serif"],
+        "space": ["Space Mono", "monospace"],
+        "jetbrains": ["JetBrains Mono", "monospace"],
+        "bebas": ["Bebas Neue", "sans-serif"],
       },
       borderRadius: {
         "DEFAULT": "0.25rem",

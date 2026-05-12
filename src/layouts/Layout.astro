@@ -13,10 +13,10 @@ const {
 
 const siteUrl = 'https://portafolio-one-sigma-24.vercel.app';
 const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
-const ogImage = `${siteUrl}/og-image.png`;
+const ogImage = `${siteUrl}/og-image.svg`;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark m-0 w-full h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -51,28 +51,8 @@ const ogImage = `${siteUrl}/og-image.png`;
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <ClientRouter />
-    <!-- Anti-FOUC: reads localStorage before first paint to avoid flash -->
-    <script is:inline>
-      (function() {
-        var t = localStorage.getItem('theme') || 'dark';
-        if (t === 'dark') document.documentElement.classList.add('dark');
-      })();
-    </script>
   </head>
-  <body class="bg-white dark:bg-gray-950 font-body">
-
-    <!-- ── Theme Toggle ────────────────────────────────── -->
-    <button
-      id="theme-toggle"
-      aria-label="Toggle theme"
-      class="fixed top-4 right-[7.5rem] z-[100] flex items-center justify-center w-[2.625rem] h-[2.375rem] rounded-lg
-             bg-white/90 dark:bg-gray-900/90 border border-gray-200 dark:border-white/20 backdrop-blur-md
-             text-gray-700 dark:text-white shadow-lg
-             hover:border-primary/60 hover:text-primary
-             transition-all duration-300"
-    >
-      <i id="theme-icon" class="fa-solid fa-sun text-base transition-transform duration-300"></i>
-    </button>
+  <body class="bg-white dark:bg-gray-950 font-body m-0 w-full h-full">
 
     <!-- ── Language Toggle ─────────────────────────────── -->
     <button
@@ -93,36 +73,6 @@ const ogImage = `${siteUrl}/og-image.png`;
 
     <!-- ── i18n Engine ──────────────────────────────────── -->
     <script is:inline>
-      /* ── Theme Engine ─────────────────────────────────── */
-      function __updateThemeIcon(isDark) {
-        var icon = document.getElementById('theme-icon');
-        if (!icon) return;
-        icon.className = isDark
-          ? 'fa-solid fa-sun text-base transition-transform duration-300'
-          : 'fa-solid fa-moon text-base transition-transform duration-300';
-      }
-
-      function initTheme() {
-        var isDark = document.documentElement.classList.contains('dark');
-        __updateThemeIcon(isDark);
-        var btn = document.getElementById('theme-toggle');
-        if (btn && !btn.__themeInit) {
-          btn.__themeInit = true;
-          btn.addEventListener('click', function() {
-            var nowDark = document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', nowDark ? 'dark' : 'light');
-            __updateThemeIcon(nowDark);
-          });
-        }
-      }
-
-      document.addEventListener('astro:page-load', initTheme);
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initTheme);
-      } else {
-        initTheme();
-      }
-
       window.__i18n = {
         en: {
           /* Hero */
@@ -199,6 +149,17 @@ const ogImage = `${siteUrl}/og-image.png`;
           'footer.copyright.rights': 'All rights reserved.',
           'footer.madewith': 'Made with',
           'footer.using': 'using',
+
+          /* Hero extras */
+          'hero.badge': 'Open to opportunities',
+          'hero.subtitle': 'Full Stack Developer & QA Engineer & Infrastructure IT',
+
+          /* Contact section */
+          'contact.h2.1': "Let's",
+          'contact.h2.2': 'work',
+          'contact.h2.3': ' together',
+          'contact.description': "Whether you have a project in mind, want to discuss a role, or just want to connect — I'd love to hear from you. I typically respond within 24 hours.",
+          'contact.badge': 'Open to opportunities',
         },
         es: {
           /* Hero */
@@ -275,6 +236,17 @@ const ogImage = `${siteUrl}/og-image.png`;
           'footer.copyright.rights': 'Todos los derechos reservados.',
           'footer.madewith': 'Hecho con',
           'footer.using': 'usando',
+
+          /* Hero extras */
+          'hero.badge': 'Disponible para oportunidades',
+          'hero.subtitle': 'Desarrollador Full Stack & QA Engineer & Infraestructura TI',
+
+          /* Contact section */
+          'contact.h2.1': 'Trabajemos',
+          'contact.h2.2': 'juntos',
+          'contact.h2.3': '',
+          'contact.description': 'Si tenés un proyecto en mente, querés hablar sobre una posición, o simplemente conectar — estaré encantado de escucharte. Suelo responder en menos de 24 horas.',
+          'contact.badge': 'Disponible para oportunidades',
         }
       };
 
@@ -323,10 +295,3 @@ const ogImage = `${siteUrl}/og-image.png`;
   </body>
 </html>
 
-<style>
-  html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
