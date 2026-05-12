@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import profilePhoto from '../assets/images/photo-perfil.jpeg';
 ---
 
 <section class="relative min-h-screen flex items-center overflow-hidden bg-background-dark">
@@ -39,13 +41,13 @@
 
                 <!-- Role -->
                 <h2 class="text-xl md:text-2xl font-semibold text-slate-400 mb-6 tracking-wide">
-                    Full Stack Developer
+                    Full Stack Developer & QA Engineer
                 </h2>
 
                 <!-- Description -->
                 <p data-i18n="hero.description"
                    class="max-w-lg text-base md:text-lg text-slate-400 leading-relaxed mb-10 mx-auto lg:mx-0">
-                    Computer Science Engineer with over 7 years of experience building scalable applications. Versatile profile combining modern backend and frontend solutions, infrastructure administration, and collaborations with international organizations like the UN (FAO).
+                    Computer Science Engineer with over 7 years of experience building scalable, well-tested applications. Versatile profile combining modern backend and frontend solutions, quality assurance practices, infrastructure administration, and collaborations with international organizations like the UN (FAO).
                 </p>
 
                 <!-- CTA Buttons -->
@@ -91,9 +93,14 @@
 
                 <!-- Photo -->
                 <div class="relative w-48 h-48 lg:w-52 lg:h-52 animate-float">
-                    <div class="w-full h-full rounded-full bg-cover bg-center bg-no-repeat border-4 border-primary/40 shadow-2xl shadow-primary/25"
-                         style="background-image: url('/images/photo-perfil.jpeg');">
-                    </div>
+                    <Image
+                        src={profilePhoto}
+                        alt="Rodolfo García Maeso — Full Stack Developer & QA Engineer"
+                        width={208}
+                        height={208}
+                        loading="eager"
+                        class="w-full h-full rounded-full object-cover object-center border-4 border-primary/40 shadow-2xl shadow-primary/25"
+                    />
                     <!-- Glow -->
                     <div class="absolute inset-0 rounded-full bg-primary/10 blur-2xl scale-125 -z-10"></div>
                 </div>
