@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
 
 interface Props {
   title?: string;
@@ -8,7 +9,7 @@ interface Props {
 
 const {
   title = 'Rodolfo García Maeso — Full Stack Developer',
-  description = 'Full Stack Developer portfolio — Rodolfo García Maeso. Python, Django, Next.js, FastAPI, Flutter and more.',
+  description = 'Full Stack Developer portfolio — Rodolfo García Maeso. Python, Django, Astro, FastAPI, Flutter and more.',
 } = Astro.props;
 
 const siteUrl = 'https://portafolio-one-sigma-24.vercel.app';
@@ -16,10 +17,10 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
 const ogImage = `${siteUrl}/images/photo-perfil.png`;
 ---
 <!doctype html>
-<html lang="en" class="dark m-0 w-full h-full">
+<html lang="en" class="dark m-0 w-full h-full scroll-smooth scroll-pt-24">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -46,27 +47,12 @@ const ogImage = `${siteUrl}/images/photo-perfil.png`;
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800&family=Space+Mono:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <ClientRouter />
   </head>
-  <body class="bg-white dark:bg-gray-950 font-body m-0 w-full h-full">
-
-    <!-- ── Language Toggle ─────────────────────────────── -->
-    <button
-      id="lang-toggle"
-      aria-label="Switch language"
-      class="fixed top-4 right-4 z-[100] flex items-center gap-2 px-3 py-2 rounded-lg
-             bg-gray-900/90 border border-white/20 backdrop-blur-md
-             text-white text-sm font-semibold shadow-lg
-             hover:border-primary/60 hover:text-primary
-             transition-all duration-300 group select-none"
-    >
-      <i class="fa-solid fa-globe text-primary text-base transition-transform duration-300 group-hover:rotate-12"></i>
-      <span id="lang-label" class="tracking-widest text-xs uppercase">EN</span>
-      <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 transition-transform duration-300 group-hover:-rotate-180"></i>
-    </button>
+  <body class="bg-bg text-text font-manrope m-0 w-full h-full">
 
     <slot />
 
@@ -74,15 +60,25 @@ const ogImage = `${siteUrl}/images/photo-perfil.png`;
     <script is:inline>
       window.__i18n = {
         en: {
+          /* Nav */
+          'nav.home': 'Home',
+          'nav.skills': 'Skills',
+          'nav.experience': 'Experience',
+          'nav.projects': 'Projects',
+          'nav.contact': 'Contact',
+
           /* Hero */
-          'hero.description': 'Computer Science Engineer with over 7 years of experience building scalable, well-tested applications. Versatile profile combining modern backend and frontend solutions, quality assurance practices, infrastructure administration, and collaborations with international organizations like the UN (FAO).',
+          'hero.badge': 'Open to opportunities',
+          'hero.role': 'Full Stack Developer & IT Infrastructure',
+          'hero.description': 'Computer Science Engineer with over 8 years of experience building scalable applications. Versatile profile combining modern backend and frontend, IT infrastructure administration, and consultancy for international organizations like the UN (FAO).',
+          'hero.years': 'Years Exp.',
           'hero.cta.cv': 'Download CV',
           'hero.cta.contact': 'Contact',
+          'hero.status': 'status: available',
+          'hero.fao': 'FAO collaborator',
 
           /* Skills */
           'skills.title': 'Technical Skills',
-          'skills.title.1': 'Technical',
-          'skills.title.2': 'Skills',
           'skills.subtitle': 'Tools and technologies I work with daily.',
           'skills.cat.0': 'Backend',
           'skills.cat.1': 'Frontend',
@@ -95,25 +91,45 @@ const ogImage = `${siteUrl}/images/photo-perfil.png`;
 
           /* Experience */
           'exp.title': 'Professional Experience',
-          'exp.title.1': 'Professional',
-          'exp.title.2': 'Experience',
           'exp.subtitle': 'My career journey and academic background over the years.',
-          'exp.0.title': 'Full Stack Developer & QA Engineer',
-          'exp.0.date': '2023 – Present',
-          'exp.0.desc': 'Development of agricultural platforms (prices, productivity, fertilizers), GIS systems with polygon visualization (Leaflet + GeoServer), mobile app for offline field data capture, and process automation bots. QA: end-to-end test case design, functional and regression testing before each release, API validation with Postman, and full bug lifecycle management.',
-          'exp.1.title': 'Technology Consultant · Full Stack Developer / QA',
-          'exp.1.desc': "Led development of Cuba's national Greenhouse Gas Inventory (INGEI) platform with automatic calculations and PDF/Excel reporting. Built the Agriculture & AFOLU sectoral system and the SICCA climate change platform with an AI module for recommendations. QA: rigorous validation of critical calculations reported to the UN, integration tests, and UAT coordination with MINAG and CITMA experts.",
-          'exp.2.title': 'IT Specialist / Support & Internal QA',
+          'exp.0.title': 'Full Stack Developer',
+          'exp.0.date': 'Mar 2021 – Jan 2026',
+          'exp.0.desc.0': 'Design and development of backend architectures in Python (Django, FastAPI, DRF), prioritizing scalability and maintainability.',
+          'exp.0.desc.1': 'Agroproductivity calculator for institutional agricultural clients, computing soil yield from physicochemical and climate parameters.',
+          'exp.0.desc.2': 'Web + mobile platform for the official fertilizer import process, centralizing documentation, traceability, and approval workflows.',
+          'exp.0.desc.3': 'GIS suite and mobile app for mining concession management — point capture, polygon tools, and a viewer with satellite, weather, and hydrological layers.',
+          'exp.0.desc.4': 'Matrix bots for institutional process automation and on-demand reporting, backed by automated testing (Pytest, Selenium, Playwright).',
+          'exp.1.title': 'Technology Consultant – Full Stack Developer',
+          'exp.1.date': 'May 2022 – Feb 2023',
+          'exp.1.desc.0': "Technical leadership of Cuba's national Greenhouse Gas Inventory (INGEI) platform, coordinating a team of 4 developers and defining the backend architecture.",
+          'exp.1.desc.1': 'Dynamic formulas with automatic GHG emissions/removals calculations and historical series correction since 1990 across multiple categories.',
+          'exp.1.desc.2': 'Automated PDF/Excel reporting aligned with UNFCCC requirements.',
+          'exp.1.desc.3': 'SICCA climate change platform with an LLM-powered analysis module for decision support.',
+          'exp.1.desc.4': 'Zero deviations in official UN submissions through rigorous, structured validation.',
+          'exp.2.title': 'IT Specialist',
           'exp.2.company': 'IAGRIC — Agricultural Engineering Institute',
-          'exp.2.desc': 'Administered complete LAN/WAN infrastructure (routers, switches, servers) ensuring high availability. Implemented Active Directory with per-department group policies, automated backup and disaster recovery strategies, and advanced technical support. QA: acceptance testing of internal systems before institutional deployment.',
-          'exp.3.title': 'Software Developer / QA',
-          'exp.3.desc': 'Design, development and maintenance of web applications for security services management. QA: functional and regression testing each iteration, cross-browser compatibility verification, business rule validation, and structured bug reporting through to closure.',
+          'exp.2.date': 'Jan 2020 – Apr 2022',
+          'exp.2.desc.0': 'Full administration of LAN/WAN networks, servers, and Microsoft 365/Azure AD environments, with 5 years of continuous availability and proactive monitoring.',
+          'exp.2.desc.1': 'Active Directory and Microsoft 365 user management with department-level GPO and complete onboarding/offboarding.',
+          'exp.2.desc.2': 'Design and implementation of automated backup strategies and disaster recovery plans.',
+          'exp.3.title': 'Full Stack Developer',
+          'exp.3.date': 'Sep 2018 – Dec 2020',
+          'exp.3.desc.0': 'Internal applications integrating with and extending the Wexact ERP platform for business-specific operational needs.',
+          'exp.3.desc.1': 'Advanced production support and data debugging via SQL queries, ensuring system integrity.',
+          'exp.3.desc.2': 'Maintenance and optimization of stored procedures for the payroll module, guaranteeing correct calculation of critical processes.',
           'exp.4.title': 'Computer Science Engineer',
           'exp.4.company': 'University of Computer Sciences (UCI) — La Habana',
-          'exp.4.date': 'Graduate',
-          'exp.4.desc': 'Academic training as a computer engineer, foundations in data structures, programming and algorithmic sciences.',
+          'exp.4.date': 'Graduated 2018',
+          'exp.4.desc.0': 'Foundations in data structures, programming, and algorithmic sciences.',
+          'exp.4.desc.1': "Thesis: recoding and migration of the SIGE system's reporting module for statistical data analysis (Symfony 2.2, ExtJS 6).",
 
           /* Projects */
+          'proj.title': 'My Projects',
+          'proj.all': 'All',
+          'proj.visit': 'Visit',
+          'proj.gallery': 'Gallery',
+          'proj.confidential': 'Confidential — Enterprise',
+          'proj.soon': 'Screenshot coming soon',
           'proj.0.title': 'Agroproductivity Platform',
           'proj.0.desc': 'Comprehensive agricultural suite covering soil agroproductivity analysis, polygon drawing and spatial data extraction, meteorological and hydrological reporting, agrochemical laboratory sample testing, and an interactive GeoServer-powered map with multi-category spatial layers.',
           'proj.1.title': 'SICCA (UN - FAO)',
@@ -134,36 +150,36 @@ const ogImage = `${siteUrl}/images/photo-perfil.png`;
           'proj.8.desc': 'Premium artificial turf installation landing page for a Florida-based company. Features bilingual support (EN/ES), interactive before/after slider, service area map and WhatsApp integration.',
           'proj.9.title': 'GVoltsCorp',
           'proj.9.desc': 'Corporate landing page for a Florida security and electrical systems company. Showcases NICET III, OSHA and state certifications, brand partners (Honeywell, Hikvision) and service offerings.',
-          'proj.cta.demo': 'View Demo',
+
+          /* Contact */
+          'contact.title': "Let's build something reliable.",
+          'contact.subtitle': 'Open to full-time roles, freelance engagements and technical consulting — backend, frontend, QA or infrastructure.',
+          'contact.email': 'Email me',
+          'contact.cv': 'Download CV',
 
           /* Footer */
-          'footer.tagline': 'Full Stack Developer with over 7 years of experience building scalable and modern applications.',
-          'footer.nav.title': 'Navigation',
-          'footer.contact.title': 'Contact',
-          'footer.nav.home': 'Home',
-          'footer.nav.skills': 'Skills',
-          'footer.nav.experience': 'Experience',
-          'footer.nav.projects': 'Projects',
-          'footer.nav.contact': 'Contact',
-          'footer.copyright.rights': 'All rights reserved.',
-          'footer.madewith': 'Made with',
-          'footer.using': 'using',
-
-          /* Hero extras */
-          'hero.badge': 'Open to opportunities',
-          'hero.subtitle': 'Full Stack Developer & QA Engineer & Infrastructure IT',
-
+          'footer.made': 'Made with Astro & Tailwind CSS.',
         },
         es: {
+          /* Nav */
+          'nav.home': 'Inicio',
+          'nav.skills': 'Habilidades',
+          'nav.experience': 'Experiencia',
+          'nav.projects': 'Proyectos',
+          'nav.contact': 'Contacto',
+
           /* Hero */
-          'hero.description': 'Ingeniero en Ciencias Informáticas con más de 7 años de experiencia construyendo aplicaciones escalables y bien testeadas. Perfil versátil combinando soluciones backend y frontend modernas, prácticas de aseguramiento de calidad, administración de infraestructura y colaboraciones con organismos internacionales como la ONU (FAO).',
+          'hero.badge': 'Disponible para nuevos proyectos',
+          'hero.role': 'Desarrollador Full Stack & Infraestructura TI',
+          'hero.description': 'Ingeniero en Ciencias Informáticas con más de 8 años de experiencia construyendo aplicaciones escalables. Perfil versátil combinando backend y frontend moderno, administración de infraestructura TI y consultoría para organismos internacionales como la ONU (FAO).',
+          'hero.years': 'Años Exp.',
           'hero.cta.cv': 'Descargar CV',
           'hero.cta.contact': 'Contactar',
+          'hero.status': 'estado: disponible',
+          'hero.fao': 'Colaborador FAO',
 
           /* Skills */
           'skills.title': 'Habilidades Técnicas',
-          'skills.title.1': 'Habilidades',
-          'skills.title.2': 'Técnicas',
           'skills.subtitle': 'Herramientas y tecnologías con las que trabajo a diario.',
           'skills.cat.0': 'Backend',
           'skills.cat.1': 'Frontend',
@@ -176,25 +192,45 @@ const ogImage = `${siteUrl}/images/photo-perfil.png`;
 
           /* Experience */
           'exp.title': 'Experiencia Profesional',
-          'exp.title.1': 'Experiencia',
-          'exp.title.2': 'Profesional',
-          'exp.subtitle': 'Mi trayectoria y formación académica a lo largo de los años.',
-          'exp.0.title': 'Desarrollador Full Stack & QA Engineer',
-          'exp.0.date': '2023 – Presente',
-          'exp.0.desc': 'Desarrollo de plataformas agrícolas (precios, agroproductividad, fertilizantes), sistemas GIS con visualización de polígonos (Leaflet + GeoServer), app móvil para captura de datos en campo con sincronización offline y bots de automatización de procesos. QA: diseño y ejecución de casos de prueba end-to-end, pruebas funcionales y de regresión antes de cada release, validación de APIs con Postman y gestión completa del ciclo de vida de bugs.',
-          'exp.1.title': 'Consultor de Tecnología · Full Stack Developer / QA',
-          'exp.1.desc': 'Lideré el desarrollo de la plataforma nacional de Inventario de Gases de Efecto Invernadero (INGEI) de Cuba con cálculo automático y generación de reportes en PDF/Excel. Construí el sistema sectorial de Agricultura y AFOLU y la plataforma SICCA con módulo de IA para recomendaciones. QA: validación rigurosa de cálculos críticos reportados a la ONU, pruebas de integración y coordinación de UAT con expertos del MINAG y CITMA.',
-          'exp.2.title': 'Especialista en TI / Soporte y QA Interno',
+          'exp.subtitle': 'Mi trayectoria profesional y formación académica a lo largo de los años.',
+          'exp.0.title': 'Full Stack Developer',
+          'exp.0.date': 'Mar 2021 – Ene 2026',
+          'exp.0.desc.0': 'Diseño y desarrollo de arquitecturas backend en Python (Django, FastAPI, DRF), priorizando escalabilidad y mantenibilidad.',
+          'exp.0.desc.1': 'Sistema de agroproductividad para clientes institucionales del sector agropecuario, que calcula el rendimiento del suelo a partir de parámetros físico-químicos y climáticos.',
+          'exp.0.desc.2': 'Plataforma web + app móvil para la gestión oficial del proceso de importación de fertilizantes, centralizando documentación, trazabilidad y flujos de aprobación.',
+          'exp.0.desc.3': 'Suite GIS y app móvil para gestión de concesiones mineras — captura de puntos, construcción de polígonos y visor con capas satelitales, meteorológicas e hidrológicas.',
+          'exp.0.desc.4': 'Bots sobre Matrix para automatización de procesos institucionales y generación de reportes bajo demanda, con aseguramiento de calidad mediante pruebas automatizadas (Pytest, Selenium, Playwright).',
+          'exp.1.title': 'Consultor de Tecnología – Full Stack Developer',
+          'exp.1.date': 'May 2022 – Feb 2023',
+          'exp.1.desc.0': 'Liderazgo técnico de la plataforma nacional INGEI (Inventario de Gases de Efecto Invernadero de Cuba), coordinando un equipo de 4 desarrolladores y definiendo la arquitectura backend.',
+          'exp.1.desc.1': 'Fórmulas dinámicas con cálculo automático de emisiones y remociones de GEI, y corrección de series históricas desde 1990 en múltiples categorías.',
+          'exp.1.desc.2': 'Generación automatizada de reportes en PDF/Excel alineados con los requerimientos de la UNFCCC.',
+          'exp.1.desc.3': 'Plataforma SICCA para gestión del cambio climático, con módulo de análisis basado en IA para apoyar la toma de decisiones.',
+          'exp.1.desc.4': 'Cero desviaciones en los reportes oficiales entregados a la ONU, mediante validación rigurosa y estructurada.',
+          'exp.2.title': 'Especialista en TI',
           'exp.2.company': 'IAGRIC — Instituto de Ingeniería Agrícola',
-          'exp.2.desc': 'Administré infraestructura completa LAN/WAN (routers, switches, servidores) garantizando alta disponibilidad. Implementé Active Directory con políticas de grupo por departamento, estrategias de backup automatizado y recuperación ante desastres, y soporte técnico avanzado. QA: pruebas de aceptación de sistemas internos antes de su despliegue institucional.',
-          'exp.3.title': 'Desarrollador de Software / QA',
-          'exp.3.desc': 'Diseño, desarrollo y mantenimiento de aplicaciones web para la gestión de servicios de seguridad. QA: pruebas funcionales y de regresión en cada iteración, verificación de compatibilidad entre navegadores, validación de reglas de negocio y reporte estructurado de bugs hasta su cierre.',
-          'exp.4.title': 'Ing. en Ciencias Informáticas',
+          'exp.2.date': 'Ene 2020 – Abr 2022',
+          'exp.2.desc.0': 'Administración integral de redes LAN/WAN, servidores y entornos Microsoft 365/Azure AD, con 5 años de disponibilidad continua y vigilancia proactiva de fallos.',
+          'exp.2.desc.1': 'Gestión de usuarios en Active Directory y Microsoft 365 con GPO por departamento, onboarding y offboarding completos.',
+          'exp.2.desc.2': 'Diseño e implementación de estrategias de backup automatizado y planes de recuperación ante desastres.',
+          'exp.3.title': 'Full Stack Developer',
+          'exp.3.date': 'Sep 2018 – Dic 2020',
+          'exp.3.desc.0': 'Aplicaciones internas que integraban y extendían los procesos del ERP Wexact para necesidades operativas específicas del negocio.',
+          'exp.3.desc.1': 'Soporte técnico avanzado y depuración de datos en producción mediante consultas SQL, garantizando la integridad del sistema.',
+          'exp.3.desc.2': 'Mantenimiento y optimización de procedimientos almacenados del módulo de nóminas, asegurando el cálculo correcto de procesos críticos.',
+          'exp.4.title': 'Ingeniero en Ciencias Informáticas',
           'exp.4.company': 'Universidad de las Ciencias Informáticas (UCI) — La Habana',
-          'exp.4.date': 'Graduado',
-          'exp.4.desc': 'Formación académica como ingeniero informático, bases en estructuras de datos, programación y ciencias algorítmicas.',
+          'exp.4.date': 'Graduado 2018',
+          'exp.4.desc.0': 'Fundamentos en estructuras de datos, programación y ciencias algorítmicas.',
+          'exp.4.desc.1': 'Tesis: recodificación y migración del módulo de reportes del sistema SIGE para análisis estadístico de datos (Symfony 2.2, ExtJS 6).',
 
           /* Projects */
+          'proj.title': 'Mis Proyectos',
+          'proj.all': 'Todos',
+          'proj.visit': 'Visitar',
+          'proj.gallery': 'Galería',
+          'proj.confidential': 'Confidencial — Empresa',
+          'proj.soon': 'Captura próximamente',
           'proj.0.title': 'Plataforma Agroproductividad',
           'proj.0.desc': 'Suite agrícola integral que abarca análisis de agroproductividad del suelo, trazado de polígonos y extracción de datos espaciales, reportes meteorológicos e hidrológicos, laboratorio agroquímico para registro de pruebas en muestras y un mapa interactivo con capas multicategoría impulsado por GeoServer.',
           'proj.1.title': 'SICCA (ONU - FAO)',
@@ -215,24 +251,15 @@ const ogImage = `${siteUrl}/images/photo-perfil.png`;
           'proj.8.desc': 'Landing page de instalación de césped artificial premium para una empresa de Florida. Incluye soporte bilingüe (EN/ES), slider interactivo antes/después, mapa de área de servicio e integración con WhatsApp.',
           'proj.9.title': 'GVoltsCorp',
           'proj.9.desc': 'Landing page corporativa para una empresa de sistemas de seguridad y electricidad en Florida. Muestra certificaciones NICET III, OSHA y estatales, socios de marca (Honeywell, Hikvision) y servicios.',
-          'proj.cta.demo': 'Visitar',
+
+          /* Contact */
+          'contact.title': 'Construyamos algo sólido.',
+          'contact.subtitle': 'Disponible para roles a tiempo completo, proyectos freelance y consultoría técnica — backend, frontend, QA o infraestructura.',
+          'contact.email': 'Escríbeme',
+          'contact.cv': 'Descargar CV',
 
           /* Footer */
-          'footer.tagline': 'Desarrollador Full Stack con más de 7 años de experiencia construyendo aplicaciones escalables y modernas.',
-          'footer.nav.title': 'Navegación',
-          'footer.contact.title': 'Contacto',
-          'footer.nav.home': 'Inicio',
-          'footer.nav.skills': 'Habilidades',
-          'footer.nav.experience': 'Experiencia',
-          'footer.nav.projects': 'Proyectos',
-          'footer.nav.contact': 'Contacto',
-          'footer.copyright.rights': 'Todos los derechos reservados.',
-          'footer.madewith': 'Hecho con',
-          'footer.using': 'usando',
-
-          /* Hero extras */
-          'hero.badge': 'Disponible para oportunidades',
-          'hero.subtitle': 'Desarrollador Full Stack & QA Engineer & Infraestructura TI',
+          'footer.made': 'Hecho con Astro & Tailwind CSS.',
         }
       };
 
@@ -249,8 +276,11 @@ const ogImage = `${siteUrl}/images/photo-perfil.png`;
         localStorage.setItem('lang', lang);
         window.__currentLang = lang;
 
-        var label = document.getElementById('lang-label');
-        if (label) label.textContent = lang.toUpperCase();
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+          var active = btn.dataset.lang === lang;
+          btn.classList.toggle('bg-accent', active);
+          btn.classList.toggle('text-bg', active);
+        });
       }
 
       window.__applyTranslations = applyTranslations;
@@ -259,14 +289,13 @@ const ogImage = `${siteUrl}/images/photo-perfil.png`;
         var saved = localStorage.getItem('lang') || 'en';
         applyTranslations(saved);
 
-        var btn = document.getElementById('lang-toggle');
-        if (btn && !btn.__langInit) {
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+          if (btn.__langInit) return;
           btn.__langInit = true;
           btn.addEventListener('click', function() {
-            var next = (window.__currentLang === 'en') ? 'es' : 'en';
-            applyTranslations(next);
+            applyTranslations(btn.dataset.lang);
           });
-        }
+        });
       }
 
       document.addEventListener('astro:page-load', initI18n);
@@ -278,6 +307,40 @@ const ogImage = `${siteUrl}/images/photo-perfil.png`;
       }
     </script>
 
+    <!-- ── Theme Engine ─────────────────────────────────── -->
+    <script is:inline>
+      function applyTheme(theme) {
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        localStorage.setItem('theme', theme);
+        window.__currentTheme = theme;
+
+        var label = document.getElementById('theme-toggle-label');
+        if (label) label.textContent = theme === 'dark' ? '☾ dark' : '☀ light';
+      }
+
+      window.__applyTheme = applyTheme;
+
+      function initTheme() {
+        var saved = localStorage.getItem('theme') || 'dark';
+        applyTheme(saved);
+
+        var btn = document.getElementById('theme-toggle');
+        if (btn && !btn.__themeInit) {
+          btn.__themeInit = true;
+          btn.addEventListener('click', function() {
+            applyTheme(window.__currentTheme === 'dark' ? 'light' : 'dark');
+          });
+        }
+      }
+
+      document.addEventListener('astro:page-load', initTheme);
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTheme);
+      } else {
+        initTheme();
+      }
+    </script>
+
   </body>
 </html>
-

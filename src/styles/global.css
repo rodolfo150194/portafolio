@@ -2,3 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --bg: #f6f5f2;
+    --surface: #ffffff;
+    --surface2: #eeece5;
+    --border: rgba(10, 14, 20, 0.1);
+    --text: #12151c;
+    --text2: rgba(18, 21, 28, 0.62);
+    --accent: #0f8a7c;
+    --accent2: #a8700a;
+  }
+
+  .dark {
+    --bg: #0a0e14;
+    --surface: #10151f;
+    --surface2: #161c28;
+    --border: rgba(255, 255, 255, 0.09);
+    --text: #e6e9ef;
+    --text2: rgba(230, 233, 239, 0.62);
+    --accent: #5eead4;
+    --accent2: #f0b429;
+  }
+}
+

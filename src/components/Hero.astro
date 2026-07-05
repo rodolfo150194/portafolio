@@ -3,107 +3,77 @@ import { Image } from 'astro:assets';
 import profilePhoto from '../assets/images/foto-perfil.png';
 ---
 
-<section class="relative min-h-screen flex items-center overflow-hidden bg-slate-50 dark:bg-background-dark">
+<section id="top" class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-12 items-center p-8 sm:p-12 lg:p-[72px_56px_64px] border-b border-border">
 
-    <div class="absolute inset-0 z-0 opacity-100 pointer-events-none [background-image:linear-gradient(rgba(34,211,238,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.04)_1px,transparent_1px)] [background-size:72px_72px]">
-    </div>
-
-    <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.12]"
-             style="background-image: url('/images/hero-background.png');">
+    <!-- Left column -->
+    <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-border rounded-full mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+            <span data-i18n="hero.badge" class="font-jetbrains font-medium text-[11.5px] text-text2">Open to opportunities</span>
         </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/60 to-slate-50 dark:via-background-dark/60 dark:to-background-dark"></div>
-    </div>
 
-    <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
-        <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+        <h1 class="font-grotesk font-bold text-[36px] sm:text-[44px] lg:text-[56px] leading-[1.08] tracking-[-0.01em] text-text mb-4">
+            Rodolfo García Maeso
+        </h1>
 
-            <!-- Left: Text -->
-            <div class="flex-1 text-center lg:text-left">
+        <div class="font-jetbrains font-medium text-[16px] leading-[1.5] text-accent mb-5">
+            $ <span data-i18n="hero.role">Full Stack Developer &amp; IT Infrastructure</span>
+        </div>
 
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-primary text-xs font-bold tracking-[0.15em] uppercase mb-8">
-                    <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                    <span data-i18n="hero.badge">Open to opportunities</span>
-                </div>
+        <p data-i18n="hero.description" class="font-manrope text-[15.5px] leading-[1.7] text-text2 max-w-[520px] mb-8 text-pretty">
+            Computer Science Engineer with over 8 years of experience building scalable applications. Versatile profile combining modern backend and frontend, IT infrastructure administration, and consultancy for international organizations like the UN (FAO).
+        </p>
 
-                <h1 class="font-barlow font-black text-[clamp(3.5rem,9vw,5.5rem)] uppercase [letter-spacing:-0.01em] [line-height:0.95] text-gray-900 dark:text-white mb-5">
-                    <span class="block">Rodolfo</span>
-                    <span class="block italic bg-gradient-to-r from-primary via-cyan-300 to-blue-400 bg-clip-text text-transparent">
-                        García Maeso
-                    </span>
-                </h1>
-
-                <h2 data-i18n="hero.subtitle" class="font-space text-[0.82rem] text-slate-600 dark:text-slate-400 mb-6 tracking-[0.08em] uppercase">
-                    Full Stack Developer &amp; QA Engineer &amp; Infrastructure TI
-                </h2>
-
-                <p data-i18n="hero.description"
-                   class="max-w-lg text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-10 mx-auto lg:mx-0">
-                    Computer Science Engineer with over 7 years of experience building scalable, well-tested applications. Versatile profile combining modern backend and frontend solutions, quality assurance practices, infrastructure administration, and collaborations with international organizations like the UN (FAO).
-                </p>
-
-                <div class="flex flex-wrap gap-4 justify-center lg:justify-start items-center">
-                    <a href="/assets/documents/CV_Rodolfo_Garcia.pdf" target="_blank"
-                       class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-slate-900 text-sm font-bold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/35 hover:-translate-y-0.5 transition-all duration-300">
-                        <span data-i18n="hero.cta.cv">Download CV</span>
-                        <i class="fa-solid fa-download group-hover:translate-y-0.5 transition-transform"></i>
-                    </a>
-                    <a href="mailto:rodygm0104@gmail.com"
-                       class="group inline-flex items-center gap-2 px-7 py-3.5 bg-gray-100 dark:bg-white/5 backdrop-blur-md text-gray-900 dark:text-white text-sm font-bold rounded-lg border border-gray-200 dark:border-white/15 hover:bg-gray-200 dark:hover:bg-white/10 hover:border-primary/40 hover:-translate-y-0.5 transition-all duration-300">
-                        <span data-i18n="hero.cta.contact">Contact</span>
-                        <i class="fa-solid fa-envelope group-hover:scale-110 transition-transform"></i>
-                    </a>
-
-                    <div class="flex items-center gap-3">
-                        <a href="https://www.linkedin.com/in/rodolfo-garcia-dev/" target="_blank" rel="noopener noreferrer"
-                           class="flex items-center justify-center w-11 h-11 rounded-full bg-[#0a66c2]/15 border border-[#0a66c2]/30 text-[#0a66c2] hover:bg-[#0a66c2] hover:text-white hover:-translate-y-0.5 transition-all duration-300"
-                           aria-label="LinkedIn">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/rodolfo150194" target="_blank" rel="noopener noreferrer"
-                           class="flex items-center justify-center w-11 h-11 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/15 text-slate-500 dark:text-slate-400 hover:bg-gray-200 dark:hover:bg-white/15 hover:text-gray-900 dark:hover:text-white hover:-translate-y-0.5 transition-all duration-300"
-                           aria-label="GitHub">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right: Photo -->
-            <div class="relative flex-shrink-0 flex items-center justify-center w-64 h-64 lg:w-80 lg:h-80">
-
-                <div class="absolute inset-0 rounded-full border border-dashed border-primary/20 animate-spin-slow"></div>
-                <div class="absolute inset-4 rounded-full border border-primary/10 animate-spin-slow-reverse"></div>
-
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2 h-2 rounded-full bg-primary/60"></div>
-                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 w-1.5 h-1.5 rounded-full bg-blue-400/40"></div>
-
-                <div class="relative w-48 h-48 lg:w-52 lg:h-52 animate-float">
-                    <Image
-                        src={profilePhoto}
-                        alt="Rodolfo García Maeso — Full Stack Developer & QA Engineer"
-                        width={208}
-                        height={208}
-                        loading="eager"
-                        class="w-full h-full rounded-full object-cover object-center border-4 border-primary/40 shadow-2xl shadow-primary/25"
-                    />
-                    <div class="absolute inset-0 rounded-full bg-primary/10 blur-2xl scale-125 -z-10"></div>
-                </div>
-
-                <!-- Experience badge -->
-                <div class="absolute -bottom-2 -right-4 lg:-bottom-4 lg:-right-6 bg-gray-100 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl px-4 py-3 shadow-xl text-center">
-                    <p class="font-barlow font-black text-2xl text-primary leading-none">7+</p>
-                    <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1 leading-tight">Years<br/>Exp.</p>
-                </div>
-            </div>
+        <div class="flex flex-wrap gap-3">
+            <a href="/assets/documents/CV_Rodolfo_Garcia.pdf" target="_blank"
+               class="bg-accent text-bg font-manrope font-semibold text-[13.5px] px-[22px] py-3 rounded-lg">
+                <span data-i18n="hero.cta.cv">Download CV</span>
+            </a>
+            <a href="mailto:rodygm0104@gmail.com"
+               class="border border-border text-text font-manrope font-semibold text-[13.5px] px-[22px] py-3 rounded-lg">
+                <span data-i18n="hero.cta.contact">Contact</span>
+            </a>
+            <a href="https://www.linkedin.com/in/rodolfo-garcia-dev/" target="_blank" rel="noopener noreferrer"
+               aria-label="LinkedIn"
+               class="border border-border text-text w-11 h-11 rounded-lg flex items-center justify-center hover:border-accent hover:text-accent transition-colors duration-150">
+                <i class="fa-brands fa-linkedin text-lg"></i>
+            </a>
         </div>
     </div>
 
-    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white dark:to-gray-950 pointer-events-none z-20"></div>
+    <!-- Right column -->
+    <div class="relative">
+        <div class="absolute -top-3.5 -left-3.5 right-3.5 bottom-3.5 border border-accent rounded-2xl opacity-35"></div>
+        <Image
+            src={profilePhoto}
+            alt="Rodolfo García Maeso"
+            width={480}
+            height={480}
+            loading="eager"
+            class="relative w-full aspect-square object-cover rounded-2xl border border-border"
+        />
+        <div class="absolute -bottom-[18px] -right-[18px] bg-surface border border-accent/40 rounded-xl px-[18px] py-3.5 text-center">
+            <div class="font-grotesk font-bold text-2xl text-accent leading-none">8+</div>
+            <div data-i18n="hero.years" class="font-jetbrains font-medium text-[10px] text-text2 mt-1">Years Exp.</div>
+        </div>
 
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-500 z-30">
-        <span class="text-[10px] tracking-[0.2em] uppercase font-medium">Scroll</span>
-        <i class="fa-solid fa-chevron-down text-primary animate-bounce text-sm"></i>
+        <!-- Floating badge: availability -->
+        <div class="absolute -top-3.5 -left-3.5 flex items-center gap-1.5 bg-surface border border-accent/40 rounded-[10px] px-3 py-2 shadow-[0_12px_24px_rgba(0,0,0,0.25)] rotate-[-4deg]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#27c93f]"></span>
+            <span data-i18n="hero.status" class="font-jetbrains font-medium text-[10.5px] text-text">status: available</span>
+        </div>
+
+        <!-- Floating badge: tech stack -->
+        <div class="absolute top-[34%] -right-[18px] bg-surface border border-accent/40 rounded-[10px] px-3.5 py-2.5 shadow-[0_12px_24px_rgba(0,0,0,0.25)] rotate-[3deg]">
+            <div class="font-jetbrains font-medium text-[9.5px] text-text2 mb-1">$ tech --stack</div>
+            <div class="font-jetbrains font-semibold text-[11px] text-accent">Python · Django · Flutter</div>
+        </div>
+
+        <!-- Floating badge: FAO collaborator -->
+        <div class="absolute bottom-[20%] -left-[22px] flex items-center gap-1.5 bg-surface border border-accent/40 rounded-[10px] px-3 py-2 shadow-[0_12px_24px_rgba(0,0,0,0.25)] rotate-[-2deg]">
+            <span class="font-jetbrains font-semibold text-[11px] text-accent2">UN</span>
+            <span data-i18n="hero.fao" class="font-jetbrains font-medium text-[10px] text-text2">FAO collaborator</span>
+        </div>
     </div>
 
 </section>

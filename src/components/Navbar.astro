@@ -1,0 +1,136 @@
+---
+const navLinks = [
+    { id: "top", i18nKey: "nav.home", label: "Home" },
+    { id: "skills", i18nKey: "nav.skills", label: "Skills" },
+    { id: "experience", i18nKey: "nav.experience", label: "Experience" },
+    { id: "projects", i18nKey: "nav.projects", label: "Projects" },
+    { id: "contact", i18nKey: "nav.contact", label: "Contact" },
+];
+---
+
+<header
+    id="navbar"
+    class="fixed inset-x-0 top-0 z-50 h-14 bg-surface border-b border-border"
+>
+    <div class="h-full max-w-7xl mx-auto px-4 sm:px-7 flex items-center justify-between gap-4">
+
+        <!-- Brand -->
+        <div class="flex items-center gap-2 shrink-0">
+            <span class="w-2.5 h-2.5 rounded-full bg-accent"></span>
+            <span class="font-grotesk font-semibold text-[13px] text-text">R. García</span>
+        </div>
+
+        <!-- Desktop nav -->
+        <nav class="hidden lg:flex items-center gap-1 mx-auto">
+            {navLinks.map((link) => (
+                <a
+                    href={`#${link.id}`}
+                    data-nav-link
+                    class="font-jetbrains font-medium text-[12.5px] text-text2 hover:text-text hover:bg-surface2 px-2.5 py-1.5 rounded-md transition-colors duration-150"
+                >
+                    <span data-i18n={link.i18nKey}>{link.label}</span>
+                </a>
+            ))}
+        </nav>
+
+        <!-- Right controls -->
+        <div class="flex items-center gap-2.5 shrink-0">
+            <!-- Language switch -->
+            <div id="lang-toggle" class="flex gap-1 bg-surface2 rounded-lg p-[3px]">
+                <button
+                    type="button"
+                    data-lang="en"
+                    class="lang-btn border-none font-jetbrains font-semibold text-[11px] text-text py-1.5 px-2 rounded-md transition-colors duration-150"
+                >EN</button>
+                <button
+                    type="button"
+                    data-lang="es"
+                    class="lang-btn border-none font-jetbrains font-semibold text-[11px] text-text py-1.5 px-2 rounded-md transition-colors duration-150"
+                >ES</button>
+            </div>
+
+            <!-- Theme switch -->
+            <button
+                id="theme-toggle"
+                type="button"
+                aria-label="Switch theme"
+                class="border border-border bg-surface2 text-text font-jetbrains font-medium text-[11.5px] py-1.5 px-2.5 rounded-lg flex items-center justify-center gap-1.5"
+            >
+                <span id="theme-toggle-label">☾ dark</span>
+            </button>
+
+            <!-- Mobile menu toggle -->
+            <button
+                id="navbar-toggle"
+                type="button"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+                class="lg:hidden flex flex-col justify-center gap-[5px] w-9 h-9 items-center"
+            >
+                <span class="w-5 h-[1.5px] bg-text"></span>
+                <span class="w-5 h-[1.5px] bg-text"></span>
+                <span class="w-5 h-[1.5px] bg-text"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile menu (nav links only) -->
+    <div
+        id="mobile-menu"
+        class="lg:hidden absolute inset-x-0 top-14 max-h-0 overflow-hidden bg-surface border-b border-border transition-[max-height] duration-300 ease-in-out"
+    >
+        <nav class="flex flex-col gap-0.5 p-4">
+            {navLinks.map((link) => (
+                <a
+                    href={`#${link.id}`}
+                    data-nav-link
+                    data-mobile-link
+                    class="font-jetbrains font-medium text-[12.5px] text-text2 hover:text-text hover:bg-surface2 px-2.5 py-2 rounded-md flex items-center gap-2 transition-colors duration-150"
+                >
+                    <span class="opacity-50">//</span>
+                    <span data-i18n={link.i18nKey}>{link.label}</span>
+                </a>
+            ))}
+        </nav>
+    </div>
+</header>
+
+<script is:inline>
+    function initNavbarMenu() {
+        var toggle = document.getElementById('navbar-toggle');
+        var menu = document.getElementById('mobile-menu');
+        if (!toggle || !menu || menu.__menuInit) return;
+        menu.__menuInit = true;
+
+        function openMenu() {
+            menu.style.maxHeight = menu.scrollHeight + 'px';
+            toggle.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeMenu() {
+            menu.style.maxHeight = '0px';
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        toggle.addEventListener('click', function() {
+            var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+            if (isOpen) { closeMenu(); } else { openMenu(); }
+        });
+
+        menu.querySelectorAll('[data-mobile-link]').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    }
+
+    document.addEventListener('astro:page-load', initNavbarMenu);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavbarMenu);
+    } else {
+        initNavbarMenu();
+    }
+</script>

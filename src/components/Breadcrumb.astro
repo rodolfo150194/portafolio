@@ -1,0 +1,70 @@
+---
+const crumbs = [
+    { id: "top", file: "home.astro" },
+    { id: "skills", file: "habilidades.astro" },
+    { id: "experience", file: "experience.astro" },
+    { id: "projects", file: "projects.astro" },
+    { id: "contact", file: "contact.astro" },
+];
+---
+
+<div
+    id="breadcrumb"
+    class="fixed inset-x-0 top-14 z-40 h-10 flex items-center gap-1.5 px-4 sm:px-7 border-b border-border bg-surface"
+>
+    <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
+    <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
+    <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
+    <span id="breadcrumb-label" class="font-jetbrains font-medium text-[11.5px] text-text2 ml-2">portfolio / home.astro</span>
+</div>
+
+<script is:inline define:vars={{ crumbs }}>
+    function initBreadcrumb() {
+        var label = document.getElementById('breadcrumb-label');
+        if (!label || label.__crumbInit) return;
+        label.__crumbInit = true;
+
+        var sections = crumbs
+            .map(function (c) { return { file: c.file, el: document.getElementById(c.id) }; })
+            .filter(function (c) { return c.el; });
+
+        if (!sections.length) return;
+
+        function headerOffset() {
+            var navbar = document.getElementById('navbar');
+            var breadcrumb = document.getElementById('breadcrumb');
+            return (navbar ? navbar.offsetHeight : 0) + (breadcrumb ? breadcrumb.offsetHeight : 0);
+        }
+
+        function updateActive() {
+            var scrollPos = window.scrollY + headerOffset() + 8;
+            var active = sections[0];
+            for (var i = 0; i < sections.length; i++) {
+                if (sections[i].el.offsetTop <= scrollPos) active = sections[i];
+            }
+            var text = 'portfolio / ' + active.file;
+            if (label.textContent !== text) label.textContent = text;
+        }
+
+        var ticking = false;
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(function () {
+                updateActive();
+                ticking = false;
+            });
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        updateActive();
+    }
+
+    document.addEventListener('astro:page-load', initBreadcrumb);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initBreadcrumb);
+    } else {
+        initBreadcrumb();
+    }
+</script>
