@@ -1,4 +1,8 @@
 ---
+import { imageSizeFromFile } from 'image-size/fromFile';
+import path from 'node:path';
+import 'photoswipe/style.css';
+
 interface Proyecto {
     num: string;
     i18nTitle: string;
@@ -140,6 +144,18 @@ const proyectos: Proyecto[] = [
 ];
 
 const allTechTags = ["Python", "Django", "Flutter", "ASP.NET", "Astro", "SQL Server", "MySQL", "PostgreSQL"];
+
+const publicDir = path.join(process.cwd(), 'public');
+const allImagePaths = Array.from(new Set(proyectos.flatMap((p) => p.images)));
+const imageDimensions = Object.fromEntries(
+    await Promise.all(
+        allImagePaths.map(async (img) => {
+            const filePath = path.join(publicDir, decodeURIComponent(img));
+            const { width, height } = await imageSizeFromFile(filePath);
+            return [img, { width, height }];
+        })
+    )
+);
 ---
 
 <section id="projects" class="p-8 sm:p-12 lg:p-16 lg:px-14 border-b border-border">
@@ -181,18 +197,28 @@ const allTechTags = ["Python", "Django", "Flutter", "ASP.NET", "Astro", "SQL Ser
                 </div>
 
                 {proyecto.images.length > 0 ? (
-                    <div class="flex gap-1.5 overflow-x-auto p-2.5 [scroll-snap-type:x_mandatory]">
-                        {proyecto.images.map((img, i) => (
-                            <img
-                                src={img}
-                                alt={`${proyecto.titulo} — screenshot ${i + 1}`}
-                                width="220"
-                                height="140"
-                                loading="lazy"
-                                data-gallery={proyecto.num}
-                                class="gallery-thumb w-[220px] h-[140px] object-cover rounded-md flex-none [scroll-snap-align:start] cursor-pointer transition-transform duration-150 hover:scale-[1.03]"
-                            />
-                        ))}
+                    <div class="pswp-gallery flex gap-1.5 overflow-x-auto p-2.5 [scroll-snap-type:x_mandatory] [scrollbar-width:thin] [scrollbar-color:var(--accent)_var(--surface2)] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-surface2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-accent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-surface2">
+                        {proyecto.images.map((img, i) => {
+                            const { width, height } = imageDimensions[img];
+                            return (
+                                <a
+                                    href={img}
+                                    data-pswp-width={width}
+                                    data-pswp-height={height}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src={img}
+                                        alt={`${proyecto.titulo} — screenshot ${i + 1}`}
+                                        width="220"
+                                        height="140"
+                                        loading="lazy"
+                                        class="w-[220px] h-[140px] object-cover rounded-md flex-none [scroll-snap-align:start] cursor-pointer transition-transform duration-150 hover:scale-[1.03]"
+                                    />
+                                </a>
+                            );
+                        })}
                     </div>
                 ) : (
                     <div class="h-[140px] m-2.5 border border-dashed border-border rounded-md flex items-center justify-center">
@@ -234,122 +260,29 @@ const allTechTags = ["Python", "Django", "Flutter", "ASP.NET", "Astro", "SQL Ser
     </div>
 </section>
 
-<div
-    id="gallery-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Project screenshot gallery"
-    class="hidden fixed inset-0 z-[100] bg-black/85 items-center justify-center p-4 sm:p-8"
->
-    <button
-        id="gallery-close"
-        type="button"
-        aria-label="Close gallery"
-        class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-surface/90 border border-border text-text flex items-center justify-center text-xl"
-    >×</button>
+<script>
+    import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
-    <button
-        id="gallery-prev"
-        type="button"
-        aria-label="Previous image"
-        class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface/90 border border-border text-text flex items-center justify-center text-lg"
-    >‹</button>
+    function initGalleries() {
+        document.querySelectorAll('.pswp-gallery').forEach(function (galleryEl) {
+            if (galleryEl.dataset.pswpInit) return;
+            galleryEl.dataset.pswpInit = 'true';
 
-    <button
-        id="gallery-next"
-        type="button"
-        aria-label="Next image"
-        class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface/90 border border-border text-text flex items-center justify-center text-lg"
-    >›</button>
-
-    <figure class="max-w-5xl w-full flex flex-col items-center gap-3">
-        <img id="gallery-image" src="" alt="" class="max-h-[80vh] w-auto max-w-full object-contain rounded-lg border border-border" />
-        <figcaption id="gallery-counter" class="font-jetbrains text-[11.5px] text-text2"></figcaption>
-    </figure>
-</div>
-
-<script is:inline>
-    function initGalleryModal() {
-        var modal = document.getElementById('gallery-modal');
-        if (!modal || modal.__init) return;
-        modal.__init = true;
-
-        var imgEl = document.getElementById('gallery-image');
-        var counterEl = document.getElementById('gallery-counter');
-        var closeBtn = document.getElementById('gallery-close');
-        var prevBtn = document.getElementById('gallery-prev');
-        var nextBtn = document.getElementById('gallery-next');
-
-        var currentGroup = [];
-        var currentIndex = 0;
-
-        function render() {
-            var item = currentGroup[currentIndex];
-            if (!item) return;
-            imgEl.src = item.src;
-            imgEl.alt = item.alt;
-            counterEl.textContent = (currentIndex + 1) + ' / ' + currentGroup.length;
-        }
-
-        function open(group, index) {
-            currentGroup = group;
-            currentIndex = index;
-            render();
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.documentElement.classList.add('overflow-hidden');
-        }
-
-        function close() {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.documentElement.classList.remove('overflow-hidden');
-        }
-
-        function next() {
-            if (!currentGroup.length) return;
-            currentIndex = (currentIndex + 1) % currentGroup.length;
-            render();
-        }
-
-        function prev() {
-            if (!currentGroup.length) return;
-            currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length;
-            render();
-        }
-
-        document.querySelectorAll('.gallery-thumb').forEach(function (thumb) {
-            thumb.addEventListener('click', function () {
-                var groupId = thumb.getAttribute('data-gallery');
-                var groupThumbs = Array.prototype.slice.call(
-                    document.querySelectorAll('.gallery-thumb[data-gallery="' + groupId + '"]')
-                );
-                var group = groupThumbs.map(function (t) { return { src: t.src, alt: t.alt }; });
-                open(group, groupThumbs.indexOf(thumb));
+            const lightbox = new PhotoSwipeLightbox({
+                gallery: galleryEl,
+                children: 'a',
+                pswpModule: () => import('photoswipe'),
+                wheelToZoom: true,
             });
-        });
-
-        closeBtn.addEventListener('click', close);
-        nextBtn.addEventListener('click', next);
-        prevBtn.addEventListener('click', prev);
-
-        modal.addEventListener('click', function (e) {
-            if (e.target === modal) close();
-        });
-
-        document.addEventListener('keydown', function (e) {
-            if (modal.classList.contains('hidden')) return;
-            if (e.key === 'Escape') close();
-            if (e.key === 'ArrowRight') next();
-            if (e.key === 'ArrowLeft') prev();
+            lightbox.init();
         });
     }
 
-    document.addEventListener('astro:page-load', initGalleryModal);
+    document.addEventListener('astro:page-load', initGalleries);
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initGalleryModal);
+        document.addEventListener('DOMContentLoaded', initGalleries);
     } else {
-        initGalleryModal();
+        initGalleries();
     }
 </script>
 
