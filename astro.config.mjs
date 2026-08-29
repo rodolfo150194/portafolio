@@ -14,8 +14,9 @@ export default defineConfig({
 
     },
     optimizeDeps: {
-      // Optimizar GSAP para mejor rendimiento
-      include: ['gsap', 'gsap/ScrollTrigger']
+      // Pre-bundle deps so they're never re-optimized mid-session
+      // (avoids the "Outdated Optimize Dep" 504 on dynamic imports)
+      include: ['gsap', 'gsap/ScrollTrigger', 'photoswipe', 'photoswipe/lightbox', 'photoswipe/style.css']
     }
   }
 });

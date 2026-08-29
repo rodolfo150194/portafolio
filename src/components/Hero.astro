@@ -2,75 +2,123 @@
 import HeroScene from './HeroScene.astro';
 
 const metrics = [
-  { value: '8+', accent: true, labelKey: 'metrics.0.label', label: 'YEARS EXP' },
+  { value: '8+', accent: true, labelKey: 'metrics.0.label', label: 'YEARS OF EXPERIENCE' },
   { value: '10', accent: false, labelKey: 'metrics.1.label', label: 'PLATFORMS SHIPPED' },
-  { value: '30', accent: false, unit: 'yr', unitKey: 'metrics.2.unit', labelKey: 'metrics.2.label', label: 'SERIES CORRECTED' },
-  { value: '0', accent: false, labelKey: 'metrics.3.label', label: 'UN REPORT DEVIATIONS' },
+  { value: '30', accent: false, unit: 'yr', unitKey: 'metrics.2.unit', labelKey: 'metrics.2.label', label: 'HISTORICAL RECORDS AUDITED' },
+  { value: '0', accent: false, labelKey: 'metrics.3.label', label: 'UN SUBMISSION ERRORS' },
 ];
 ---
 
 <section
   id="top"
-  class="relative overflow-hidden bg-[#06080a] text-[#e8e8ea] font-grotesk min-h-screen lg:min-h-[800px]"
+  class="relative overflow-hidden bg-heroBg text-text font-grotesk min-h-screen lg:min-h-[800px]"
 >
   <HeroScene />
 
   <div
-    class="absolute inset-0 z-10 pointer-events-none bg-[linear-gradient(180deg,rgba(6,8,10,.2)_0%,rgba(6,8,10,.85)_60%,#06080a_100%)] lg:bg-[radial-gradient(120%_90%_at_78%_40%,rgba(6,8,10,0)_0%,rgba(6,8,10,.72)_55%,#06080a_88%)]"
+    class="absolute inset-0 z-10 pointer-events-none bg-[linear-gradient(180deg,color-mix(in_srgb,var(--hero-bg)_20%,transparent)_0%,color-mix(in_srgb,var(--hero-bg)_85%,transparent)_60%,var(--hero-bg)_100%)] lg:bg-[radial-gradient(120%_90%_at_78%_40%,color-mix(in_srgb,var(--hero-bg)_0%,transparent)_0%,color-mix(in_srgb,var(--hero-bg)_72%,transparent)_55%,var(--hero-bg)_88%)]"
     aria-hidden="true"
   ></div>
 
   <div class="relative z-20 flex min-h-screen lg:min-h-[800px] flex-col">
-    <div class="max-w-[820px] px-6 sm:px-10 pt-28 sm:pt-32 lg:pt-[144px] pb-10 lg:pb-0">
-      <div class="inline-flex items-center gap-3 font-jetbrains text-[12px] tracking-[0.2em] text-[#b6ff5e] mb-[26px]">
-        <span class="w-[7px] h-[7px] rounded-full bg-[#b6ff5e] shadow-[0_0_12px_#b6ff5e]" aria-hidden="true"></span>
-        <span data-i18n="hero.pill">OPEN TO OPPORTUNITIES · LA HABANA / REMOTE</span>
+    <div class="w-full max-w-[1440px] mx-auto pt-28 sm:pt-32 lg:py-auto pb-10 lg:pb-0">
+      <div class="max-w-[920px]">
+      <div class="inline-flex items-center gap-3 font-jetbrains text-[12px] tracking-[0.2em] text-accent mb-[26px]">
+        <span class="w-[7px] h-[7px] rounded-full bg-accent shadow-[0_0_12px_var(--accent)]" aria-hidden="true"></span>
+        <span data-i18n="hero.pill">AVAILABLE FOR NEW PROJECTS · SPAIN / REMOTE</span>
       </div>
 
-      <h1 class="font-bold leading-[0.94] tracking-[-0.035em] text-[44px] sm:text-[64px] lg:text-[92px] [text-wrap:balance]">
-        <span data-i18n="hero.h1.0" class="block">Backend systems</span>
-        <span data-i18n="hero.h1.1" class="block">that governments</span>
-        <span data-i18n="hero.h1.2" class="block text-[#b6ff5e]">actually run on.</span>
+      <h1 class="font-bold leading-[0.94] tracking-[-0.035em] text-[44px] sm:text-[64px] lg:text-[76px] xl:text-[84px] [text-wrap:balance]">
+        <span data-i18n="hero.h1.0" class="block">Your problem,</span>
+        <span class="block"><span data-i18n="hero.h1.1" class="inline-block min-w-[10ch] text-accent" aria-hidden="true">debugged</span><span class="sr-only" data-i18n="hero.h1.1.sr">debugged</span><span data-i18n="hero.h1.1.suffix">.</span></span>
       </h1>
 
-      <p data-i18n="hero.lede" class="mt-[30px] max-w-[560px] text-[16px] lg:text-[18px] leading-[1.55] text-[#9aa39c] [text-wrap:pretty]">
-        8+ years in Python. I led Cuba's national greenhouse-gas inventory platform for the UN (FAO) — zero deviations in official submissions — and build GIS suites, Flutter apps and AI-agent tooling.
+      <p data-i18n="hero.lede" class="mt-[26px] max-w-[700px] text-[16px] lg:text-[18px] leading-[1.55] text-text2 [text-wrap:pretty]">
+        8+ years turning complex problems into software that works. I led Cuba's national greenhouse-gas reporting platform for the UN (FAO) with zero deviations in official submissions, and I build GIS platforms, mobile apps and AI-powered tools for organizations that can't afford downtime.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-3.5 mt-[38px] font-jetbrains text-[13px]">
+      <div class="flex flex-col sm:flex-row gap-3.5 mt-[32px] font-jetbrains text-[13px]">
         <a
           href="mailto:rodygm0104@gmail.com"
-          class="inline-flex items-center justify-center min-h-[44px] w-full sm:w-auto bg-[#b6ff5e] text-[#06080a] font-bold tracking-[0.04em] px-[26px] py-[15px] hover:bg-[#c9ff85] transition-colors duration-150"
+          class="inline-flex items-center justify-center min-h-[44px] w-full sm:w-auto bg-accent text-bg font-bold tracking-[0.04em] px-[26px] py-[15px] hover:brightness-110 transition duration-150"
         >
-          <span data-i18n="hero.cta.primary">$ contact --now</span>
+          <span data-i18n="hero.cta.primary">Get in touch</span>
         </a>
         <a
           href="/assets/documents/CV_Rodolfo_Garcia_Maeso_2.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center min-h-[44px] w-full sm:w-auto border border-[#2b3329] text-[#cfd6cd] tracking-[0.04em] px-[26px] py-[15px] hover:border-[#b6ff5e] hover:text-white transition-colors duration-150"
+          class="inline-flex items-center justify-center min-h-[44px] w-full sm:w-auto border border-border text-text2 tracking-[0.04em] px-[26px] py-[15px] hover:border-accent hover:text-text transition-colors duration-150"
         >
-          <span data-i18n="hero.cta.secondary">download CV</span>
+          <span data-i18n="hero.cta.secondary">Download CV</span>
         </a>
+      </div>
       </div>
     </div>
 
-    <div class="mt-10 lg:mt-auto grid grid-cols-2 lg:grid-cols-4 border-t border-[#1b2019] font-jetbrains">
+    <div class="w-full mt-8 lg:mt-auto grid grid-cols-2 lg:grid-cols-4 border-t border-border font-jetbrains">
       {metrics.map((m, i) => (
         <div
           class:list={[
-            'px-6 sm:px-8 lg:px-10 py-[22px] border-[#1b2019]',
+            'px-6 sm:px-8 lg:px-10 py-[22px] border-border',
             i % 2 === 0 ? 'border-r' : '',
             i < 2 ? 'border-b lg:border-b-0' : '',
             i < metrics.length - 1 ? 'lg:border-r' : '',
           ]}
         >
-          <div class:list={['text-[30px]', m.accent ? 'text-[#b6ff5e]' : 'text-[#e8e8ea]']}>
+          <div class:list={['text-[30px]', m.accent ? 'text-accent' : 'text-text']}>
             {m.value}{m.unit && <span data-i18n={m.unitKey} class="text-[16px]">{m.unit}</span>}
           </div>
-          <div data-i18n={m.labelKey} class="text-[11px] tracking-[0.16em] text-[#7c8a7c] mt-[6px]">{m.label}</div>
+          <div data-i18n={m.labelKey} class="text-[11px] tracking-[0.16em] text-text2 mt-[6px]">{m.label}</div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<script is:inline>
+  (() => {
+    const word = document.querySelector('[data-i18n="hero.h1.1"]');
+    const accessibleWord = document.querySelector('[data-i18n="hero.h1.1.sr"]');
+    if (!word || !accessibleWord) return;
+
+    const variants = {
+      en: ['debugged', 'optimized', 'automated'],
+      es: ['resuelto', 'optimizado', 'automatizado'],
+    };
+    let index = 0;
+    let timer;
+    let reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const type = (nextWord) => {
+      if (reducedMotion) {
+        word.textContent = nextWord;
+        accessibleWord.textContent = nextWord;
+        return;
+      }
+
+      word.textContent = '';
+      let position = 0;
+      const interval = window.setInterval(() => {
+        word.textContent = nextWord.slice(0, position += 1);
+        if (position === nextWord.length) window.clearInterval(interval);
+      }, 75);
+      accessibleWord.textContent = nextWord;
+    };
+
+    const render = () => {
+      const language = document.documentElement.lang === 'es' ? 'es' : 'en';
+      type(variants[language][index % variants[language].length]);
+      index += 1;
+    };
+
+    const start = () => {
+      window.clearInterval(timer);
+      render();
+      timer = window.setInterval(render, 3200);
+    };
+
+    document.addEventListener('astro:page-load', start);
+    start();
+  })();
+</script>

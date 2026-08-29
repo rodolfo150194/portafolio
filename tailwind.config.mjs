@@ -13,6 +13,7 @@ export default {
         "text2": "var(--text2)",
         "accent": "var(--accent)",
         "accent2": "var(--accent2)",
+        "heroBg": "var(--hero-bg)",
       },
       fontFamily: {
         "grotesk": ["Space Grotesk", "sans-serif"],

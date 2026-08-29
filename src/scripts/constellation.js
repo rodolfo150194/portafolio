@@ -5,23 +5,41 @@
 
 const POINT_COUNT = 820;
 const SPHERE_RADIUS = 2.7;
-const POINT_COLOR = 0xb6ff5e;
 const POINT_SIZE = 0.038;
-const POINT_OPACITY = 0.95;
-const EDGE_COLOR = 0x3ee9b0;
-const EDGE_OPACITY = 0.2;
 const EDGE_MAX_DISTANCE = 0.46;
 const EDGE_NEIGHBOR_SPAN = 7;
 const CORE_RADIUS = 1.4;
 const CORE_DETAIL = 1;
-const CORE_COLOR = 0xffffff;
-const CORE_OPACITY = 0.13;
 const CAMERA_FOV = 50;
 const CAMERA_NEAR = 0.1;
 const CAMERA_FAR = 100;
 const CAMERA_Z = 7.4;
 const POINTER_SMOOTHING = 0.045;
 const MAX_PIXEL_RATIO = 2;
+
+// Theme-keyed material constants (color + opacity per layer). Dark values are
+// byte-identical to the pre-fix hardcoded literals; light values are tuned so
+// the particles/edges/core stay visible against the light `--hero-bg` band.
+const DARK_SCENE = {
+  point: 0xb6ff5e,
+  pointOpacity: 0.95,
+  edge: 0x3ee9b0,
+  edgeOpacity: 0.2,
+  core: 0xffffff,
+  coreOpacity: 0.13,
+};
+const LIGHT_SCENE = {
+  point: 0x3f7000,
+  pointOpacity: 0.9,
+  edge: 0x1f7a5c,
+  edgeOpacity: 0.35,
+  core: 0x12151c,
+  coreOpacity: 0.1,
+};
+
+function resolveScene() {
+  return document.documentElement.classList.contains('dark') ? DARK_SCENE : LIGHT_SCENE;
+}
 
 /**
  * Builds the scene, camera, and per-frame update logic. Mirrors the reference
@@ -50,10 +68,8 @@ function buildScene(THREE, aspect) {
   const pointsGeometry = new THREE.BufferGeometry();
   pointsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
   const pointsMaterial = new THREE.PointsMaterial({
-    color: POINT_COLOR,
     size: POINT_SIZE,
     transparent: true,
-    opacity: POINT_OPACITY,
   });
   const points = new THREE.Points(pointsGeometry, pointsMaterial);
 
@@ -67,9 +83,7 @@ function buildScene(THREE, aspect) {
   }
   const edgesGeometry = new THREE.BufferGeometry().setFromPoints(edgeVertices);
   const edgesMaterial = new THREE.LineBasicMaterial({
-    color: EDGE_COLOR,
     transparent: true,
-    opacity: EDGE_OPACITY,
   });
   const edges = new THREE.LineSegments(edgesGeometry, edgesMaterial);
 
@@ -77,9 +91,7 @@ function buildScene(THREE, aspect) {
     new THREE.IcosahedronGeometry(CORE_RADIUS, CORE_DETAIL)
   );
   const coreMaterial = new THREE.LineBasicMaterial({
-    color: CORE_COLOR,
     transparent: true,
-    opacity: CORE_OPACITY,
   });
   const core = new THREE.LineSegments(coreGeometry, coreMaterial);
 
@@ -87,9 +99,20 @@ function buildScene(THREE, aspect) {
   group.add(points, edges, core);
   scene.add(group);
 
+  const applyTheme = (c) => {
+    pointsMaterial.color.set(c.point);
+    pointsMaterial.opacity = c.pointOpacity;
+    edgesMaterial.color.set(c.edge);
+    edgesMaterial.opacity = c.edgeOpacity;
+    coreMaterial.color.set(c.core);
+    coreMaterial.opacity = c.coreOpacity;
+  };
+  applyTheme(resolveScene());
+
   return {
     scene,
     camera,
+    applyTheme,
     disposables: {
       geometries: [pointsGeometry, edgesGeometry, coreGeometry],
       materials: [pointsMaterial, edgesMaterial, coreMaterial],
@@ -226,10 +249,16 @@ class SceneConstellationElement extends HTMLElement {
     });
     resizeObserver.observe(this);
 
+    const themeObserver = new MutationObserver(() => {
+      api.applyTheme(resolveScene());
+    });
+    themeObserver.observe(document.documentElement, { attributeFilter: ['class'] });
+
     this._dispose = () => {
       stop();
       intersectionObserver.disconnect();
       resizeObserver.disconnect();
+      themeObserver.disconnect();
       window.removeEventListener('pointermove', onPointerMove);
       document.removeEventListener('visibilitychange', onVisibilityChange);
       api.disposables.geometries.forEach((geometry) => geometry.dispose());

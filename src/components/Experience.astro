@@ -74,26 +74,26 @@ const experiences = [
 ];
 ---
 
-<section id="experience" class="p-8 sm:p-12 lg:p-16 lg:px-14 border-b border-border bg-surface">
+<section id="experience" class="p-10 sm:p-14 lg:p-20 lg:px-14 border-b border-border bg-surface">
 
-    <div class="font-jetbrains font-semibold text-[11.5px] text-accent mb-2">[ career.log ]</div>
-    <h2 data-i18n="exp.title" class="font-grotesk font-bold text-[32px] text-text mb-2">Professional Experience</h2>
-    <p data-i18n="exp.subtitle" class="font-manrope text-sm text-text2 mb-9">My career journey and academic background over the years.</p>
+    <div class="font-jetbrains font-semibold text-[13px] text-accent mb-3">[ career.log ]</div>
+    <h2 data-i18n="exp.title" class="font-grotesk font-bold text-[40px] text-text mb-3">Professional Experience</h2>
+    <p data-i18n="exp.subtitle" class="font-manrope text-[16px] text-text2 mb-12">My career journey and academic background over the years.</p>
 
     <div class="flex flex-col">
         {experiences.map((exp) => (
-            <div class="grid grid-cols-1 sm:grid-cols-[145px_1fr] gap-2 sm:gap-6 py-5 border-t border-border">
-                <div data-i18n={exp.i18nDate} class="font-jetbrains font-semibold text-xs text-accent2 whitespace-nowrap">
+            <div class="grid grid-cols-1 sm:grid-cols-[145px_1fr] gap-3 sm:gap-8 py-7 border-t border-border">
+                <div data-i18n={exp.i18nDate} class="font-jetbrains font-semibold text-[13px] text-accent2 whitespace-nowrap">
                     {exp.date}
                 </div>
                 <div>
-                    <div data-i18n={exp.i18nTitle} class="font-grotesk font-semibold text-[17px] text-text mb-1">
+                    <div data-i18n={exp.i18nTitle} class="font-grotesk font-semibold text-[20px] text-text mb-1.5">
                         {exp.title}
                     </div>
-                    <div data-i18n={exp.i18nCompany} class="font-jetbrains font-medium text-[12.5px] text-text2 mb-2.5">
+                    <div data-i18n={exp.i18nCompany} class="font-jetbrains font-medium text-[14px] text-text2 mb-3">
                         {exp.company}
                     </div>
-                    <ul class="list-disc pl-4 space-y-1.5 font-manrope text-sm leading-[1.7] text-text2 max-w-[640px]">
+                    <ul class="list-disc pl-4 space-y-2 font-manrope text-[16px] leading-[1.7] text-text2 max-w-[640px]">
                         {exp.description.map((line, i) => (
                             <li data-i18n={`${exp.i18nDesc}.${i}`}>{line}</li>
                         ))}

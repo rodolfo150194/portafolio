@@ -12,17 +12,20 @@
     --text2: rgba(18, 21, 28, 0.62);
     --accent: #3f7000;
     --accent2: #a8700a;
+    --hero-bg: #eceae3;
   }
 
+  /* Dark neutrals are green-tinted to match the hero's neural-terminal palette (#06080a / #b6ff5e) */
   .dark {
-    --bg: #0a0e14;
-    --surface: #10151f;
-    --surface2: #161c28;
-    --border: rgba(255, 255, 255, 0.09);
-    --text: #e6e9ef;
-    --text2: rgba(230, 233, 239, 0.62);
+    --bg: #0a0d0a;
+    --surface: #10140f;
+    --surface2: #151a13;
+    --border: rgba(182, 255, 94, 0.12);
+    --text: #e8e8ea;
+    --text2: rgba(228, 235, 230, 0.62);
     --accent: #b6ff5e;
     --accent2: #f0b429;
+    --hero-bg: #06080a;
   }
 }
 

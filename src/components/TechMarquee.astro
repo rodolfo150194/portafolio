@@ -5,8 +5,8 @@ const items = [...staticItems, { i18nKey: 'marquee.8', label: 'AI AGENTS / MCP' 
 const track = [...items, ...items];
 ---
 
-<div class="bg-[#080b0c] border-t border-b border-[#1b2019] overflow-hidden">
-  <div class="flex gap-[38px] w-max py-4 font-jetbrains text-[14px] tracking-[0.1em] text-[#5f6b60] animate-marq motion-reduce:animate-none hover:[animation-play-state:paused]">
+<div class="bg-heroBg border-t border-b border-border overflow-hidden">
+  <div class="flex gap-[38px] w-max py-5 font-jetbrains text-[16px] tracking-[0.1em] text-text2 animate-marq motion-reduce:animate-none hover:[animation-play-state:paused]">
     {track.map((item) => (
       <>
         {typeof item === 'string' ? (
@@ -14,7 +14,7 @@ const track = [...items, ...items];
         ) : (
           <span data-i18n={item.i18nKey}>{item.label}</span>
         )}
-        <span class="text-[#b6ff5e]" aria-hidden="true">·</span>
+        <span class="text-accent" aria-hidden="true">·</span>
       </>
     ))}
   </div>

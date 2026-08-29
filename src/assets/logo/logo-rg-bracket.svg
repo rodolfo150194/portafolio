@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="R.García RG bracket monogram">
+  <title>R.García — RG Bracket Monogram</title>
+  <!-- code tag brackets -->
+  <polyline points="27,18 9,50 27,82" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="73,18 91,50 73,82" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- RG monogram -->
+  <text x="50" y="61" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="700" font-size="30" letter-spacing="-1" fill="currentColor">RG</text>
+  <!-- cursor underscore accent -->
+  <rect x="60" y="68" width="12" height="4.5" rx="1" fill="#b6ff5e"/>
+</svg>
