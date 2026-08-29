@@ -27,9 +27,11 @@ export default {
       },
       keyframes: {
         blink: { '50%': { opacity: '0' } },
+        marq: { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-50%)' } },
       },
       animation: {
         blink: 'blink 1.1s steps(1) infinite',
+        marq: 'marq 26s linear infinite',
       },
     },
   },
