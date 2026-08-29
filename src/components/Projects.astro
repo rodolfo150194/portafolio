@@ -12,6 +12,7 @@ interface Proyecto {
     i18nImpact: string;
     impacto: string;
     tecnologias: string[];
+    categorias: string[];
     images: string[];
     link?: string;
 }
@@ -28,6 +29,7 @@ const proyectos: Proyecto[] = [
         i18nImpact: "proj.0.impact",
         impacto: "Replaced paper-based soil testing with one geospatial system technicians use to sample, map and report in real time.",
         tecnologias: ["Python", "Django", "Leaflet", "TailwindCSS", "GeoServer", "PostgreSQL"],
+        categorias: ["system"],
         images: [
             `${BASE}/suite%20suelos/1.jpeg`, `${BASE}/suite%20suelos/2.jpeg`, `${BASE}/suite%20suelos/4.jpeg`,
             `${BASE}/suite%20suelos/5.jpeg`, `${BASE}/suite%20suelos/6.jpeg`, `${BASE}/suite%20suelos/7.jpeg`,
@@ -44,6 +46,7 @@ const proyectos: Proyecto[] = [
         i18nImpact: "proj.1.impact",
         impacto: "Gave policymakers a single, AI-assisted source of truth for climate-adaptation data instead of scattered spreadsheets.",
         tecnologias: ["Wagtail", "Django", "AI", "Bootstrap", "PostgreSQL"],
+        categorias: ["system"],
         link: "https://sicca.minag.code43w.net/",
         images: [
             `${BASE}/sicca/1.png`, `${BASE}/sicca/2.png`, `${BASE}/sicca/3.jpeg`,
@@ -61,6 +64,7 @@ const proyectos: Proyecto[] = [
         i18nImpact: "proj.2.impact",
         impacto: "Cut national emissions reporting from months of manual spreadsheet work to automated reports — zero errors flagged by the UN.",
         tecnologias: ["Django", "Python", "MySQL", "Bootstrap"],
+        categorias: ["system"],
         link: "https://ingei.minag.code43w.net/",
         images: [
             `${BASE}/ingei/1.jpg`, `${BASE}/ingei/2.jpeg`, `${BASE}/ingei/3.jpeg`, `${BASE}/ingei/4.jpeg`,
@@ -77,6 +81,7 @@ const proyectos: Proyecto[] = [
         i18nImpact: "proj.3.impact",
         impacto: "Brought digital procedures to farming cooperatives with unreliable internet, through lightweight conversational bots.",
         tecnologias: ["Flutter/Dart", "Python", "Django REST Framework", "MySQL", "Matrix"],
+        categorias: ["mobile", "bot"],
         images: [
             `${BASE}/guajapp/1.jpeg`, `${BASE}/guajapp/2.jpeg`, `${BASE}/guajapp/3.jpeg`,
             `${BASE}/guajapp/4.jpeg`, `${BASE}/guajapp/5.jpeg`,
@@ -91,6 +96,7 @@ const proyectos: Proyecto[] = [
         i18nImpact: "proj.4.impact",
         impacto: "Gave field teams instant, accurate area calculations instead of manual GPS math.",
         tecnologias: ["GIS", "PostGIS", "Python", "Django REST Framework", "Flutter/Dart"],
+        categorias: ["system", "mobile"],
         images: [
             `${BASE}/polymap/1.jpeg`, `${BASE}/polymap/2.jpeg`, `${BASE}/polymap/3.jpeg`,
             `${BASE}/polymap/4.jpeg`, `${BASE}/polymap/5.jpeg`, `${BASE}/polymap/6.jpeg`, `${BASE}/polymap/7.jpeg`,
@@ -105,6 +111,7 @@ const proyectos: Proyecto[] = [
         i18nImpact: "proj.5.impact",
         impacto: "Digitized a multi-step government certification process, cutting paperwork and giving applicants real-time status.",
         tecnologias: ["Flutter/Dart", "Django REST Framework", "MySQL"],
+        categorias: ["mobile"],
         images: [
             `${BASE}/rcf/1.jpeg`, `${BASE}/rcf/2.jpeg`, `${BASE}/rcf/3.jpeg`, `${BASE}/rcf/4.jpeg`,
             `${BASE}/rcf/5.jpeg`, `${BASE}/rcf/6.jpeg`, `${BASE}/rcf/7.jpeg`, `${BASE}/rcf/8.jpeg`,
@@ -120,6 +127,7 @@ const proyectos: Proyecto[] = [
         i18nImpact: "proj.6.impact",
         impacto: "Replaced spreadsheet-based device tracking with automated, audit-ready reporting tied to Active Directory.",
         tecnologias: ["ASP.NET", "C#", "SQL Server", "Active Directory", "ReportLab"],
+        categorias: ["system"],
         images: [],
     },
     {
@@ -131,6 +139,7 @@ const proyectos: Proyecto[] = [
         i18nImpact: "proj.7.impact",
         impacto: "Gave fleet managers full maintenance history and failure tracking to cut unplanned downtime.",
         tecnologias: ["ASP.NET", "C#", "SQL Server", "Crystal Reports"],
+        categorias: ["system"],
         images: [],
     },
     {
@@ -142,6 +151,7 @@ const proyectos: Proyecto[] = [
         i18nImpact: "proj.8.impact",
         impacto: "A higher-converting bilingual landing page that turns visitors into quote requests via WhatsApp.",
         tecnologias: ["Astro", "TailwindCSS", "TypeScript"],
+        categorias: ["landing"],
         link: "https://writtenlegacyturf.com/",
         images: [
             `${BASE}/written_legacy/1.jpg`, `${BASE}/written_legacy/2.jpg`, `${BASE}/written_legacy/3.jpg`,
@@ -157,6 +167,7 @@ const proyectos: Proyecto[] = [
         i18nImpact: "proj.9.impact",
         impacto: "A credibility-first landing page showcasing certifications and partners to help win enterprise security contracts.",
         tecnologias: ["Astro", "TailwindCSS"],
+        categorias: ["landing"],
         link: "https://gvoltscorp.cloud/",
         images: [
             `${BASE}/gvoltscorp/1.jpg`, `${BASE}/gvoltscorp/2.jpg`, `${BASE}/gvoltscorp/3.jpg`, `${BASE}/gvoltscorp/4.jpg`,
@@ -165,14 +176,13 @@ const proyectos: Proyecto[] = [
     },
 ];
 
-// Filter tags derived from the project data — unique, most-used first (ties keep data order)
-const techCounts = new Map();
-proyectos.forEach((proyecto) =>
-    proyecto.tecnologias.forEach((t) => techCounts.set(t, (techCounts.get(t) || 0) + 1))
-);
-const allTechTags = Array.from(techCounts.entries())
-    .sort((a, b) => b[1] - a[1])
-    .map(([tag]) => tag);
+// Filter categories — project type, not tech stack, so non-technical visitors aren't lost
+const categoryFilters = [
+    { key: "system", i18n: "proj.filter.system", label: "Systems" },
+    { key: "mobile", i18n: "proj.filter.mobile", label: "Mobile apps" },
+    { key: "landing", i18n: "proj.filter.landing", label: "Landing pages" },
+    { key: "bot", i18n: "proj.filter.bot", label: "Bots" },
+];
 
 // Max thumbnails shown inline; the rest open via the small gallery button
 const GALLERY_PREVIEW = 6;
@@ -192,27 +202,29 @@ const imageDimensions = Object.fromEntries(
 
 <section id="projects" class="p-10 sm:p-14 lg:p-20 lg:px-14 border-b border-border bg-bg">
 
-    <div class="font-jetbrains font-semibold text-[13px] text-accent mb-3">[ selected.work ]</div>
-    <h2 data-i18n="proj.title" class="font-grotesk font-bold text-[28px] sm:text-[34px] lg:text-[40px] text-text mb-3">Real problems, shipped solutions</h2>
-    <p data-i18n="proj.subtitle" class="font-manrope text-[16px] text-text2 mb-9 max-w-[640px]">A sample of platforms and products I've built for government agencies, agricultural cooperatives and businesses — each one solving a concrete operational problem.</p>
+    <div class="text-center">
+        <div class="font-jetbrains font-semibold text-[13px] text-accent mb-3">[ selected.work ]</div>
+        <h2 data-i18n="proj.title" class="font-grotesk font-bold text-[28px] sm:text-[34px] lg:text-[40px] text-text mb-3">Real problems, shipped solutions</h2>
+        <p data-i18n="proj.subtitle" class="font-manrope text-[16px] text-text2 mb-9 max-w-[640px] mx-auto">A sample of platforms and products I've built for government agencies, agricultural cooperatives and businesses — each one solving a concrete operational problem.</p>
+    </div>
 
-    <div class="flex flex-wrap gap-2.5 mb-9">
+    <div class="flex flex-wrap justify-center gap-2.5 mb-9">
         <button
             type="button"
-            data-tech="all"
+            data-category="all"
             aria-pressed="true"
             class="proj-filter font-jetbrains font-medium text-[13px] border border-border rounded-full px-3.5 py-1.5 bg-accent text-bg"
         >
             <span data-i18n="proj.all">All</span>
         </button>
-        {allTechTags.map((tag) => (
+        {categoryFilters.map((category) => (
             <button
                 type="button"
-                data-tech={tag.toLowerCase()}
+                data-category={category.key}
                 aria-pressed="false"
                 class="proj-filter font-jetbrains font-medium text-[13px] border border-border rounded-full px-3.5 py-1.5 bg-surface2 text-text2"
             >
-                {tag}
+                <span data-i18n={category.i18n}>{category.label}</span>
             </button>
         ))}
     </div>
@@ -221,7 +233,7 @@ const imageDimensions = Object.fromEntries(
         {proyectos.map((proyecto) => (
             <div
                 class="proj-card bg-surface border border-border rounded-xl overflow-hidden flex flex-col"
-                data-techs={proyecto.tecnologias.join('|').toLowerCase()}
+                data-categories={proyecto.categorias.join('|')}
             >
                 <div class="flex items-center gap-1.5 px-4 py-3 border-b border-border bg-surface2">
                     <span class="w-1.5 h-1.5 rounded-full bg-[#b94a42]"></span>
@@ -385,12 +397,10 @@ const imageDimensions = Object.fromEntries(
                 btn.classList.add('bg-accent', 'text-bg');
                 btn.setAttribute('aria-pressed', 'true');
 
-                var tech = btn.dataset.tech;
+                var category = btn.dataset.category;
                 cards.forEach(function(card) {
-                    var techs = card.dataset.techs || '';
-                    var match = tech === 'all' || techs.split('|').some(function(t) {
-                        return t === tech || t.indexOf(tech + '/') === 0;
-                    });
+                    var categories = (card.dataset.categories || '').split('|');
+                    var match = category === 'all' || categories.indexOf(category) !== -1;
                     card.style.display = match ? '' : 'none';
                 });
             });
