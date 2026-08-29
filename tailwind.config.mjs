@@ -25,6 +25,12 @@ export default {
         "xl": "0.75rem",
         "full": "9999px"
       },
+      keyframes: {
+        blink: { '50%': { opacity: '0' } },
+      },
+      animation: {
+        blink: 'blink 1.1s steps(1) infinite',
+      },
     },
   },
   plugins: [],
