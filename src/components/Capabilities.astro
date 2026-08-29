@@ -1,0 +1,127 @@
+---
+import CapabilityScene from './CapabilityScene.astro';
+
+const cards = [
+  {
+    i18nTitle: 'capabilities.card.0.title',
+    title: 'End-to-end ownership',
+    i18nDesc: 'capabilities.card.0.desc',
+    desc: 'From database schema to production infrastructure, I own the whole stack — no hand-offs, no surprises.',
+  },
+  {
+    i18nTitle: 'capabilities.card.1.title',
+    title: 'Tested before it ships',
+    i18nDesc: 'capabilities.card.1.desc',
+    desc: 'Every feature goes through automated tests and manual QA before it reaches production. Bugs get caught by me, not by your users.',
+  },
+  {
+    i18nTitle: 'capabilities.card.2.title',
+    title: 'AI-accelerated delivery',
+    i18nDesc: 'capabilities.card.2.desc',
+    desc: 'I direct AI agents (Claude Code, Codex, MCP) to ship faster without cutting corners on quality.',
+  },
+  {
+    i18nTitle: 'capabilities.card.3.title',
+    title: 'Built to be maintained',
+    i18nDesc: 'capabilities.card.3.desc',
+    desc: 'Clean architecture, documented decisions, readable code. Six months from now, changes are still easy — for me or for whoever comes after.',
+  },
+];
+---
+
+<section id="capabilities" class="border-b border-border bg-surface">
+  <div class="p-10 sm:p-14 lg:p-20 lg:px-14 pb-0 lg:pb-0 text-center">
+    <div class="font-jetbrains font-semibold text-[13px] text-accent mb-3">[ capabilities.log ]</div>
+    <h2 data-i18n="capabilities.title" class="font-grotesk font-bold text-[40px] text-text mb-3">
+      Why work with me
+    </h2>
+    <p data-i18n="capabilities.subtitle" class="font-manrope text-[16px] text-text2 mb-10 max-w-[560px] mx-auto">
+      Four things you get on every engagement — not just this one.
+    </p>
+  </div>
+
+  <div class="px-10 sm:px-14 lg:px-14 pb-10 sm:pb-14 lg:pb-20">
+    <div class="relative overflow-hidden rounded-[10px] border border-border bg-heroBg min-h-[560px] lg:min-h-[500px]">
+      <CapabilityScene />
+
+      <div
+        class="absolute inset-0 z-10 pointer-events-none bg-[linear-gradient(180deg,transparent_0%,transparent_50%,color-mix(in_srgb,var(--hero-bg)_55%,transparent)_82%,color-mix(in_srgb,var(--hero-bg)_88%,transparent)_100%)]"
+        aria-hidden="true"
+      ></div>
+
+      <div class="relative z-20 flex flex-col min-h-[560px] lg:min-h-[500px]">
+        <div class="flex-1"></div>
+
+        <div class="border-t border-border bg-surface/90 backdrop-blur-sm">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 divide-y divide-border sm:divide-y-0 sm:divide-x">
+            {cards.map((card, i) => (
+              <div class="p-5 lg:p-6" data-capability-index={i}>
+                <div class="font-jetbrains font-semibold text-[12px] text-accent mb-2">
+                  {String(i + 1).padStart(2, '0')}
+                </div>
+                <div data-i18n={card.i18nTitle} class="font-grotesk font-semibold text-[17px] lg:text-[18px] text-text mb-2 leading-[1.3]">
+                  {card.title}
+                </div>
+                <p data-i18n={card.i18nDesc} class="font-manrope text-[15px] lg:text-[16px] leading-[1.55] text-text2">
+                  {card.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div class="border-t border-border flex justify-center p-5">
+            <a
+              href="#contact"
+              class="pointer-events-auto inline-flex items-center gap-3 font-jetbrains text-[13px] hover:text-accent transition-colors duration-150"
+            >
+              <span data-i18n="capabilities.cta.title" class="font-grotesk font-semibold text-[15px] text-text">
+                Have a problem like this?
+              </span>
+              <span class="inline-flex items-center gap-2 text-accent">
+                <span data-i18n="capabilities.cta.button">Let's talk</span>
+                <span aria-hidden="true">&rarr;</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const scene = document.querySelector('scene-capability-core');
+  const cards = document.querySelectorAll('[data-capability-index]');
+
+  cards.forEach((card) => {
+    const index = Number(card.getAttribute('data-capability-index'));
+    card.addEventListener('pointerenter', () => scene?.setActiveSector?.(index));
+    card.addEventListener('pointerleave', () => scene?.setActiveSector?.(null));
+  });
+
+  // The card grid reflows (4-across, 2x2, single column) across breakpoints,
+  // so each card's convergence target is measured from its real position
+  // rather than assumed from a fixed column count — otherwise the point
+  // cluster lines up with the wrong card (or, for two cards sharing a
+  // column, the same spot) as soon as the grid wraps.
+  const updateFocalTargets = () => {
+    if (!scene) return;
+    const sceneRect = scene.getBoundingClientRect();
+    if (!sceneRect.width) return;
+
+    const rects = Array.from(cards, (card) => card.getBoundingClientRect());
+    const rowTops = [...new Set(rects.map((r) => Math.round(r.top)))].sort((a, b) => a - b);
+
+    cards.forEach((card, i) => {
+      const index = Number(card.getAttribute('data-capability-index'));
+      const cardRect = rects[i];
+      const cardCenterX = cardRect.left + cardRect.width / 2;
+      const xFraction = ((cardCenterX - sceneRect.left) / sceneRect.width) * 2 - 1;
+      const rowIndex = rowTops.indexOf(Math.round(cardRect.top));
+      const yFraction = rowTops.length > 1 ? (rowIndex / (rowTops.length - 1)) * 2 - 1 : 0;
+      scene.setSectorFocal?.(index, xFraction, yFraction);
+    });
+  };
+  updateFocalTargets();
+  window.addEventListener('resize', updateFocalTargets);
+</script>

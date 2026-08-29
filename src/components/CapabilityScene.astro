@@ -1,0 +1,19 @@
+---
+// Hosts the <scene-capability-core> custom element for the "why work with me"
+// section. three.js itself stays dynamic-imported inside capability-core.js's
+// own _mount(), so it's only fetched once this panel actually mounts;
+// capability-core.js is imported statically in the client script below (no
+// top-level await) so customElements.define() runs synchronously, before
+// Capabilities.astro's script (which calls methods on this element) has a
+// chance to run first.
+---
+
+<scene-capability-core
+  class="absolute inset-0 z-0 block h-full w-full data-[fallback]:bg-[radial-gradient(75%_75%_at_50%_32%,color-mix(in_srgb,var(--accent)_14%,transparent)_0%,transparent_65%)]"
+  aria-hidden="true"
+></scene-capability-core>
+
+<script>
+  import { defineCapabilityCoreElement } from '../scripts/capability-core.js';
+  defineCapabilityCoreElement();
+</script>
