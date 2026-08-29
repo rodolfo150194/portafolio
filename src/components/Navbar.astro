@@ -7,12 +7,12 @@ const navLinks = [
 
 <header
     id="navbar"
-    class="fixed inset-x-0 top-0 z-50 h-[68px] bg-transparent border-b border-transparent transition-colors duration-200"
+    class="group fixed inset-x-0 top-0 z-50 h-[68px] bg-transparent border-b border-transparent transition-colors duration-200"
 >
     <div class="h-full max-w-7xl mx-auto px-4 sm:px-7 flex items-center justify-between gap-4">
 
         <!-- Brand -->
-        <div class="flex items-center shrink-0 font-jetbrains font-medium text-[13px] tracking-[0.08em] text-text">
+        <div class="flex items-center shrink-0 font-jetbrains font-medium text-[13px] tracking-[0.08em] text-[#e8e8ea] group-data-[past-hero]:text-text">
             <span>R.GARCÍA</span><span class="animate-blink motion-reduce:animate-none" aria-hidden="true">_</span>
         </div>
 
@@ -20,11 +20,11 @@ const navLinks = [
         <nav class="hidden lg:flex items-center gap-2 mx-auto" aria-label="Primary">
             {navLinks.map((link, index) => (
                 <>
-                    {index > 0 && <span class="text-text2/50 select-none" aria-hidden="true">·</span>}
+                    {index > 0 && <span class="text-[#5f6b60] group-data-[past-hero]:text-text2/50 select-none" aria-hidden="true">·</span>}
                     <a
                         href={`#${link.targetId}`}
                         data-nav-link
-                        class="lowercase font-jetbrains font-medium text-[12.5px] text-text2 hover:text-text hover:bg-surface2 px-2.5 py-1.5 rounded-md transition-colors duration-150"
+                        class="lowercase font-jetbrains font-medium text-[12.5px] text-[#8a8f88] hover:text-[#b6ff5e] group-data-[past-hero]:text-text2 group-data-[past-hero]:hover:text-text group-data-[past-hero]:hover:bg-surface2 px-2.5 py-1.5 rounded-md transition-colors duration-150"
                     >
                         <span data-i18n={link.i18nKey}>{link.label}</span>
                     </a>
@@ -67,9 +67,9 @@ const navLinks = [
                 aria-controls="mobile-menu"
                 class="lg:hidden flex flex-col justify-center gap-[5px] w-9 h-9 items-center"
             >
-                <span class="w-5 h-[1.5px] bg-text"></span>
-                <span class="w-5 h-[1.5px] bg-text"></span>
-                <span class="w-5 h-[1.5px] bg-text"></span>
+                <span class="w-5 h-[1.5px] bg-[#e8e8ea] group-data-[past-hero]:bg-text"></span>
+                <span class="w-5 h-[1.5px] bg-[#e8e8ea] group-data-[past-hero]:bg-text"></span>
+                <span class="w-5 h-[1.5px] bg-[#e8e8ea] group-data-[past-hero]:bg-text"></span>
             </button>
         </div>
     </div>
@@ -142,6 +142,7 @@ const navLinks = [
             header.classList.toggle('border-border', pastHero);
             header.classList.toggle('bg-transparent', !pastHero);
             header.classList.toggle('border-transparent', !pastHero);
+            header.toggleAttribute('data-past-hero', pastHero);
         }
 
         updateChrome();
