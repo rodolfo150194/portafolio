@@ -3,9 +3,8 @@ import HeroScene from './HeroScene.astro';
 
 const metrics = [
   { value: '8+', accent: true, labelKey: 'metrics.0.label', label: 'YEARS OF EXPERIENCE' },
-  { value: '10', accent: false, labelKey: 'metrics.1.label', label: 'PLATFORMS SHIPPED' },
-  { value: '30', accent: false, unit: 'yr', unitKey: 'metrics.2.unit', labelKey: 'metrics.2.label', label: 'HISTORICAL RECORDS AUDITED' },
-  { value: '0', accent: false, labelKey: 'metrics.3.label', label: 'UN SUBMISSION ERRORS' },
+  { value: '10+', accent: false, labelKey: 'metrics.1.label', label: 'PROJECTS SHIPPED' },
+  { value: '15+', accent: false, labelKey: 'metrics.2.label', label: 'TECHNOLOGIES' },
 ];
 ---
 
@@ -29,12 +28,12 @@ const metrics = [
       </div>
 
       <h1 class="font-bold leading-[0.94] tracking-[-0.035em] text-[44px] sm:text-[64px] lg:text-[76px] xl:text-[84px] [text-wrap:balance]">
-        <span data-i18n="hero.h1.0" class="block">Your problem,</span>
-        <span class="block"><span data-i18n="hero.h1.1" class="inline-block min-w-[10ch] text-accent" aria-hidden="true">debugged</span><span class="sr-only" data-i18n="hero.h1.1.sr">debugged</span><span data-i18n="hero.h1.1.suffix">.</span></span>
+        <span data-i18n="hero.h1.0" class="block">Your idea,</span>
+        <span class="block"><span data-i18n="hero.h1.1" class="inline-block text-accent" aria-hidden="true">executed</span><span class="sr-only" data-i18n="hero.h1.1.sr">executed</span><span data-i18n="hero.h1.1.suffix">.</span></span>
       </h1>
 
       <p data-i18n="hero.lede" class="mt-[26px] max-w-[700px] text-[16px] lg:text-[18px] leading-[1.55] text-text2 [text-wrap:pretty]">
-        8+ years turning complex problems into software that works. I led Cuba's national greenhouse-gas reporting platform for the UN (FAO) with zero deviations in official submissions, and I build GIS platforms, mobile apps and AI-powered tools for organizations that can't afford downtime.
+        8+ years turning ideas into software that runs — backend platforms in Python (Django, FastAPI), GIS systems handling satellite and geospatial data, mobile apps in Flutter. Whatever shape it takes, I build it end to end, without cutting corners.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-3.5 mt-[32px] font-jetbrains text-[13px]">
@@ -56,18 +55,16 @@ const metrics = [
       </div>
     </div>
 
-    <div class="w-full mt-8 lg:mt-auto grid grid-cols-2 lg:grid-cols-4 border-t border-border font-jetbrains">
+    <div class="w-full mt-8 lg:mt-auto grid grid-cols-3 border-t border-border font-jetbrains">
       {metrics.map((m, i) => (
         <div
           class:list={[
             'px-6 sm:px-8 lg:px-10 py-[22px] border-border',
-            i % 2 === 0 ? 'border-r' : '',
-            i < 2 ? 'border-b lg:border-b-0' : '',
-            i < metrics.length - 1 ? 'lg:border-r' : '',
+            i < metrics.length - 1 ? 'border-r' : '',
           ]}
         >
           <div class:list={['text-[30px]', m.accent ? 'text-accent' : 'text-text']}>
-            {m.value}{m.unit && <span data-i18n={m.unitKey} class="text-[16px]">{m.unit}</span>}
+            {m.value}
           </div>
           <div data-i18n={m.labelKey} class="text-[11px] tracking-[0.16em] text-text2 mt-[6px]">{m.label}</div>
         </div>
@@ -83,8 +80,8 @@ const metrics = [
     if (!word || !accessibleWord) return;
 
     const variants = {
-      en: ['debugged', 'optimized', 'automated'],
-      es: ['resuelto', 'optimizado', 'automatizado'],
+      en: ['executed', 'deployed', 'automated'],
+      es: ['ejecutada', 'desplegada', 'automatizada'],
     };
     let index = 0;
     let timer;

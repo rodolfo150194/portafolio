@@ -24,23 +24,35 @@ export const translations: Record<Language, TranslationDict> = {
 
     /* Hero: Neural Terminal */
     'hero.pill': 'AVAILABLE FOR NEW PROJECTS',
-    'hero.h1.0': 'Your problem,',
-    'hero.h1.1': 'debugged',
-    'hero.h1.1.sr': 'debugged',
+    'hero.h1.0': 'Your idea,',
+    'hero.h1.1': 'executed',
+    'hero.h1.1.sr': 'executed',
     'hero.h1.1.suffix': '.',
-    'hero.lede': "8+ years turning complex problems into software that works. I led Cuba's national greenhouse-gas reporting platform for the UN (FAO) with zero deviations in official submissions, and I build GIS platforms, mobile apps and AI-powered tools for organizations that can't afford downtime.",
+    'hero.lede': '8+ years turning ideas into software that runs — backend platforms in Python (Django, FastAPI), GIS systems handling satellite and geospatial data, mobile apps in Flutter. Whatever shape it takes, I build it end to end, without cutting corners.',
     'hero.cta.primary': 'Get in touch',
     'hero.cta.secondary': 'Download CV',
 
     /* Metrics strip */
     'metrics.0.label': 'YEARS OF EXPERIENCE',
-    'metrics.1.label': 'PLATFORMS SHIPPED',
-    'metrics.2.label': 'HISTORICAL RECORDS AUDITED',
-    'metrics.2.unit': 'yr',
-    'metrics.3.label': 'UN SUBMISSION ERRORS',
+    'metrics.1.label': 'PROJECTS SHIPPED',
+    'metrics.2.label': 'TECHNOLOGIES',
 
     /* Tech marquee */
     'marquee.8': 'AI AGENTS / MCP',
+
+    /* Capabilities */
+    'capabilities.title': 'Why work with me',
+    'capabilities.subtitle': 'Four things you get on every engagement — not just this one.',
+    'capabilities.card.0.title': 'End-to-end ownership',
+    'capabilities.card.0.desc': 'From database schema to production infrastructure, I own the whole stack — no hand-offs, no surprises.',
+    'capabilities.card.1.title': 'Tested before it ships',
+    'capabilities.card.1.desc': 'Every feature goes through automated tests and manual QA before it reaches production. Bugs get caught by me, not by your users.',
+    'capabilities.card.2.title': 'AI-accelerated delivery',
+    'capabilities.card.2.desc': 'I direct AI agents (Claude Code, Codex, MCP) to ship faster without cutting corners on quality.',
+    'capabilities.card.3.title': 'Built to be maintained',
+    'capabilities.card.3.desc': 'Clean architecture, documented decisions, readable code. Six months from now, changes are still easy — for me or for whoever comes after.',
+    'capabilities.cta.title': 'Got something in mind?',
+    'capabilities.cta.button': "Let's talk",
 
     /* Skills */
     'skills.title': 'Technical Skills',
@@ -163,23 +175,35 @@ export const translations: Record<Language, TranslationDict> = {
 
     /* Hero: Neural Terminal */
     'hero.pill': 'DISPONIBLE PARA NUEVOS PROYECTOS',
-    'hero.h1.0': 'Tu problema,',
-    'hero.h1.1': 'resuelto',
-    'hero.h1.1.sr': 'resuelto',
+    'hero.h1.0': 'Tu idea,',
+    'hero.h1.1': 'ejecutada',
+    'hero.h1.1.sr': 'ejecutada',
     'hero.h1.1.suffix': '.',
-    'hero.lede': 'Más de 8 años convirtiendo problemas complejos en software que funciona. Lideré la plataforma nacional de reporte de gases de efecto invernadero de Cuba para la ONU (FAO) con cero desviaciones en los informes oficiales, y desarrollo plataformas GIS, apps móviles y herramientas con IA para organizaciones que no pueden permitirse fallas.',
+    'hero.lede': 'Más de 8 años convirtiendo ideas en software que corre — plataformas backend en Python (Django, FastAPI), sistemas GIS que procesan datos satelitales y geoespaciales, apps móviles en Flutter. Sea cual sea la forma que tome, la construyo de punta a punta, sin atajos.',
     'hero.cta.primary': 'Hablemos',
     'hero.cta.secondary': 'Descargar CV',
 
     /* Metrics strip */
     'metrics.0.label': 'AÑOS DE EXPERIENCIA',
-    'metrics.1.label': 'PLATAFORMAS ENTREGADAS',
-    'metrics.2.label': 'REGISTROS HISTÓRICOS AUDITADOS',
-    'metrics.2.unit': 'a',
-    'metrics.3.label': 'ERRORES EN REPORTES A LA ONU',
+    'metrics.1.label': 'PROYECTOS ENTREGADOS',
+    'metrics.2.label': 'TECNOLOGÍAS',
 
     /* Tech marquee */
     'marquee.8': 'AGENTES IA / MCP',
+
+    /* Capabilities */
+    'capabilities.title': 'Por qué trabajar conmigo',
+    'capabilities.subtitle': 'Cuatro cosas que obtenés en cada proyecto, no solo en este.',
+    'capabilities.card.0.title': 'Responsabilidad de punta a punta',
+    'capabilities.card.0.desc': 'Desde el esquema de base de datos hasta la infraestructura en producción, me hago cargo de todo el stack — sin traspasos ni sorpresas.',
+    'capabilities.card.1.title': 'Probado antes de salir a producción',
+    'capabilities.card.1.desc': 'Cada funcionalidad pasa por tests automatizados y QA manual antes de llegar a producción. Los bugs los encuentro yo, no tus usuarios.',
+    'capabilities.card.2.title': 'Entregas aceleradas con IA',
+    'capabilities.card.2.desc': 'Dirijo agentes de IA (Claude Code, Codex, MCP) para entregar más rápido sin resignar calidad.',
+    'capabilities.card.3.title': 'Pensado para mantenerse',
+    'capabilities.card.3.desc': 'Arquitectura limpia, decisiones documentadas, código legible. Dentro de seis meses, hacer cambios sigue siendo fácil — para mí o para quien siga.',
+    'capabilities.cta.title': '¿Tenés algo en mente?',
+    'capabilities.cta.button': 'Hablemos',
 
     /* Skills */
     'skills.title': 'Habilidades Técnicas',
