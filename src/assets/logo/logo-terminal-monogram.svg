@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="R.García terminal prompt mark">
+  <title>R.García — Terminal Prompt Mark</title>
+  <!-- terminal window frame -->
+  <rect x="7" y="7" width="86" height="86" rx="20" stroke="currentColor" stroke-width="5"/>
+  <!-- prompt chevron ">" -->
+  <polyline points="30,32 48,50 30,68" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- blinking cursor block "_" -->
+  <rect x="56" y="55" width="20" height="9" rx="1.5" fill="#b6ff5e"/>
+</svg>

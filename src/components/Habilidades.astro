@@ -11,24 +11,24 @@ const skillCategories = [
 ];
 ---
 
-<section id="skills" class="p-8 sm:p-12 lg:p-16 lg:px-14 border-b border-border">
+<section id="skills" class="p-10 sm:p-14 lg:p-20 lg:px-14 border-b border-border">
 
-    <div class="font-jetbrains font-semibold text-[11.5px] text-accent mb-2">[ skills.log ]</div>
-    <h2 data-i18n="skills.title" class="font-grotesk font-bold text-[32px] text-text mb-2">Technical Skills</h2>
-    <p data-i18n="skills.subtitle" class="font-manrope text-sm text-text2 mb-8">Tools and technologies I work with daily.</p>
+    <div class="font-jetbrains font-semibold text-[13px] text-accent mb-3">[ skills.log ]</div>
+    <h2 data-i18n="skills.title" class="font-grotesk font-bold text-[40px] text-text mb-3">Technical Skills</h2>
+    <p data-i18n="skills.subtitle" class="font-manrope text-[16px] text-text2 mb-10">Tools and technologies I work with daily.</p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {skillCategories.map((category, index) => (
-            <div class="bg-surface border border-border rounded-[10px] p-5">
-                <div class="font-jetbrains font-semibold text-[11px] text-text2 mb-2.5">
+            <div class="bg-surface border border-border rounded-[10px] p-6">
+                <div class="font-jetbrains font-semibold text-[13px] text-text2 mb-3">
                     {String(index + 1).padStart(2, '0')}
                 </div>
-                <div data-i18n={category.i18nKey} class="font-grotesk font-semibold text-[15px] text-text mb-3">
+                <div data-i18n={category.i18nKey} class="font-grotesk font-semibold text-[18px] text-text mb-4">
                     {category.title}
                 </div>
-                <div class="flex flex-wrap gap-1.5">
+                <div class="flex flex-wrap gap-2">
                     {category.skills.map((skill) => (
-                        <span class="font-jetbrains font-medium text-[10.5px] text-text2 bg-surface2 border border-border rounded-[5px] px-2 py-1">
+                        <span class="font-jetbrains font-medium text-[12px] text-text2 bg-surface2 border border-border rounded-[5px] px-2 py-1">
                             {skill}
                         </span>
                     ))}

@@ -13,6 +13,7 @@ export default {
         "text2": "var(--text2)",
         "accent": "var(--accent)",
         "accent2": "var(--accent2)",
+        "heroBg": "var(--hero-bg)",
       },
       fontFamily: {
         "grotesk": ["Space Grotesk", "sans-serif"],
@@ -24,6 +25,14 @@ export default {
         "lg": "0.5rem",
         "xl": "0.75rem",
         "full": "9999px"
+      },
+      keyframes: {
+        blink: { '50%': { opacity: '0' } },
+        marq: { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-50%)' } },
+      },
+      animation: {
+        blink: 'blink 1.1s steps(1) infinite',
+        marq: 'marq 26s linear infinite',
       },
     },
   },

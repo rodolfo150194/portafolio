@@ -1,79 +1,144 @@
 ---
-import { Image } from 'astro:assets';
-import profilePhoto from '../assets/images/foto-perfil.png';
+import HeroScene from './HeroScene.astro';
+import FaoModal from './FaoModal.astro';
+
+const metrics = [
+  { value: '6+', accent: true, labelKey: 'metrics.0.label', label: 'YEARS OF EXPERIENCE' },
+  { value: '10+', accent: false, labelKey: 'metrics.1.label', label: 'PROJECTS SHIPPED' },
+  { value: '15+', accent: false, labelKey: 'metrics.2.label', label: 'TECHNOLOGIES' },
+];
 ---
 
-<section id="top" class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-12 items-center p-8 sm:p-12 lg:p-[72px_56px_64px] border-b border-border">
+<section
+  id="top"
+  class="relative overflow-hidden bg-heroBg text-text font-grotesk min-h-screen lg:min-h-[800px]"
+>
+  <HeroScene />
 
-    <!-- Left column -->
-    <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-border rounded-full mb-6">
-            <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-            <span data-i18n="hero.badge" class="font-jetbrains font-medium text-[11.5px] text-text2">Open to opportunities</span>
-        </div>
+  <div
+    class="absolute inset-0 z-10 pointer-events-none bg-[linear-gradient(180deg,color-mix(in_srgb,var(--hero-bg)_20%,transparent)_0%,color-mix(in_srgb,var(--hero-bg)_85%,transparent)_60%,var(--hero-bg)_100%)] lg:bg-[radial-gradient(120%_90%_at_78%_40%,color-mix(in_srgb,var(--hero-bg)_0%,transparent)_0%,color-mix(in_srgb,var(--hero-bg)_72%,transparent)_55%,var(--hero-bg)_88%)]"
+    aria-hidden="true"
+  ></div>
 
-        <h1 class="font-grotesk font-bold text-[36px] sm:text-[44px] lg:text-[56px] leading-[1.08] tracking-[-0.01em] text-text mb-4">
-            Rodolfo García Maeso
-        </h1>
+  <div class="relative z-20 flex min-h-screen lg:min-h-[800px] flex-col">
+    <div class="w-full max-w-[1440px] mx-auto pt-28 sm:pt-32 lg:py-auto pb-10 lg:pb-0">
+      <div class="max-w-[920px]">
+      <div class="inline-flex items-center gap-3 font-jetbrains text-[12px] tracking-[0.2em] text-accent mb-[26px]">
+        <span class="w-[7px] h-[7px] rounded-full bg-accent shadow-[0_0_12px_var(--accent)]" aria-hidden="true"></span>
+        <span data-i18n="hero.pill">AVAILABLE FOR NEW PROJECTS · SPAIN / REMOTE</span>
+      </div>
 
-        <div class="font-jetbrains font-medium text-[16px] leading-[1.5] text-accent mb-5">
-            $ <span data-i18n="hero.role">Full Stack Developer &amp; IT Infrastructure</span>
-        </div>
+      <h1 class="font-bold leading-[0.94] tracking-[-0.035em] text-[44px] sm:text-[64px] lg:text-[76px] xl:text-[84px] [text-wrap:balance]">
+        <span data-i18n="hero.h1.0" class="block">Your idea,</span>
+        <span class="block"><span data-i18n="hero.h1.1" class="inline-block text-accent" aria-hidden="true">executed</span><span class="sr-only" data-i18n="hero.h1.1.sr">executed</span><span data-i18n="hero.h1.1.suffix">.</span></span>
+      </h1>
 
-        <p data-i18n="hero.description" class="font-manrope text-[15.5px] leading-[1.7] text-text2 max-w-[520px] mb-8 text-pretty">
-            Computer Science Engineer with over 8 years of experience building scalable backend platforms in Python, plus modern frontend and IT infrastructure. Led critical national platforms for the UN (FAO) with zero deviations in official reports, and actively applies AI agents and agentic tools (Claude Code, Codex) to accelerate development.
-        </p>
+      <p data-i18n="hero.lede" class="mt-[26px] max-w-[700px] text-[16px] lg:text-[18px] leading-[1.55] text-text2 [text-wrap:pretty]">
+        6+ years turning ideas into software that runs — backend platforms in Python (Django, FastAPI), GIS systems handling satellite and geospatial data, mobile apps in Flutter. Whatever shape it takes, I build it end to end, without cutting corners.
+      </p>
 
-        <div class="flex flex-wrap gap-3">
-            <a href="/assets/documents/CV_Rodolfo_Garcia.pdf" target="_blank"
-               class="bg-accent text-bg font-manrope font-semibold text-[13.5px] px-[22px] py-3 rounded-lg">
-                <span data-i18n="hero.cta.cv">Download CV</span>
-            </a>
-            <a href="mailto:rodygm0104@gmail.com"
-               class="border border-border text-text font-manrope font-semibold text-[13.5px] px-[22px] py-3 rounded-lg">
-                <span data-i18n="hero.cta.contact">Contact</span>
-            </a>
-            <a href="https://www.linkedin.com/in/rodolfo-garcia-dev/" target="_blank" rel="noopener noreferrer"
-               aria-label="LinkedIn"
-               class="border border-border text-text w-11 h-11 rounded-lg flex items-center justify-center hover:border-accent hover:text-accent transition-colors duration-150">
-                <i class="fa-brands fa-linkedin text-lg"></i>
-            </a>
-        </div>
+      <div class="flex flex-col sm:flex-row gap-3.5 mt-[32px] font-jetbrains text-[13px]">
+        <a
+          href="mailto:rodygm0104@gmail.com"
+          class="inline-flex items-center justify-center min-h-[44px] w-full sm:w-auto bg-accent text-bg font-bold tracking-[0.04em] px-[26px] py-[15px] hover:brightness-110 transition duration-150"
+        >
+          <span data-i18n="hero.cta.primary">Get in touch</span>
+        </a>
+        <a
+          href="/assets/documents/CV_Rodolfo_Garcia_Maeso.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center min-h-[44px] w-full sm:w-auto border border-border text-text2 tracking-[0.04em] px-[26px] py-[15px] hover:border-accent hover:text-text transition-colors duration-150"
+        >
+          <span data-i18n="hero.cta.secondary">Download CV</span>
+        </a>
+      </div>
+
+      <button
+        type="button"
+        data-fao-trigger
+        aria-haspopup="dialog"
+        class="inline-flex items-center gap-2 mt-[22px] font-jetbrains text-[11px] tracking-[0.08em] text-text2 hover:text-text transition-colors duration-150 cursor-pointer"
+      >
+        <span class="font-semibold text-accent2">UN</span>
+        <span data-i18n="hero.fao">FAO collaborator</span>
+      </button>
+      </div>
     </div>
 
-    <!-- Right column -->
-    <div class="relative">
-        <div class="absolute -top-3.5 -left-3.5 right-3.5 bottom-3.5 border border-accent rounded-2xl opacity-35"></div>
-        <Image
-            src={profilePhoto}
-            alt="Rodolfo García Maeso"
-            width={480}
-            height={480}
-            loading="eager"
-            class="relative w-full aspect-square object-cover rounded-2xl border border-border"
-        />
-        <div class="absolute -bottom-[18px] -right-[18px] bg-surface border border-accent/40 rounded-xl px-[18px] py-3.5 text-center">
-            <div class="font-grotesk font-bold text-2xl text-accent leading-none">8+</div>
-            <div data-i18n="hero.years" class="font-jetbrains font-medium text-[10px] text-text2 mt-1">Years Exp.</div>
+    <div class="w-full mt-8 lg:mt-auto grid grid-cols-3 border-t border-border font-jetbrains">
+      {metrics.map((m, i) => (
+        <div
+          class:list={[
+            'px-6 sm:px-8 lg:px-10 py-[22px] border-border',
+            i < metrics.length - 1 ? 'border-r' : '',
+          ]}
+        >
+          <div class:list={['text-[30px]', m.accent ? 'text-accent' : 'text-text']}>
+            {m.value}
+          </div>
+          <div data-i18n={m.labelKey} class="text-[11px] tracking-[0.16em] text-text2 mt-[6px]">{m.label}</div>
         </div>
-
-        <!-- Floating badge: availability -->
-        <div class="absolute -top-3.5 -left-3.5 flex items-center gap-1.5 bg-surface border border-accent/40 rounded-[10px] px-3 py-2 shadow-[0_12px_24px_rgba(0,0,0,0.25)] rotate-[-4deg]">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#27c93f]"></span>
-            <span data-i18n="hero.status" class="font-jetbrains font-medium text-[10.5px] text-text">status: available</span>
-        </div>
-
-        <!-- Floating badge: tech stack -->
-        <div class="absolute top-[34%] -right-[18px] bg-surface border border-accent/40 rounded-[10px] px-3.5 py-2.5 shadow-[0_12px_24px_rgba(0,0,0,0.25)] rotate-[3deg]">
-            <div class="font-jetbrains font-medium text-[9.5px] text-text2 mb-1">$ tech --stack</div>
-            <div class="font-jetbrains font-semibold text-[11px] text-accent">Python · Django · Flutter</div>
-        </div>
-
-        <!-- Floating badge: FAO collaborator -->
-        <div class="absolute bottom-[20%] -left-[22px] flex items-center gap-1.5 bg-surface border border-accent/40 rounded-[10px] px-3 py-2 shadow-[0_12px_24px_rgba(0,0,0,0.25)] rotate-[-2deg]">
-            <span class="font-jetbrains font-semibold text-[11px] text-accent2">UN</span>
-            <span data-i18n="hero.fao" class="font-jetbrains font-medium text-[10px] text-text2">FAO collaborator</span>
-        </div>
+      ))}
     </div>
+  </div>
 
+  <FaoModal />
 </section>
+
+<script is:inline>
+  (() => {
+    const word = document.querySelector('[data-i18n="hero.h1.1"]');
+    const accessibleWord = document.querySelector('[data-i18n="hero.h1.1.sr"]');
+    if (!word || !accessibleWord) return;
+
+    const variants = {
+      en: ['executed', 'deployed', 'automated'],
+      es: ['ejecutada', 'desplegada', 'automatizada'],
+    };
+    let index = 0;
+    let timer;
+    let reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const type = (nextWord) => {
+      if (reducedMotion) {
+        word.textContent = nextWord;
+        accessibleWord.textContent = nextWord;
+        return;
+      }
+
+      word.textContent = '';
+      let position = 0;
+      const interval = window.setInterval(() => {
+        word.textContent = nextWord.slice(0, position += 1);
+        if (position === nextWord.length) window.clearInterval(interval);
+      }, 75);
+      accessibleWord.textContent = nextWord;
+    };
+
+    const render = () => {
+      const language = document.documentElement.lang === 'es' ? 'es' : 'en';
+      type(variants[language][index % variants[language].length]);
+      index += 1;
+    };
+
+    const start = () => {
+      window.clearInterval(timer);
+      render();
+      timer = window.setInterval(render, 3200);
+    };
+
+    document.addEventListener('astro:page-load', start);
+    start();
+  })();
+
+  (() => {
+    const wireFaoTrigger = () => {
+      document.querySelector('[data-fao-trigger]')?.addEventListener('click', () => {
+        document.querySelector('#fao-modal')?.showModal();
+      });
+    };
+    document.addEventListener('astro:page-load', wireFaoTrigger);
+    wireFaoTrigger();
+  })();
+</script>

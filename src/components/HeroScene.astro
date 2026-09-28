@@ -1,0 +1,16 @@
+---
+// Hosts the <scene-constellation> custom element. The three.js module and the
+// scene-building logic are both dynamic-imported (see src/scripts/constellation.js)
+// so `three` is code-split out of the main bundle and only fetched when the hero
+// actually mounts a WebGL-capable, motion-enabled viewport.
+---
+
+<scene-constellation
+  class="absolute inset-0 z-0 block h-full w-full lg:left-[40%] lg:right-0 lg:w-auto lg:bottom-0 lg:h-[88%] data-[fallback]:bg-[radial-gradient(80%_60%_at_75%_35%,color-mix(in_srgb,var(--accent)_8%,transparent)_0%,transparent_60%)]"
+  aria-hidden="true"
+></scene-constellation>
+
+<script>
+  const { defineConstellationElement } = await import('../scripts/constellation.js');
+  defineConstellationElement();
+</script>

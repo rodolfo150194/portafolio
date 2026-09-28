@@ -1,35 +1,34 @@
 ---
 const navLinks = [
-    { id: "top", i18nKey: "nav.home", label: "Home" },
-    { id: "skills", i18nKey: "nav.skills", label: "Skills" },
-    { id: "experience", i18nKey: "nav.experience", label: "Experience" },
-    { id: "projects", i18nKey: "nav.projects", label: "Projects" },
-    { id: "contact", i18nKey: "nav.contact", label: "Contact" },
+    { targetId: "projects", i18nKey: "nav.work", label: "work" },
+    { targetId: "contact", i18nKey: "nav.contact", label: "Contact" },
 ];
 ---
 
 <header
     id="navbar"
-    class="fixed inset-x-0 top-0 z-50 h-14 bg-surface border-b border-border"
+    class="group fixed inset-x-0 top-0 z-50 h-[68px] bg-transparent border-b border-transparent transition-colors duration-200"
 >
     <div class="h-full max-w-7xl mx-auto px-4 sm:px-7 flex items-center justify-between gap-4">
 
         <!-- Brand -->
-        <div class="flex items-center gap-2 shrink-0">
-            <span class="w-2.5 h-2.5 rounded-full bg-accent"></span>
-            <span class="font-grotesk font-semibold text-[13px] text-text">R. García</span>
+        <div class="flex items-center shrink-0 font-jetbrains font-medium text-[13px] tracking-[0.08em] text-text">
+            <span>R.GARCÍA</span><span class="animate-blink motion-reduce:animate-none" aria-hidden="true">_</span>
         </div>
 
         <!-- Desktop nav -->
-        <nav class="hidden lg:flex items-center gap-1 mx-auto">
-            {navLinks.map((link) => (
-                <a
-                    href={`#${link.id}`}
-                    data-nav-link
-                    class="font-jetbrains font-medium text-[12.5px] text-text2 hover:text-text hover:bg-surface2 px-2.5 py-1.5 rounded-md transition-colors duration-150"
-                >
-                    <span data-i18n={link.i18nKey}>{link.label}</span>
-                </a>
+        <nav class="hidden lg:flex items-center gap-2 mx-auto" aria-label="Primary">
+            {navLinks.map((link, index) => (
+                <>
+                    {index > 0 && <span class="text-text2/50 select-none" aria-hidden="true">·</span>}
+                    <a
+                        href={`#${link.targetId}`}
+                        data-nav-link
+                        class="lowercase font-jetbrains font-medium text-[12.5px] text-text2 hover:text-accent hover:bg-surface2 px-2.5 py-1.5 rounded-md transition-colors duration-150"
+                    >
+                        <span data-i18n={link.i18nKey}>{link.label}</span>
+                    </a>
+                </>
             ))}
         </nav>
 
@@ -40,12 +39,14 @@ const navLinks = [
                 <button
                     type="button"
                     data-lang="en"
-                    class="lang-btn border-none font-jetbrains font-semibold text-[11px] text-text py-1.5 px-2 rounded-md transition-colors duration-150"
+                    aria-pressed="false"
+                    class="lang-btn border-none font-jetbrains font-semibold text-[12.5px] text-text py-1.5 px-2 rounded-md transition-colors duration-150 aria-pressed:bg-accent aria-pressed:text-bg"
                 >EN</button>
                 <button
                     type="button"
                     data-lang="es"
-                    class="lang-btn border-none font-jetbrains font-semibold text-[11px] text-text py-1.5 px-2 rounded-md transition-colors duration-150"
+                    aria-pressed="false"
+                    class="lang-btn border-none font-jetbrains font-semibold text-[12.5px] text-text py-1.5 px-2 rounded-md transition-colors duration-150 aria-pressed:bg-accent aria-pressed:text-bg"
                 >ES</button>
             </div>
 
@@ -54,7 +55,7 @@ const navLinks = [
                 id="theme-toggle"
                 type="button"
                 aria-label="Switch theme"
-                class="border border-border bg-surface2 text-text font-jetbrains font-medium text-[11.5px] py-1.5 px-2.5 rounded-lg flex items-center justify-center gap-1.5"
+                class="border border-border bg-surface2 text-text font-jetbrains font-medium text-[12.5px] py-1.5 px-2.5 rounded-lg flex items-center justify-center gap-1.5"
             >
                 <span id="theme-toggle-label">☾ dark</span>
             </button>
@@ -78,15 +79,15 @@ const navLinks = [
     <!-- Mobile menu (nav links only) -->
     <div
         id="mobile-menu"
-        class="lg:hidden absolute inset-x-0 top-14 max-h-0 overflow-hidden bg-surface border-b border-border transition-[max-height] duration-300 ease-in-out"
+        class="lg:hidden absolute inset-x-0 top-[68px] max-h-0 overflow-hidden bg-surface border-b border-border transition-[max-height] duration-300 ease-in-out"
     >
-        <nav class="flex flex-col gap-0.5 p-4">
+        <nav class="flex flex-col gap-0.5 p-4" aria-label="Primary mobile">
             {navLinks.map((link) => (
                 <a
-                    href={`#${link.id}`}
+                    href={`#${link.targetId}`}
                     data-nav-link
                     data-mobile-link
-                    class="font-jetbrains font-medium text-[12.5px] text-text2 hover:text-text hover:bg-surface2 px-2.5 py-2 rounded-md flex items-center gap-2 transition-colors duration-150"
+                    class="lowercase font-jetbrains font-medium text-[12.5px] text-text2 hover:text-accent hover:bg-surface2 px-2.5 py-2 rounded-md flex items-center gap-2 transition-colors duration-150"
                 >
                     <span class="opacity-50">//</span>
                     <span data-i18n={link.i18nKey}>{link.label}</span>
@@ -127,10 +128,39 @@ const navLinks = [
         });
     }
 
-    document.addEventListener('astro:page-load', initNavbarMenu);
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initNavbarMenu);
-    } else {
+    function initNavbarScroll() {
+        var header = document.getElementById('navbar');
+        if (!header || header.__scrollInit) return;
+        header.__scrollInit = true;
+
+        var hero = document.getElementById('top');
+
+        function updateChrome() {
+            var pastHero = hero
+                ? hero.getBoundingClientRect().bottom <= header.offsetHeight
+                : window.scrollY > 0;
+            header.classList.toggle('bg-[color-mix(in_srgb,var(--surface)_85%,transparent)]', pastHero);
+            header.classList.toggle('backdrop-blur', pastHero);
+            header.classList.toggle('border-border', pastHero);
+            header.classList.toggle('bg-transparent', !pastHero);
+            header.classList.toggle('border-transparent', !pastHero);
+            header.toggleAttribute('data-past-hero', pastHero);
+        }
+
+        updateChrome();
+        window.addEventListener('scroll', updateChrome, { passive: true });
+        window.addEventListener('resize', updateChrome);
+    }
+
+    function initNavbar() {
         initNavbarMenu();
+        initNavbarScroll();
+    }
+
+    document.addEventListener('astro:page-load', initNavbar);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavbar);
+    } else {
+        initNavbar();
     }
 </script>

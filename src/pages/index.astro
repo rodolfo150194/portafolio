@@ -1,22 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from "../components/Navbar.astro";
-import Breadcrumb from "../components/Breadcrumb.astro";
 import Hero from "../components/Hero.astro";
+import TechMarquee from "../components/TechMarquee.astro";
+import Capabilities from "../components/Capabilities.astro";
 import Projects from "../components/Projects.astro";
-import Habilidades from "../components/Habilidades.astro";
-import Experience from "../components/Experience.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Portfolio de Rodolfo García Maeso - Full Stack Developer">
     <Navbar />
-    <Breadcrumb />
-    <main class="pt-24">
+    <main>
         <Hero />
-        <Habilidades />
-        <Experience />
+        <TechMarquee />
+        <Capabilities />
         <Projects />
         <Contact />
         <Footer />

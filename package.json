@@ -13,7 +13,8 @@
     "@vercel/og": "^0.6.4",
     "astro": "^5.18.1",
     "gsap": "^3.13.0",
-    "photoswipe": "^5.4.4"
+    "photoswipe": "^5.4.4",
+    "three": "0.149.0"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.3.0",

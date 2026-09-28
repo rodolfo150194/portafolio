@@ -29,3 +29,5 @@ pnpm-debug.log*
 
 # design reference handoffs (not app code)
 design_handoff_portfolio_ide_sidebar/
+# Local AI runtime state
+.atl/

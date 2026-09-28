@@ -9,7 +9,10 @@ interface Proyecto {
     titulo: string;
     i18nDesc: string;
     descripcion: string;
+    i18nImpact: string;
+    impacto: string;
     tecnologias: string[];
+    categorias: string[];
     images: string[];
     link?: string;
 }
@@ -23,7 +26,10 @@ const proyectos: Proyecto[] = [
         titulo: "Agroproductivity Platform",
         i18nDesc: "proj.0.desc",
         descripcion: "Comprehensive agricultural suite covering soil agroproductivity analysis, polygon drawing and spatial data extraction, meteorological and hydrological reporting, agrochemical laboratory sample testing, and an interactive GeoServer-powered map with multi-category spatial layers.",
+        i18nImpact: "proj.0.impact",
+        impacto: "Replaced paper-based soil testing with one geospatial system technicians use to sample, map and report in real time.",
         tecnologias: ["Python", "Django", "Leaflet", "TailwindCSS", "GeoServer", "PostgreSQL"],
+        categorias: ["system"],
         images: [
             `${BASE}/suite%20suelos/1.jpeg`, `${BASE}/suite%20suelos/2.jpeg`, `${BASE}/suite%20suelos/4.jpeg`,
             `${BASE}/suite%20suelos/5.jpeg`, `${BASE}/suite%20suelos/6.jpeg`, `${BASE}/suite%20suelos/7.jpeg`,
@@ -37,7 +43,10 @@ const proyectos: Proyecto[] = [
         titulo: "SICCA (UN - FAO)",
         i18nDesc: "proj.1.desc",
         descripcion: "Platform for showcasing and disseminating climate change information, featuring a sector-based adaptation actions registry module and an AI-powered tool for monitoring and evaluating results.",
+        i18nImpact: "proj.1.impact",
+        impacto: "Gave policymakers a single, AI-assisted source of truth for climate-adaptation data instead of scattered spreadsheets.",
         tecnologias: ["Wagtail", "Django", "AI", "Bootstrap", "PostgreSQL"],
+        categorias: ["system"],
         link: "https://sicca.minag.code43w.net/",
         images: [
             `${BASE}/sicca/1.png`, `${BASE}/sicca/2.png`, `${BASE}/sicca/3.jpeg`,
@@ -52,7 +61,10 @@ const proyectos: Proyecto[] = [
         titulo: "INGEI Platform",
         i18nDesc: "proj.2.desc",
         descripcion: "Cuba's official National Greenhouse Gas Inventory (INGEI) — the instrument through which the country reports its emissions and absorptions to the United Nations Framework Convention on Climate Change (UNFCCC). Visual platform that processes dynamic formulas, analyzes historical series and automatically generates PDF and Excel reports.",
+        i18nImpact: "proj.2.impact",
+        impacto: "Cut national emissions reporting from months of manual spreadsheet work to automated reports — zero errors flagged by the UN.",
         tecnologias: ["Django", "Python", "MySQL", "Bootstrap"],
+        categorias: ["system"],
         link: "https://ingei.minag.code43w.net/",
         images: [
             `${BASE}/ingei/1.jpg`, `${BASE}/ingei/2.jpeg`, `${BASE}/ingei/3.jpeg`, `${BASE}/ingei/4.jpeg`,
@@ -66,7 +78,10 @@ const proyectos: Proyecto[] = [
         titulo: "Guajapp App & Bots",
         i18nDesc: "proj.3.desc",
         descripcion: "Agricultural social network (Guajapp) connecting farming cooperatives through conversational bots — enabling procedure management, contract filing, GPS-based polygon drawing, satellite imagery consultation, and access to crop plans and agricultural data. Built on Matrix protocol with a Django REST backend.",
+        i18nImpact: "proj.3.impact",
+        impacto: "Brought digital procedures to farming cooperatives with unreliable internet, through lightweight conversational bots.",
         tecnologias: ["Flutter/Dart", "Python", "Django REST Framework", "MySQL", "Matrix"],
+        categorias: ["mobile", "bot"],
         images: [
             `${BASE}/guajapp/1.jpeg`, `${BASE}/guajapp/2.jpeg`, `${BASE}/guajapp/3.jpeg`,
             `${BASE}/guajapp/4.jpeg`, `${BASE}/guajapp/5.jpeg`,
@@ -78,7 +93,10 @@ const proyectos: Proyecto[] = [
         titulo: "PolyMap",
         i18nDesc: "proj.4.desc",
         descripcion: "Geographic data visualization platform with interactive polygon drawing tools, real-time area calculation and field mapping for agricultural land management.",
+        i18nImpact: "proj.4.impact",
+        impacto: "Gave field teams instant, accurate area calculations instead of manual GPS math.",
         tecnologias: ["GIS", "PostGIS", "Python", "Django REST Framework", "Flutter/Dart"],
+        categorias: ["system", "mobile"],
         images: [
             `${BASE}/polymap/1.jpeg`, `${BASE}/polymap/2.jpeg`, `${BASE}/polymap/3.jpeg`,
             `${BASE}/polymap/4.jpeg`, `${BASE}/polymap/5.jpeg`, `${BASE}/polymap/6.jpeg`, `${BASE}/polymap/7.jpeg`,
@@ -90,7 +108,10 @@ const proyectos: Proyecto[] = [
         titulo: "RCF Platform",
         i18nDesc: "proj.5.desc",
         descripcion: "Flutter mobile app for tracking fertilizer registration procedures in Cuba, covering the full regulatory lifecycle — document submission, agreement signing, payment confirmation, technical review (dictamen), and official certification issuance. Backed by a Django REST API with multi-role access.",
+        i18nImpact: "proj.5.impact",
+        impacto: "Digitized a multi-step government certification process, cutting paperwork and giving applicants real-time status.",
         tecnologias: ["Flutter/Dart", "Django REST Framework", "MySQL"],
+        categorias: ["mobile"],
         images: [
             `${BASE}/rcf/1.jpeg`, `${BASE}/rcf/2.jpeg`, `${BASE}/rcf/3.jpeg`, `${BASE}/rcf/4.jpeg`,
             `${BASE}/rcf/5.jpeg`, `${BASE}/rcf/6.jpeg`, `${BASE}/rcf/7.jpeg`, `${BASE}/rcf/8.jpeg`,
@@ -103,7 +124,10 @@ const proyectos: Proyecto[] = [
         titulo: "Network & Services Registration",
         i18nDesc: "proj.6.desc",
         descripcion: "Corporate system for network device onboarding and service management with full Active Directory integration, automated report generation and centralized SQL Server database.",
+        i18nImpact: "proj.6.impact",
+        impacto: "Replaced spreadsheet-based device tracking with automated, audit-ready reporting tied to Active Directory.",
         tecnologias: ["ASP.NET", "C#", "SQL Server", "Active Directory", "ReportLab"],
+        categorias: ["system"],
         images: [],
     },
     {
@@ -112,7 +136,10 @@ const proyectos: Proyecto[] = [
         titulo: "Agricultural Machinery Management",
         i18nDesc: "proj.7.desc",
         descripcion: "Comprehensive inventory and maintenance management system for agricultural machinery fleets, including service scheduling, failure tracking and full maintenance history per unit.",
+        i18nImpact: "proj.7.impact",
+        impacto: "Gave fleet managers full maintenance history and failure tracking to cut unplanned downtime.",
         tecnologias: ["ASP.NET", "C#", "SQL Server", "Crystal Reports"],
+        categorias: ["system"],
         images: [],
     },
     {
@@ -121,7 +148,10 @@ const proyectos: Proyecto[] = [
         titulo: "Written Legacy Turf",
         i18nDesc: "proj.8.desc",
         descripcion: "Premium artificial turf installation landing page for a Florida-based company. Features bilingual support (EN/ES), interactive before/after slider, service area map and WhatsApp integration.",
+        i18nImpact: "proj.8.impact",
+        impacto: "A higher-converting bilingual landing page that turns visitors into quote requests via WhatsApp.",
         tecnologias: ["Astro", "TailwindCSS", "TypeScript"],
+        categorias: ["landing"],
         link: "https://writtenlegacyturf.com/",
         images: [
             `${BASE}/written_legacy/1.jpg`, `${BASE}/written_legacy/2.jpg`, `${BASE}/written_legacy/3.jpg`,
@@ -134,7 +164,10 @@ const proyectos: Proyecto[] = [
         titulo: "GVoltsCorp",
         i18nDesc: "proj.9.desc",
         descripcion: "Corporate landing page for a Florida security and electrical systems company. Showcases NICET III, OSHA and state certifications, brand partners (Honeywell, Hikvision) and service offerings.",
+        i18nImpact: "proj.9.impact",
+        impacto: "A credibility-first landing page showcasing certifications and partners to help win enterprise security contracts.",
         tecnologias: ["Astro", "TailwindCSS"],
+        categorias: ["landing"],
         link: "https://gvoltscorp.cloud/",
         images: [
             `${BASE}/gvoltscorp/1.jpg`, `${BASE}/gvoltscorp/2.jpg`, `${BASE}/gvoltscorp/3.jpg`, `${BASE}/gvoltscorp/4.jpg`,
@@ -143,7 +176,16 @@ const proyectos: Proyecto[] = [
     },
 ];
 
-const allTechTags = ["Python", "Django", "Flutter", "ASP.NET", "Astro", "SQL Server", "MySQL", "PostgreSQL"];
+// Filter categories — project type, not tech stack, so non-technical visitors aren't lost
+const categoryFilters = [
+    { key: "system", i18n: "proj.filter.system", label: "Systems" },
+    { key: "mobile", i18n: "proj.filter.mobile", label: "Mobile apps" },
+    { key: "landing", i18n: "proj.filter.landing", label: "Landing pages" },
+    { key: "bot", i18n: "proj.filter.bot", label: "Bots" },
+];
+
+// Max thumbnails shown inline; the rest open via the small gallery button
+const GALLERY_PREVIEW = 6;
 
 const publicDir = path.join(process.cwd(), 'public');
 const allImagePaths = Array.from(new Set(proyectos.flatMap((p) => p.images)));
@@ -158,98 +200,141 @@ const imageDimensions = Object.fromEntries(
 );
 ---
 
-<section id="projects" class="p-8 sm:p-12 lg:p-16 lg:px-14 border-b border-border">
+<section id="projects" class="p-10 sm:p-14 lg:p-20 lg:px-14 border-b border-border bg-bg">
 
-    <div class="font-jetbrains font-semibold text-[11.5px] text-accent mb-2">[ selected.work ]</div>
-    <h2 data-i18n="proj.title" class="font-grotesk font-bold text-[32px] text-text mb-5">My Projects</h2>
+    <div class="text-center">
+        <div class="font-jetbrains font-semibold text-[13px] text-accent mb-3">[ selected.work ]</div>
+        <h2 data-i18n="proj.title" class="font-grotesk font-bold text-[28px] sm:text-[34px] lg:text-[40px] text-text mb-3">Real problems, shipped solutions</h2>
+        <p data-i18n="proj.subtitle" class="font-manrope text-[16px] text-text2 mb-9 max-w-[640px] mx-auto">A sample of platforms and products I've built for government agencies, agricultural cooperatives and businesses — each one solving a concrete operational problem.</p>
+    </div>
 
-    <div class="flex flex-wrap gap-2 mb-7">
+    <div class="flex flex-wrap justify-center gap-2.5 mb-9">
         <button
             type="button"
-            data-tech="all"
-            data-active="true"
-            class="proj-filter font-jetbrains font-medium text-[11.5px] border border-border rounded-full px-3.5 py-1.5 bg-accent text-bg"
+            data-category="all"
+            aria-pressed="true"
+            class="proj-filter font-jetbrains font-medium text-[13px] border border-border rounded-full px-3.5 py-1.5 bg-accent text-bg"
         >
             <span data-i18n="proj.all">All</span>
         </button>
-        {allTechTags.map((tag) => (
+        {categoryFilters.map((category) => (
             <button
                 type="button"
-                data-tech={tag.toLowerCase()}
-                class="proj-filter font-jetbrains font-medium text-[11.5px] border border-border rounded-full px-3.5 py-1.5 bg-surface2 text-text2"
+                data-category={category.key}
+                aria-pressed="false"
+                class="proj-filter font-jetbrains font-medium text-[13px] border border-border rounded-full px-3.5 py-1.5 bg-surface2 text-text2"
             >
-                {tag}
+                <span data-i18n={category.i18n}>{category.label}</span>
             </button>
         ))}
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {proyectos.map((proyecto) => (
             <div
                 class="proj-card bg-surface border border-border rounded-xl overflow-hidden flex flex-col"
-                data-techs={proyecto.tecnologias.join('|').toLowerCase()}
+                data-categories={proyecto.categorias.join('|')}
             >
-                <div class="flex items-center gap-1.5 px-3.5 py-2.5 border-b border-border bg-surface2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#ff5f56]"></span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#ffbd2e]"></span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#27c93f]"></span>
-                    <span class="font-jetbrains text-[10.5px] text-text2 ml-1.5">project-{proyecto.num}.portfolio.dev</span>
+                <div class="flex items-center gap-1.5 px-4 py-3 border-b border-border bg-surface2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#b94a42]"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#b98c26]"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#229532]"></span>
+                    <span class="font-jetbrains text-[12px] text-text2 ml-1.5">project-{proyecto.num}.portfolio.dev</span>
                 </div>
 
                 {proyecto.images.length > 0 ? (
-                    <div class="pswp-gallery flex gap-1.5 overflow-x-auto p-2.5 [scroll-snap-type:x_mandatory] [scrollbar-width:thin] [scrollbar-color:var(--accent)_var(--surface2)] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-surface2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-accent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-surface2">
-                        {proyecto.images.map((img, i) => {
-                            const { width, height } = imageDimensions[img];
-                            return (
-                                <a
-                                    href={img}
-                                    data-pswp-width={width}
-                                    data-pswp-height={height}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src={img}
-                                        alt={`${proyecto.titulo} — screenshot ${i + 1}`}
-                                        width="220"
-                                        height="140"
-                                        loading="lazy"
-                                        class="w-[220px] h-[140px] object-cover rounded-md flex-none [scroll-snap-align:start] cursor-pointer transition-transform duration-150 hover:scale-[1.03]"
-                                    />
-                                </a>
-                            );
-                        })}
+                    <div class="relative flex items-center gap-1.5 p-2.5">
+                        <div
+                            class="pswp-gallery flex flex-1 min-w-0 gap-1.5 overflow-x-auto [scroll-snap-type:x_mandatory] [scrollbar-width:thin] [scrollbar-color:var(--accent)_var(--surface2)] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-surface2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-accent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-surface2] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-[-2px]"
+                            role="group"
+                            aria-label={`${proyecto.titulo} — ${proyecto.images.length} screenshots`}
+                            tabindex="0"
+                        >
+                            {proyecto.images.slice(0, GALLERY_PREVIEW).map((img, i) => {
+                                const { width, height } = imageDimensions[img];
+                                return (
+                                    <a
+                                        href={img}
+                                        data-pswp-width={width}
+                                        data-pswp-height={height}
+                                        aria-label={`Open ${proyecto.titulo} screenshot ${i + 1} in a larger view`}
+                                    >
+                                        <img
+                                            src={img}
+                                            alt={`${proyecto.titulo} — screenshot ${i + 1}`}
+                                            width="220"
+                                            height="160"
+                                            loading="lazy"
+                                            decoding="async"
+                                            class="w-[220px] h-[160px] object-cover rounded-md flex-none [scroll-snap-align:start] cursor-pointer"
+                                        />
+                                    </a>
+                                );
+                            })}
+                            {proyecto.images.slice(GALLERY_PREVIEW).map((img) => {
+                                const { width, height } = imageDimensions[img];
+                                return (
+                                    <a
+                                        href={img}
+                                        data-pswp-width={width}
+                                        data-pswp-height={height}
+                                        aria-hidden="true"
+                                        tabindex="-1"
+                                        hidden
+                                    ></a>
+                                );
+                            })}
+                        </div>
+                        {proyecto.images.length > GALLERY_PREVIEW && (
+                            <button
+                                type="button"
+                                data-index={GALLERY_PREVIEW}
+                                class="pswp-more group flex h-[160px] w-[92px] flex-none cursor-pointer flex-col items-center justify-center gap-0.5 rounded-md border border-dashed border-border bg-surface2 font-jetbrains text-text2 transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-[-2px]"
+                                aria-label={`Open all ${proyecto.images.length} screenshots in a larger view`}
+                            >
+                                <span class="text-[15px] font-semibold text-accent">+{proyecto.images.length - GALLERY_PREVIEW}</span>
+                                <span data-i18n="proj.gallery" class="text-[11px]">Gallery</span>
+                            </button>
+                        )}
                     </div>
                 ) : (
-                    <div class="h-[140px] m-2.5 border border-dashed border-border rounded-md flex items-center justify-center">
-                        <span data-i18n="proj.soon" class="font-jetbrains font-medium text-[11px] text-text2">Screenshot coming soon</span>
+                    <div class="h-[160px] m-2.5 border border-dashed border-border rounded-md flex items-center justify-center">
+                        <span data-i18n="proj.soon" class="font-jetbrains font-medium text-[13px] text-text2">Screenshot coming soon</span>
                     </div>
                 )}
 
-                <div class="p-[6px_18px_20px] flex flex-col gap-2.5 flex-1">
-                    <div data-i18n={proyecto.i18nTitle} class="font-grotesk font-semibold text-[17px] text-text">
+                <div class="p-[10px_22px_24px] flex flex-col gap-3 flex-1">
+                    <div data-i18n={proyecto.i18nTitle} class="font-grotesk font-semibold text-[20px] text-text">
                         {proyecto.titulo}
                     </div>
-                    <p data-i18n={proyecto.i18nDesc} class="font-manrope text-[13px] leading-[1.6] text-text2 m-0">
+                    <p data-i18n={proyecto.i18nDesc} class="font-manrope text-[15px] leading-[1.6] text-text2 m-0">
                         {proyecto.descripcion}
                     </p>
+                    <div class="border-l-2 border-accent pl-3">
+                        <div class="font-jetbrains font-semibold text-[11px] tracking-[0.14em] text-accent mb-0.5">
+                            <span data-i18n="proj.impact.label">IMPACT</span>
+                        </div>
+                        <p data-i18n={proyecto.i18nImpact} class="font-manrope text-[14px] leading-[1.5] text-text m-0">
+                            {proyecto.impacto}
+                        </p>
+                    </div>
                     <div class="flex flex-wrap gap-1.5">
                         {proyecto.tecnologias.map((tech) => (
-                            <span class="font-jetbrains font-medium text-[10px] text-accent">#{tech}</span>
+                            <span class="font-jetbrains font-medium text-[12px] text-accent">#{tech}</span>
                         ))}
                     </div>
                     <div class="flex items-center justify-between mt-auto pt-2">
                         {proyecto.link ? (
-                            <a href={proyecto.link} target="_blank" rel="noopener noreferrer" class="font-jetbrains font-semibold text-[11.5px] text-accent">
+                            <a href={proyecto.link} target="_blank" rel="noopener noreferrer" class="font-jetbrains font-semibold text-[13px] text-accent">
                                 <span data-i18n="proj.visit">Visit</span> →
                             </a>
                         ) : (
-                            <span class="font-jetbrains font-medium text-[10.5px] text-text2">
+                            <span class="font-jetbrains font-medium text-[12px] text-text2">
                                 🔒 <span data-i18n="proj.confidential">Confidential — Enterprise</span>
                             </span>
                         )}
                         {proyecto.images.length > 0 && (
-                            <span class="font-jetbrains font-medium text-[10.5px] text-text2">
+                            <span class="font-jetbrains font-medium text-[12px] text-text2">
                                 <span data-i18n="proj.gallery">Gallery</span> ({proyecto.images.length})
                             </span>
                         )}
@@ -275,6 +360,14 @@ const imageDimensions = Object.fromEntries(
                 wheelToZoom: true,
             });
             lightbox.init();
+
+            const moreBtn = galleryEl.parentElement && galleryEl.parentElement.querySelector('.pswp-more');
+            if (moreBtn && !moreBtn.__moreInit) {
+                moreBtn.__moreInit = true;
+                moreBtn.addEventListener('click', function () {
+                    lightbox.loadAndOpen(parseInt(moreBtn.dataset.index || '0', 10));
+                });
+            }
         });
     }
 
@@ -298,16 +391,17 @@ const imageDimensions = Object.fromEntries(
                 buttons.forEach(function(b) {
                     b.classList.remove('bg-accent', 'text-bg');
                     b.classList.add('bg-surface2', 'text-text2');
-                    delete b.dataset.active;
+                    b.setAttribute('aria-pressed', 'false');
                 });
                 btn.classList.remove('bg-surface2', 'text-text2');
                 btn.classList.add('bg-accent', 'text-bg');
-                btn.dataset.active = 'true';
+                btn.setAttribute('aria-pressed', 'true');
 
-                var tech = btn.dataset.tech;
+                var category = btn.dataset.category;
                 cards.forEach(function(card) {
-                    var techs = card.dataset.techs || '';
-                    card.style.display = (tech === 'all' || techs.indexOf(tech) !== -1) ? '' : 'none';
+                    var categories = (card.dataset.categories || '').split('|');
+                    var match = category === 'all' || categories.indexOf(category) !== -1;
+                    card.style.display = match ? '' : 'none';
                 });
             });
         });

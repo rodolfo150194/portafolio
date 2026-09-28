@@ -1,0 +1,37 @@
+---
+const staticItems = [
+  'PYTHON',
+  'DJANGO',
+  'FASTAPI',
+  'FLUTTER',
+  'POSTGIS',
+  'GEOSERVER',
+  'ASTRO',
+  'DOCKER',
+  'DRF',
+  'TAILWINDCSS',
+  'CLAUDE CODE',
+  'MCP',
+  'LLM',
+  'HARNESS',
+  'INTEGRATIONS',
+];
+const items = [...staticItems, { i18nKey: 'marquee.8', label: 'AI AGENTS / MCP' }];
+// Render the item list exactly twice — required for a seamless -50% loop.
+const track = [...items, ...items];
+---
+
+<div class="bg-heroBg border-t border-b border-border overflow-hidden">
+  <div class="flex gap-[38px] w-max py-5 font-jetbrains text-[16px] tracking-[0.1em] text-text2 animate-marq motion-reduce:animate-none hover:[animation-play-state:paused]">
+    {track.map((item) => (
+      <>
+        {typeof item === 'string' ? (
+          <span>{item}</span>
+        ) : (
+          <span data-i18n={item.i18nKey}>{item.label}</span>
+        )}
+        <span class="text-accent" aria-hidden="true">·</span>
+      </>
+    ))}
+  </div>
+</div>
