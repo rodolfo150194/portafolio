@@ -27,6 +27,33 @@ const cards = [
     desc: 'Clean architecture, documented decisions, readable code. Six months from now, changes are still easy — for me or for whoever comes after.',
   },
 ];
+
+const softSkills = [
+  {
+    i18nTitle: 'capabilities.soft.0.title',
+    title: 'Proactive teamwork',
+    i18nDesc: 'capabilities.soft.0.desc',
+    desc: 'I flag blockers and ideas before they become problems, not after.',
+  },
+  {
+    i18nTitle: 'capabilities.soft.1.title',
+    title: 'Clear communication',
+    i18nDesc: 'capabilities.soft.1.desc',
+    desc: 'Plain answers for stakeholders, real trade-offs for the team.',
+  },
+  {
+    i18nTitle: 'capabilities.soft.2.title',
+    title: 'Ownership mindset',
+    i18nDesc: 'capabilities.soft.2.desc',
+    desc: 'I treat the product as if it were mine — no "not my job."',
+  },
+  {
+    i18nTitle: 'capabilities.soft.3.title',
+    title: 'Calm under pressure',
+    i18nDesc: 'capabilities.soft.3.desc',
+    desc: 'Deadlines and production incidents get a clear head, not panic.',
+  },
+];
 ---
 
 <section id="capabilities" class="border-b border-border bg-surface">
@@ -85,6 +112,24 @@ const cards = [
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="px-10 sm:px-14 lg:px-14 pb-10 sm:pb-14 lg:pb-20">
+    <div class="font-jetbrains font-semibold text-[12px] text-accent mb-4" data-i18n="capabilities.personal.title">
+      On a personal level
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      {softSkills.map((skill) => (
+        <div class="p-4 border border-border rounded-[10px] bg-heroBg/40">
+          <div data-i18n={skill.i18nTitle} class="font-grotesk font-semibold text-[14px] text-text mb-1 leading-[1.3]">
+            {skill.title}
+          </div>
+          <p data-i18n={skill.i18nDesc} class="font-manrope text-[13px] leading-[1.5] text-text2">
+            {skill.desc}
+          </p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

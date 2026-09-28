@@ -1,8 +1,9 @@
 ---
 import HeroScene from './HeroScene.astro';
+import FaoModal from './FaoModal.astro';
 
 const metrics = [
-  { value: '8+', accent: true, labelKey: 'metrics.0.label', label: 'YEARS OF EXPERIENCE' },
+  { value: '6+', accent: true, labelKey: 'metrics.0.label', label: 'YEARS OF EXPERIENCE' },
   { value: '10+', accent: false, labelKey: 'metrics.1.label', label: 'PROJECTS SHIPPED' },
   { value: '15+', accent: false, labelKey: 'metrics.2.label', label: 'TECHNOLOGIES' },
 ];
@@ -33,7 +34,7 @@ const metrics = [
       </h1>
 
       <p data-i18n="hero.lede" class="mt-[26px] max-w-[700px] text-[16px] lg:text-[18px] leading-[1.55] text-text2 [text-wrap:pretty]">
-        8+ years turning ideas into software that runs — backend platforms in Python (Django, FastAPI), GIS systems handling satellite and geospatial data, mobile apps in Flutter. Whatever shape it takes, I build it end to end, without cutting corners.
+        6+ years turning ideas into software that runs — backend platforms in Python (Django, FastAPI), GIS systems handling satellite and geospatial data, mobile apps in Flutter. Whatever shape it takes, I build it end to end, without cutting corners.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-3.5 mt-[32px] font-jetbrains text-[13px]">
@@ -44,7 +45,7 @@ const metrics = [
           <span data-i18n="hero.cta.primary">Get in touch</span>
         </a>
         <a
-          href="/assets/documents/CV_Rodolfo_Garcia_Maeso_2.pdf"
+          href="/assets/documents/CV_Rodolfo_Garcia_Maeso.pdf"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center min-h-[44px] w-full sm:w-auto border border-border text-text2 tracking-[0.04em] px-[26px] py-[15px] hover:border-accent hover:text-text transition-colors duration-150"
@@ -52,6 +53,16 @@ const metrics = [
           <span data-i18n="hero.cta.secondary">Download CV</span>
         </a>
       </div>
+
+      <button
+        type="button"
+        data-fao-trigger
+        aria-haspopup="dialog"
+        class="inline-flex items-center gap-2 mt-[22px] font-jetbrains text-[11px] tracking-[0.08em] text-text2 hover:text-text transition-colors duration-150 cursor-pointer"
+      >
+        <span class="font-semibold text-accent2">UN</span>
+        <span data-i18n="hero.fao">FAO collaborator</span>
+      </button>
       </div>
     </div>
 
@@ -71,6 +82,8 @@ const metrics = [
       ))}
     </div>
   </div>
+
+  <FaoModal />
 </section>
 
 <script is:inline>
@@ -117,5 +130,15 @@ const metrics = [
 
     document.addEventListener('astro:page-load', start);
     start();
+  })();
+
+  (() => {
+    const wireFaoTrigger = () => {
+      document.querySelector('[data-fao-trigger]')?.addEventListener('click', () => {
+        document.querySelector('#fao-modal')?.showModal();
+      });
+    };
+    document.addEventListener('astro:page-load', wireFaoTrigger);
+    wireFaoTrigger();
   })();
 </script>

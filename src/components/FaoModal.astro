@@ -1,0 +1,72 @@
+---
+// Professional detail modal for the "FAO collaborator" hero credit. Content
+// mirrors the FAO experience entry in Experience.astro (exp.1.*) — see
+// src/i18n/translations.ts for the exp.1.desc.0..4 / fao.modal.* keys.
+const bullets = [
+  "Technical leadership of Cuba's national Greenhouse Gas Inventory (INGEI) platform, built through the FAO-funded AFOLU project, coordinating a team of 4 developers and defining the backend architecture.",
+  'Dynamic formulas with automatic GHG emissions/removals calculations, large-scale data processing, and correction of over 30 years of historical series (since 1990) across multiple categories.',
+  'Automated PDF/Excel reporting aligned with UNFCCC requirements.',
+  'SICCA climate change platform with an LLM-powered analysis module for decision support.',
+  'Zero deviations in official UN submissions through rigorous, structured validation.',
+];
+---
+
+<dialog
+  id="fao-modal"
+  class="w-[min(92vw,640px)] max-h-[85vh] overflow-y-auto rounded-[10px] border border-border bg-surface p-0 text-text backdrop:bg-heroBg/80 backdrop:backdrop-blur-sm"
+>
+  <div class="relative p-8 sm:p-10">
+    <button
+      type="button"
+      aria-label="Close"
+      data-fao-close
+      class="absolute right-5 top-5 font-jetbrains text-[13px] text-text2 hover:text-text transition-colors duration-150"
+    >
+      <span aria-hidden="true">✕</span>
+    </button>
+
+    <div class="font-jetbrains font-semibold text-[13px] text-accent mb-3" data-i18n="fao.modal.eyebrow">
+      [ un.log ]
+    </div>
+
+    <h2 class="font-grotesk font-bold text-[26px] sm:text-[28px] text-text mb-1.5 leading-tight">
+      <span data-i18n="fao.modal.heading">Technology Consultant — FAO, United Nations</span>
+    </h2>
+    <div class="font-jetbrains font-semibold text-[13px] text-accent2 mb-5" data-i18n="fao.modal.date">
+      May 2022 – Feb 2023
+    </div>
+
+    <p class="font-manrope text-[16px] leading-[1.7] text-text2 mb-6" data-i18n="fao.modal.lead">
+      Technical leadership of a national climate platform for Cuba, backed by the United Nations Food
+      and Agriculture Organization, delivered with zero deviations across every official submission.
+    </p>
+
+    <ul class="list-disc pl-4 space-y-2 font-manrope text-[15px] leading-[1.7] text-text2">
+      {bullets.map((line, i) => (
+        <li data-i18n={`exp.1.desc.${i}`}>{line}</li>
+      ))}
+    </ul>
+
+    <button
+      type="button"
+      data-fao-close
+      class="mt-8 inline-flex items-center justify-center min-h-[40px] border border-border text-text2 font-jetbrains text-[13px] tracking-[0.04em] px-[22px] py-[10px] hover:border-accent hover:text-text transition-colors duration-150"
+    >
+      <span data-i18n="fao.modal.close">Close</span>
+    </button>
+  </div>
+</dialog>
+
+<script is:inline>
+  (() => {
+    const wireClose = () => {
+      const dialog = document.querySelector('#fao-modal');
+      if (!dialog) return;
+      dialog.querySelectorAll('[data-fao-close]').forEach((btn) => {
+        btn.addEventListener('click', () => dialog.close());
+      });
+    };
+    document.addEventListener('astro:page-load', wireClose);
+    wireClose();
+  })();
+</script>
